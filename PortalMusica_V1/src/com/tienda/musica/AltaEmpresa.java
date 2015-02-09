@@ -81,7 +81,7 @@ public static String MD5 = "MD5";
 				"' , '" + cEmail + "' , '" + cUser + "' , '" + cPwd + "' )";
 				
 		String sSQLlogin = "INSERT INTO LOGIN (ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER) VALUES " +
-		"(INCRELOGIN.nextval, '" + cUser + "' , '" + cPwd + "' ,'empresa')";
+		"(INCRELOGIN9.nextval, '" + cUser + "' , '" + cPwd + "' ,'empresa')";
 		
 		ConexOracle sentencia = new ConexOracle();
 		try {

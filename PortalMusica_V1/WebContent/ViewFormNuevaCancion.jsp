@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="gft.curso.clasesjava.*" %>
+<%@ page import="com.tienda.musica.*" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
 <%
@@ -42,22 +42,29 @@
 		<div class='info'>
 		<p></p>
 			<form method="POST" name="InsertarCancion" action="./InsertarCancion">
-				<p><select id="SelecLista" name="SelecLista">
 					<% 	rs = conn.consultaQuery("SELECT Id_Lista FROM Listas_Reproduccion");
 						String idLista;
-						while(rs.next()){%> 
-							<% idLista = rs.getString("Id_Lista"); %>
+						if(rs.next()){
+							idLista = rs.getString("Id_Lista");%>
+							<p><select id="SelecLista" name="SelecLista">
 							<option value="<%= idLista %>">Lista <%= idLista %></option>
+							<%while(rs.next()){
+							 idLista = rs.getString("Id_Lista");%>
+							<option value="<%= idLista %>">Lista <%= idLista %></option>
+							<%}%>
+							</select></p>
+							<p><input type="text" name="txtURL" value="" placeholder="URL"></p>
+							<p><input type="text" name="txtTitulo" value="" placeholder="Titulo"></p>
+							<p><input type="text" name="txtAlbum" value="" placeholder="Album"></p>
+							<p><input type="text" name="txtGenero" value="" placeholder="Genero"></p>
+							<p><input type="text" name="txtCantante" value="" placeholder="Cantante"></p>
+							<p><input type="text" name="txtDuracion" value="" placeholder="Duracion"></p>
+							<button id="btnCargar">Cargar Cancion</button>
+						<%}else{%>
+							<p><input type="text" name="listaNueva" value="" placeholder="Nombre Lista"></p>
+							<button id="btnCargar">Crear Lista</button>
 						<%}
 					%>
-				</select></p>
-				<p><input type="text" name="txtURL" value="" placeholder="URL"></p>
-				<p><input type="text" name="txtTitulo" value="" placeholder="Titulo"></p>
-				<p><input type="text" name="txtAlbum" value="" placeholder="Album"></p>
-				<p><input type="text" name="txtGenero" value="" placeholder="Genero"></p>
-				<p><input type="text" name="txtCantante" value="" placeholder="Cantante"></p>
-				<p><input type="text" name="txtDuracion" value="" placeholder="Duracion"></p>
-				<button id="btnCargar">Cargar Cancion</button>
 			</form>
 		</div>
 		<form method="POST" name="Volver" action="PrincipalEmpresa.jsp">
