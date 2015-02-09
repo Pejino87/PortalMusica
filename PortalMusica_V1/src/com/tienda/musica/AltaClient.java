@@ -69,13 +69,15 @@ public class AltaClient extends HttpServlet {
 		String cTel1 = request.getParameter("cTel");
 		String cEmail = request.getParameter("cEmail");
 		String cUser = request.getParameter("cUser");
-		String cPwd = request.getParameter("cPwd");
+		String cPwd1 = request.getParameter("cPwd");
 		int cTel = Integer.parseInt(cTel1);
+		
+		// encriptación contraseña
+		String cPwd = getStringMessageDigest(cPwd1,MD5);
+	    System.out.println("MD5 = " + cPwd );
+			    
 		// Preparar una sentencia SQL y ejecutarla
-		//String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,TELEFONO,EMAIL,USUARIO,CONTRASENA) VALUES " +
-        // " VALUES (1,cNom,cApe,cNif,cTel,cEmail,cUser,cPwd);";
-		
-		
+			
 		String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,TELEFONO,EMAIL,USUARIO,CONTRASENA) VALUES " +
 				"(INCRECLIENTE.nextval, '" + cNom + "' , '" + cApe + "' , '" + cNif + "' , '" + cTel + 
 				"' , '" + cEmail + "' , '" + cUser + "' , '" + cPwd + "' )";

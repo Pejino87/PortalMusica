@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 /**
  * Servlet implementation class InicioSesion
  */
@@ -24,7 +23,7 @@ public class InicioSesion extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
+        
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
