@@ -75,8 +75,8 @@ public class AltaClient extends HttpServlet {
 		//String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,TELEFONO,EMAIL,USUARIO,CONTRASENA) VALUES " +
         // " VALUES (1,cNom,cApe,cNif,cTel,cEmail,cUser,cPwd);";
 		String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,TELEFONO,EMAIL,USUARIO,CONTRASENA) " +
-				+ "(increlogin3.nextval, '" + cNom + "' , '" + cApe + "' , '" + cNif + "' , '" + cTel1 
-				+ "' , '" + cEmail + "' , '" + cUser + "' , '" + cPwd + "' )");
+				"(increlogin3.nextval, '" + cNom + "' , '" + cApe + "' , '" + cNif + "' , '" + cTel1 
+				+ "' , '" + cEmail + "' , '" + cUser + "' , '" + cPwd + "' )";
 		String sSQLlogin = "INSERT INTO LOGIN (ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER) VALUES (5,cUser,cPwd,'cliente')";
 		
 		

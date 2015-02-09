@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="com.backend.*"%>
-
+<%
+	ListaCanciones l = new ListaCanciones(1,"Lista de Rock");
+	ListasUser.getInstancia().getLista().add(l);
+	
+	Cancion test = new Cancion(1,"a","b","c","d","e","http://freshly-ground.com/data/audio/sm2/The%20Fugitives%20-%20Graffiti%20Sex.mp3");
+	ListaReproduccion.getInstancia().getLista().add(test);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
