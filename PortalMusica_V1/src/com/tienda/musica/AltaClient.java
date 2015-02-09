@@ -74,10 +74,14 @@ public class AltaClient extends HttpServlet {
 		// Preparar una sentencia SQL y ejecutarla
 		//String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,TELEFONO,EMAIL,USUARIO,CONTRASENA) VALUES " +
         // " VALUES (1,cNom,cApe,cNif,cTel,cEmail,cUser,cPwd);";
-		String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,TELEFONO,EMAIL,USUARIO,CONTRASENA) " +
-				"(increlogin3.nextval, '" + cNom + "' , '" + cApe + "' , '" + cNif + "' , '" + cTel1 
-				+ "' , '" + cEmail + "' , '" + cUser + "' , '" + cPwd + "' )";
-		String sSQLlogin = "INSERT INTO LOGIN (ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER) VALUES (5,cUser,cPwd,'cliente')";
+		
+		
+		String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,TELEFONO,EMAIL,USUARIO,CONTRASENA) VALUES " +
+				"(INCRECLIENTE.nextval, '" + cNom + "' , '" + cApe + "' , '" + cNif + "' , '" + cTel + 
+				"' , '" + cEmail + "' , '" + cUser + "' , '" + cPwd + "' )";
+				
+		String sSQLlogin = "INSERT INTO LOGIN (ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER) VALUES " +
+		"(INCRELOGIN.nextval, '" + cUser + "' , '" + cPwd + "' ,'cliente')";
 		
 		
 		ConexOracle sentencia = new ConexOracle();
