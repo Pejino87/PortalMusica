@@ -61,8 +61,14 @@
 						"VALUES ("+ (totalEle+1) +",'"+ titulo +"','"+ album +"','"+ genero +"','"+ cantante +"','"+ duracion +"','"+ URL +"')");
 				conn.actualizarQuery("INSERT INTO Listas_Empresa(Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
 									"VALUES(1," + idLista +","+ (totalEle+1) +",to_date('10/12/2010','dd/mm/yyyy'))");
+			}else{
+				conn.actualizarQuery("INSERT INTO Listas_Empresa(Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
+						"VALUES(1," + idLista +","+ rs.getString("Id_Cancion") +",to_date('10/12/2010','dd/mm/yyyy'))");
 			}
 		%>
+		<form method="POST" name="Volver" action="PrincipalEmpresa.jsp">
+			<a id="btnVolver" href="PrincipalEmpresa.jsp">Volver</a>
+		</form>
 	</div>
 	
 	<div id='footer'>Aqui solo va la información del copyright y esas

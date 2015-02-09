@@ -37,7 +37,7 @@
 		</div>
 		<div class='info'>
 		<p></p>
-			<img id="imgNotaMusical" src="Img/nota_musical.png">
+			<img id="imgNotaMusical" src="image/nota_musical.png">
 		</div>
 	</div>
 	
