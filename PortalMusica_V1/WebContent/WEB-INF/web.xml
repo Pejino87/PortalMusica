@@ -2,6 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>PortalMusica_V1</display-name>
   <welcome-file-list>
+  	<welcome-file>index.jsp</welcome-file>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>PrincipalEmpresa.jsp</welcome-file>
@@ -48,5 +49,45 @@
   <servlet-mapping>
     <servlet-name>InsertarCancion</servlet-name>
     <url-pattern>/InsertarCancion</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InicioSesion</display-name>
+    <servlet-name>InicioSesion</servlet-name>
+    <servlet-class>com.tienda.musica.InicioSesion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InicioSesion</servlet-name>
+    <url-pattern>/InicioSesion</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InvalSesion</display-name>
+    <servlet-name>InvalSesion</servlet-name>
+    <servlet-class>com.tienda.musica.InvalSesion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InvalSesion</servlet-name>
+    <url-pattern>/InvalSesion</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AltaEmpresa</display-name>
+    <servlet-name>AltaEmpresa</servlet-name>
+    <servlet-class>com.tienda.musica.AltaEmpresa</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AltaEmpresa</servlet-name>
+    <url-pattern>/AltaEmpresa</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AltaClient</display-name>
+    <servlet-name>AltaClient</servlet-name>
+    <servlet-class>com.tienda.musica.AltaClient</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AltaClient</servlet-name>
+    <url-pattern>/AltaClient</url-pattern>
   </servlet-mapping>
 </web-app>
