@@ -24,7 +24,33 @@ public class AltaEmpresa extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
+    
+public static String MD5 = "MD5";
+    
+    private static String toHexadecimal(byte[] digest){
+        String hash = "";
+        for(byte aux : digest) {
+            int b = aux & 0xff;
+            if (Integer.toHexString(b).length() == 1) hash += "0";
+				hash += Integer.toHexString(b);
+		}
+        return hash;
+    }
+     
+    public static String getStringMessageDigest(String message, String algorithm){
+        byte[] digest = null;
+        byte[] buffer = message.getBytes();
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance(algorithm);
+            messageDigest.reset();
+        messageDigest.update(buffer);
+            digest = messageDigest.digest();
+        } catch (NoSuchAlgorithmException ex) {
+            System.out.println("Error creando Digest");
+        }
+		return toHexadecimal(digest);
+    }
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -39,10 +65,15 @@ public class AltaEmpresa extends HttpServlet {
 		// TODO Auto-generated method stub
 		String cNom = request.getParameter("cNom");
 		String cRazon = request.getParameter("cRazon");
-		String cTel = request.getParameter("cTel");
+		String cTel1 = request.getParameter("cTel");
 		String cEmail = request.getParameter("cEmail");
 		String cUser = request.getParameter("cUser");
-		String cPwd = request.getParameter("cPwd");
+		String cPwd1 = request.getParameter("cPwd");
+		int cTel = Integer.parseInt(cTel1);
+		
+		// encriptación contraseña
+		String cPwd = getStringMessageDigest(cPwd1,MD5);
+		System.out.println("MD5 = " + cPwd );
 		// Preparar una sentencia SQL y ejecutarla
 		
 		String sSQL = "INSERT INTO EMPRESA (ID_EMPRESA,NOMBRE,RAZONSOCIAL,TELEFONO,EMAIL,USUARIO,CONTRASENA) VALUES " +
