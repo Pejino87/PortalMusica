@@ -35,7 +35,10 @@
 							out.print("<b>"
 									+ ListasUser.getInstancia().getLista().get(i)
 											.getNombre() + "  </b>");
-							out.print("<button>Cargar</button>");
+							out.print("<form name='id_lista' action='CargaLista' method='POST'>");
+							out.print("<input type='hidden' value='"+ListasUser.getInstancia().getLista().get(i).getId_lista()+"'>");
+							out.print("<input type='submit' value='Cargar'>"); 
+							out.print("</form>");
 							out.print("<button>Modificar</button>");
 							out.print("</li>");
 						}

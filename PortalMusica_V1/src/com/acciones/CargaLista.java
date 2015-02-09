@@ -1,11 +1,14 @@
 package com.acciones;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.tienda.musica.ConexOracle;
 
 /**
  * Servlet implementation class CargaLista
@@ -35,13 +38,8 @@ public class CargaLista extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		//Coge el atributo ID de la lista que vamos a cargar
+		ConexOracle conexion = new ConexOracle();
 		
-		//La rellena con la info de la base de datos
-		
-		//La carga en el Singleton ListaReproduccion
-		
-		//Volvemos a la pagina
 	}
 
 }
