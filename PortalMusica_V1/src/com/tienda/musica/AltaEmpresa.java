@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.security.*;
-import java.security.NoSuchAlgorithmException;
 
 /**
  * Servlet implementation class AltaEmpresa
@@ -39,16 +38,19 @@ public class AltaEmpresa extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String cNom = request.getParameter("cNom");
-		String cApe = request.getParameter("cApe");
 		String cRazon = request.getParameter("cRazon");
 		String cTel = request.getParameter("cTel");
 		String cEmail = request.getParameter("cEmail");
 		String cUser = request.getParameter("cUser");
 		String cPwd = request.getParameter("cPwd");
 		// Preparar una sentencia SQL y ejecutarla
-		String sSQL = "INSERT INTO EMPRESA (ID_CLIENTE,NOMBRE,APELLIDOS,RAZONSOCIAL,TELEFONO,EMAIL,USUARIO,CONTRASENA) " +
-         " VALUES (1,cNom,cApe,cRazon,cTel,cEmail,cUser,cPwd);";
-		String sSQLlogin = "INSERT INTO LOGIN (ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER) VALUES (6,cUser,cPwd,'empresa')";
+		
+		String sSQL = "INSERT INTO EMPRESA (ID_EMPRESA,NOMBRE,RAZONSOCIAL,TELEFONO,EMAIL,USUARIO,CONTRASENA) VALUES " +
+				"(INCRECLIENTE.nextval, '" + cNom + "' , '" + cRazon + "' , '" + cTel + 
+				"' , '" + cEmail + "' , '" + cUser + "' , '" + cPwd + "' )";
+				
+		String sSQLlogin = "INSERT INTO LOGIN (ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER) VALUES " +
+		"(INCRELOGIN.nextval, '" + cUser + "' , '" + cPwd + "' ,'empresa')";
 		
 		ConexOracle sentencia = new ConexOracle();
 		try {

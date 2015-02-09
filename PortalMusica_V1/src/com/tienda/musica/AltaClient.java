@@ -72,10 +72,7 @@ public class AltaClient extends HttpServlet {
 		String cPwd = request.getParameter("cPwd");
 		int cTel = Integer.parseInt(cTel1);
 		// Preparar una sentencia SQL y ejecutarla
-		//String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,TELEFONO,EMAIL,USUARIO,CONTRASENA) VALUES " +
-        // " VALUES (1,cNom,cApe,cNif,cTel,cEmail,cUser,cPwd);";
-		
-		
+			
 		String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,TELEFONO,EMAIL,USUARIO,CONTRASENA) VALUES " +
 				"(INCRECLIENTE.nextval, '" + cNom + "' , '" + cApe + "' , '" + cNif + "' , '" + cTel + 
 				"' , '" + cEmail + "' , '" + cUser + "' , '" + cPwd + "' )";
