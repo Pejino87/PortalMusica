@@ -1,0 +1,110 @@
+@CHARSET "ISO-8859-1";
+
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:30px;
+    width:100%;
+    float:top;
+    padding:5px; 
+    padding-bottom:10px;
+    text-align:center;
+}
+
+#main {
+    height:100%;
+    wedth: 100%;
+    padding:10px;
+    min-height:680px;
+}
+
+#main div.menu{
+	border-style: solid;
+    border-width: 1px;
+    float: left;
+    width: 30%;
+    height: 400px;
+    margin: 5px;
+    margin-left:15%;
+    margin-right:10%;
+    margin-top:5%;
+}
+
+#main div.info{
+	border-style: solid;
+    border-width: 1px;
+    float: top;
+    width: 30%;
+    height: 400px;
+    margin: 5px;
+    margin-left:55%;
+    margin-top:5%;
+    top:5px;
+}
+
+
+
+
+#main div.info>#imgNotaMusical{
+	width: 90%; 
+	height: 350px;
+}
+
+.listaCanciones  {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+   
+}
+
+.listaCanciones ul {
+
+    list-style: none;
+    text-align:center;
+    /*text-overflow: ellipsis;*/
+}
+
+.listaCanciones li {
+    background-color: white;
+    display: block;
+    float: left;
+    margin: 10px;
+    overflow: hidden;
+}
+.listaCanciones li a.list-item{
+    display: table-cell;
+    vertical-align: middle;
+    height: 75px;
+    text-align: center;
+    width:75px;
+
+}
+
+#main div.menuEliminar{
+	border-style: solid;
+    border-width: 1px;
+    float: left;
+    width: 65%;
+    height: 400px;
+    margin: 5px;
+    margin-left:15%;
+    margin-right:10%;
+    margin-top:5%;
+}
+
+
+
+
+#footer {
+	width:100%;
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+}
