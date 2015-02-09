@@ -8,6 +8,82 @@
  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
  <script src="js/jquery-2.1.1.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
+ <script language="javascript"> 
+   		
+   		function validaraltausu()
+		{
+   		//nombre
+   			valorusu = document.getElementById("ponusu").value;
+   			if( valorusu == null || valorusu.length == 0 || /^\s+$/.test(valorusu) ) {
+   				alert('[ERROR] El campo debe tener un nombre usuario valido');
+   			  return false;
+   			}
+   		//contraseña
+   			valorpwd = document.getElementById("ponpwd").value;
+   			if( valorpwd == null || valorpwd.length < 4 || /^\s+$/.test(valorpwd) ) {
+   				alert('[ERROR] La contraseña debe tener un nombre valido y mínimo 4 carácteres');
+   			  return false;
+   			}
+		}   
+   
+   		function validaraltacliente()
+   		{	
+   			//nombre
+   			valornom = document.getElementById("ponnombre").value;
+   			if( valornom == null || valornom.length == 0 || /^\s+$/.test(valornom) ) {
+   				alert('[ERROR] El campo debe tener un nombre válido');
+   			  return false;
+   			}
+   			//apellidos
+   			valorape = document.getElementById("ponape").value;
+   			if( valorape == null || valorape.length == 0 || /^\s+$/.test(valorape) ) {
+   				alert('[ERROR] El campo debe tener un apellido válido');
+   			  return false;
+   			}
+   						
+   			//nif
+   			valornif = document.getElementById("ponnif").value;
+   			if( valornif == null || valornif.length != 9 || /^\s+$/.test(valornif) ) {
+   				alert('[ERROR] El campo debe tener un nif válida');
+   			  return false;
+   			}
+   			//dirección
+   			valordire = document.getElementById("pondire").value;
+   			if( valordire == null || valordire.length == 0 || /^\s+$/.test(valordire) ) {
+   				alert('[ERROR] El campo debe tener una dirección válida');
+   			  return false;
+   			}
+   			//teléfono
+   			valortele = document.getElementById("pontele").value;
+   			if(valortele == null || valortele.length != 9 || isNaN(valortele) ) {
+   				alert('[ERROR] El teléfono debe ser válido');
+   			  return false;
+   			}
+   			//email
+   			if(!validarEmail(document.getElementById("poncorreo").value))	// validamos el correo valido
+   		    { 
+   			 alert("Ingrese un correo válido");
+   			 return false;
+   			}		
+   			
+   			//contraseña
+   			valorcontra = document.getElementById("poncontra").value;
+   			if( valorcontra == null || valorcontra.length < 4 || /^\s+$/.test(valorcontra) ) {
+   				alert('[ERROR] La contraseña debe tener un nombre password válido y mínimo 4 carácteres');
+   			  return false;
+   			}
+   			
+   		}
+
+   		function validarEmail(valor) {
+   		  if (/(\w+)(\.?)(\w*)(\@{1})(\w+)(\.?)(\w*)(\.{1})(\w{2,3})/.test(valor)){
+   			return true;
+   		  } else {
+   			return false;
+   		  }
+   		}
+
+   	</script>
  <title>CORREOS</title>
 </head>
 
@@ -16,14 +92,14 @@
 <div class="clbody">
 	<img src="img/escenario.jpg" class="pantalla"><img>
 	<div class="usupass"> 
-		<form name="usupwd" method="POST" action="InicioSesion" >
+		<form name="usupwd" method="POST" action="InicioSesion" onsubmit = "return validaraltausu()">
 			<table>
 				<tr>
 					<td class="bordertd2">
 						<label for="user" class="loginlabel" >Usuario</label><br>
-						<input type="text" class="logininput" name="usu" required maxlength="9"><br>
+						<input type="text" id="ponusu" class="logininput" name="usu" required maxlength="9"><br>
 						<label for="pwd" class="loginlabel">Contraseña</label><br>
-						<input type="password" class="logininput" name="pwd" required maxlength="9"><br>
+						<input type="password" id="ponpwd" class="logininput" name="pwd" required maxlength="9"><br>
 						<label for="enviar"></label>
 						<input type="submit" class="logininput" value="ENVIAR"  >
 					</td>
@@ -49,7 +125,7 @@
 			  
 						<!--ALTA CLIENTE-->
 					  	
-							<form name="formenviar" method="POST" action="AltaClient">
+							<form name="formenviar" method="POST" action="AltaClient" onsubmit = "return validaraltacliente()">
 								<table   class="table table-striped"  >
 								  <caption>ALTA CLIENTE</caption><br><br>
 								  
@@ -58,7 +134,7 @@
 										<label for="cnombre">NOMBRE:</label><br>
 									</td>
 									<td>
-										<input name="cNom" type="text" maxlength="30" size="30" autofocus></input>
+										<input id="ponnombre" name="cNom" type="text" maxlength="30" size="30" autofocus></input>
 									</td>
 								  </tr>		
 								  <tr>
@@ -66,7 +142,7 @@
 										<label for="cape">APELLIDOS:</label>
 									</td>
 									<td>	
-										<input name="cApe" type="text"  maxlength="30" size="30"></input>
+										<input id="ponape" name="cApe" type="text"  maxlength="30" size="30"></input>
 									</td>
 								  </tr>		
 								  <tr>
@@ -74,7 +150,7 @@
 										<label for="cnif">NIF:</label>
 									</td>
 									<td>	
-										<input name="cNif" type="text" maxlength="11" size="11" ></input>
+										<input id="ponnif" name="cNif" type="text" maxlength="11" size="11" ></input>
 									</td>
 								  </tr>	
 								  <tr>
@@ -82,7 +158,7 @@
 										<label for="cdir">DIRECCION:</label>
 									</td>
 									<td>	
-										<input name="cDir" type="text" maxlength="30" size="30" ></input>
+										<input id="pondire" name="cDir" type="text" maxlength="30" size="30" ></input>
 									</td>
 								  </tr>		
 								  
@@ -91,7 +167,7 @@
 										<label for="ctel">TELEFONO:</label>
 									</td>
 									<td>	
-										<input name="cTel" type="text" maxlength="11" size="11" ></input>
+										<input id="pontele" name="cTel" type="text" maxlength="11" size="11" ></input>
 									</td>
 								  </tr>	
 								  <tr>
@@ -99,7 +175,7 @@
 										<label for="cemail">EMAIL:</label>
 									</td>
 									<td>	
-										<input name="cEmail" type="text" maxlength="20" size="20" ></input>
+										<input id="poncorreo" name="cEmail" type="text" maxlength="30" size="30" ></input>
 									</td>
 								  </tr>			
 								  <tr>
@@ -107,7 +183,7 @@
 										<label for="cuser">USUARIO:</label>
 									</td>
 									<td>	
-										<input name="cUser" type="text" maxlength="11" size="11" ></input>
+										<input id="ponnombre" name="cUser" type="text" maxlength="11" size="11" ></input>
 									</td>
 								  </tr>		
 								  <tr>
@@ -115,7 +191,7 @@
 										<label for="cpwd">CONTRASEÑA:</label>
 									</td>
 									<td>	
-										<input name="cPwd" type="text" maxlength="11" size="11" ></input>
+										<input id="poncontra" name="cPwd" type="password" maxlength="11" size="11" ></input>
 									</td>
 								  </tr>					
 								  
@@ -156,7 +232,7 @@
 			  
 						<!--ALTA CLIENTE-->
 					  	
-							<form name="formenviar" method="POST" action="AltaEmpresa">
+							<form name="formenviar" method="POST" action="AltaEmpresa" onsubmit = "return validaraltacliente()">
 								<table   class="table table-striped"  >
 								  <caption>ALTA EMPRESA</caption><br><br>
 								  
@@ -165,7 +241,7 @@
 										<label for="cnombre">NOMBRE:</label><br>
 									</td>
 									<td>
-										<input name="cNom" type="text" maxlength="30" size="30" autofocus></input>
+										<input id="ponnombre" name="cNom" type="text" maxlength="30" size="30" autofocus></input>
 									</td>
 								  </tr>		
 								  <tr>
@@ -173,7 +249,7 @@
 										<label for="crazon">RAZON SOCIAL:</label>
 									</td>
 									<td>	
-										<input name="cRazon" type="text" maxlength="11" size="11" ></input>
+										<input id="ponnombre" name="cRazon" type="text" maxlength="11" size="11" ></input>
 									</td>
 								  </tr>	
 								  <tr>
@@ -181,7 +257,7 @@
 										<label for="cdir">DIRECCION:</label>
 									</td>
 									<td>	
-										<input name="cDir" type="text" maxlength="30" size="30" ></input>
+										<input id="pondire" name="cDir" type="text" maxlength="30" size="30" ></input>
 									</td>
 								  </tr>		
 								  
@@ -190,7 +266,7 @@
 										<label for="ctel">TELEFONO:</label>
 									</td>
 									<td>	
-										<input name="cTel" type="text" maxlength="11" size="11" ></input>
+										<input id="pontele" name="cTel" type="text" maxlength="11" size="11" ></input>
 									</td>
 								  </tr>		
 								  <tr>
@@ -198,7 +274,7 @@
 										<label for="cemail">EMAIL:</label>
 									</td>
 									<td>	
-										<input name="cEmail" type="text" maxlength="20" size="20" ></input>
+										<input id="poncorreo" name="cEmail" type="text" maxlength="30" size="30" ></input>
 									</td>
 								  </tr>	
 								  <tr>
@@ -206,7 +282,7 @@
 										<label for="cuser">USUARIO:</label>
 									</td>
 									<td>	
-										<input name="cUser" type="text" maxlength="11" size="11" ></input>
+										<input id="ponnombre" name="cUser" type="text" maxlength="11" size="11" ></input>
 									</td>
 								  </tr>		
 								  <tr>
@@ -214,7 +290,7 @@
 										<label for="cpwd">CONTRASEÑA:</label>
 									</td>
 									<td>	
-										<input name="cPwd" type="text" maxlength="11" size="11" ></input>
+										<input id="poncontra" name="cPwd" type="password" maxlength="11" size="11" ></input>
 									</td>
 								  </tr>					
 								  
