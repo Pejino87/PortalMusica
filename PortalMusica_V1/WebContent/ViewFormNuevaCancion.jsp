@@ -45,7 +45,7 @@
 				<p><select id="SelecLista" name="SelecLista">
 					<% 	rs = conn.consultaQuery("SELECT Id_Lista FROM Listas_Reproduccion");
 						String idLista;
-						while(rs.next()){%>
+						while(rs.next()){%> 
 							<% idLista = rs.getString("Id_Lista"); %>
 							<option value="<%= idLista %>">Lista <%= idLista %></option>
 						<%}

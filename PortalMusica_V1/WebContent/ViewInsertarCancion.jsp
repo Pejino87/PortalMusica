@@ -8,7 +8,8 @@
  	//ListaCanciones miLista = new ListaCanciones(1,"Lista 1");
 	ConexOracle conn = new ConexOracle();
 	Statement stmt = conn.establecerConexion();
-	ResultSet rs;
+	ResultSet rs,rs2;
+	int totalEle = -1;
 	String idLista = (String) request.getParameter("SelecLista");
 	String URL = (String) request.getParameter("txtURL"); 
 	String titulo = (String) request.getParameter("txtTitulo");
@@ -48,9 +49,18 @@
 			}else{
 				request.getRequestDispatcher("Error.html").forward(request, response);
 			}*/
+			rs2 = conn.consultaQuery("SELECT count(1) TotalElementos FROM Canciones");
+			if(rs2.next()){
+				totalEle = Integer.parseInt(rs2.getString("TotalElementos"));
+				System.out.println("TotalEle--> " + totalEle);
+			}
+			
 			rs = conn.consultaQuery("SELECT Id_Cancion FROM Canciones WHERE titulo='" + titulo + "'");
-			if(rs.next()){
-				
+			if(!rs.next()){
+				conn.actualizarQuery("INSERT INTO Canciones(Id_Cancion,Titulo,Album,Genero,Cantante,Duracion,URL)" +
+						"VALUES ("+ (totalEle+1) +",'"+ titulo +"','"+ album +"','"+ genero +"','"+ cantante +"','"+ duracion +"','"+ URL +"')");
+				conn.actualizarQuery("INSERT INTO Listas_Empresa(Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
+									"VALUES(1," + idLista +","+ (totalEle+1) +",to_date('10/12/2010','dd/mm/yyyy'))");
 			}
 		%>
 	</div>
