@@ -19,7 +19,6 @@
 
 #main {
     height:100%;
-    wedth: 100%;
     padding:10px;
     min-height:680px;
 }
@@ -47,59 +46,6 @@
     margin-top:5%;
     top:5px;
 }
-
-
-
-
-#main div.info>#imgNotaMusical{
-	width: 90%; 
-	height: 350px;
-}
-
-.listaCanciones  {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-   
-}
-
-.listaCanciones ul {
-
-    list-style: none;
-    text-align:center;
-    /*text-overflow: ellipsis;*/
-}
-
-.listaCanciones li {
-    background-color: white;
-    display: block;
-    float: left;
-    margin: 10px;
-    overflow: hidden;
-}
-.listaCanciones li a.list-item{
-    display: table-cell;
-    vertical-align: middle;
-    height: 75px;
-    text-align: center;
-    width:75px;
-
-}
-
-#main div.menuEliminar{
-	border-style: solid;
-    border-width: 1px;
-    float: left;
-    width: 65%;
-    height: 400px;
-    margin: 5px;
-    margin-left:15%;
-    margin-right:10%;
-    margin-top:5%;
-}
-
-
-
 
 #footer {
 	width:100%;
