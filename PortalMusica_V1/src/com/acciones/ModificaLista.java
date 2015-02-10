@@ -40,7 +40,7 @@ public class ModificaLista extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		if(request.getParameter("isNueva").equals("nueva")){
+		if(request.getParameter("isNueva").equals("true")){
 			ConexOracle conexion = new ConexOracle();
 			String id_lista = null;
 			

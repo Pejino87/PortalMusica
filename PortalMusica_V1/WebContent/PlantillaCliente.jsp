@@ -43,6 +43,10 @@
 							out.print("</li>");
 						}
 					}
+				out.print("<form name='isNueva' action='ModificaLista' method='POST'>");
+				out.print("<input type='hidden' value='true'>");
+				out.print("<input type='submit' value='Nueva Lista'>"); 
+				out.print("</form>");
 				%>
 			</ul>
 		</div>
