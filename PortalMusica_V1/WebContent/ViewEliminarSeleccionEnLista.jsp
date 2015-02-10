@@ -34,17 +34,7 @@
 
 	<div id='main'>
 		<%
-		if(Integer.parseInt(listaSeleccionada)>0){
-			
-		}else{
-			for(int i=0;i<seleccionadas.length;i++){
-				if(Integer.parseInt(seleccionadas[i])>1){
-					conn.actualizarQuery("DELETE FROM Listas_Empresa WHERE Id_Cancion="+seleccionadas[i]);
-					conn.actualizarQuery("DELETE FROM Canciones WHERE Id_Cancion="+seleccionadas[i]);
-				}
-			}
-			conn.actualizarQuery("commit");
-		}
+		
 		%>
 		<form method="POST" name="Volver" action="PrincipalEmpresa.jsp">
 			<button id="btnVolver">Volver</button>

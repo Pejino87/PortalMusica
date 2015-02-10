@@ -3,10 +3,13 @@
 <%@ page import="com.tienda.musica.*" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
-<%
+<%	
+ 	//ListaCanciones miLista = new ListaCanciones(1,"Lista 1");
 	ConexOracle conn = new ConexOracle();
 	Statement stmt = conn.establecerConexion();
-	ResultSet rs;
+	ResultSet rs,rs2;
+	String listaSeleccionada = request.getParameter("SelecLista");
+	String[] seleccionadas = request.getParameterValues("lstCancion");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -30,7 +33,7 @@
 	</div>
 
 	<div id='main'>
-		<form method="POST" name="EliminarSeleccion" action="./EliminarSeleccion">
+		<form method="POST" name="EliminarSeleccion" action="./EliminarSeleccionEnLista">
 		<div class='menuEliminar'>
 			<p></p>
 				<ul class="listaCanciones">
@@ -47,14 +50,30 @@
 					%>
     			</ul>
 		</div>
-		<button id="btnEliminarSeleccion">Eliminar Seleccion</button>
+		<% 	rs = conn.consultaQuery("SELECT LR.Id_Lista as Lista, LR.Nombre as Nombre FROM Listas_Reproduccion LR, Listas_Empresa LE"+
+									" WHERE LR.Id_Lista=LE.Id_Lista and LE.Id_Empresa=1"+
+									" GROUP BY  LR.Id_Lista, LR.Nombre");
+			String idLista = "";
+			if(rs.next()){
+				idLista = rs.getString("Lista");%>
+				<button id="btnEliminarSeleccion">Eliminar Cancion En Lista</button>
+				<select id="SelecLista" name="SelecLista" selected="0">
+				<option value="0">Selecciona lista</option>
+				<option value="<%= idLista %>"><%= rs.getString("Nombre") %></option>
+					<%while(rs.next()){
+						 idLista = rs.getString("Id_Lista");%>
+						<option value="<%= idLista %>"><%= rs.getString("Nombre") %></option>
+					<%}%>
+				</select>
+			<%}
+			%>
 		</form>
 	</div>
 		<form method="POST" name="Volver" action="PrincipalEmpresa.jsp">
 			<a id="btnVolver" href="PrincipalEmpresa.jsp">Volver</a>
 		</form>
+	
 	<div id='footer'>Aqui solo va la información del copyright y esas
 		cosas</div>
-	
 </body>
 </html>
