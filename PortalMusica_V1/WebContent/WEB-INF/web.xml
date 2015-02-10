@@ -114,7 +114,7 @@
     <description></description>
     <display-name>ModificaLista</display-name>
     <servlet-name>ModificaLista</servlet-name>
-    <servlet-class>gft.curso.operacionesempresario.ModificaLista</servlet-class>
+    <servlet-class>com.backend.ModificaLista</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ModificaLista</servlet-name>
