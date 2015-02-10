@@ -39,6 +39,7 @@ public class InicioSesion extends HttpServlet {
 		HttpSession sesion = request.getSession(false);
 		String nombre = request.getParameter("usu");
 		String password = request.getParameter("pwd");
+		String tipoUsu = null;
 		int num;
 		System.out.println("entra en INICIOSESION EN POST");
 		GestionUser correo = new GestionUser();
@@ -54,29 +55,38 @@ public class InicioSesion extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		// crea la variable sesion para asignar sesión si es usuario válido.
+		// valida si el tipo de usuario es cliente ó empresa.
+		GestionUser correo1 = new GestionUser();
+		try {
+			tipoUsu = correo1.validaRol(nombre,password);
+		} catch (SQLException | NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		// crea la variable sesion para asignar sesión si es usuario válido.
 		if (sesion == null) {
 			HttpSession sesion1 = request.getSession();
 			num = 1;
 			sesion1.setAttribute("usu",nombre); 
 			sesion1.setAttribute("count",num);
-			System.out.println("pone valores setAttribute");
-					
-			//request.setAttribute("usu",true);
-			//request.setAttribute("pwd",true);
-			
-			response.sendRedirect("principal.html");
+			sesion1.setAttribute("rol",tipoUsu);		
 			//request.getRequestDispatcher("MostrarCorreos").forward(request, response);
 			return;
 		}
 		
+		// si no coincide la password vá inicio de sesión sino pregunta si es cliente ó empresa para
+		// ir a su página correspondiente.
+			
 		if (valClave == false) {
-			System.out.println("POST false : "); 
 			response.sendRedirect("index.jsp");
-		} else {
-			response.sendRedirect("prinTienda.jsp");
-		}
+		} else
+		if (tipoUsu.equals("cliente")){
+			request.getRequestDispatcher("IniciaCliente").forward(request, response);
+		} else 
+		if (tipoUsu.equals("empresa")){
+			request.getRequestDispatcher("PrincipalEmpresa").forward(request, response);
+		}	
 	}
 
 }
