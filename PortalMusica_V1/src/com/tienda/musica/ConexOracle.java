@@ -39,7 +39,7 @@ public class ConexOracle {
 	            System.out.println("Connected with connection #2");
 	        }
 			// Obtener un objeto Statement a partir de la Conexión:
-			oStmt = oCn.createStatement();
+			oStmt = oCn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
 			return oStmt;
 	}
 	
