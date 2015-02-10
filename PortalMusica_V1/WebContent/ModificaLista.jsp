@@ -51,6 +51,21 @@
 		</div>
 		<div class='info'>
 			<h3>Lista: <% out.print(request.getAttribute("id_lista")); %></h3>
+			<ul>
+			<%
+					if (ListaModificacion.getInstancia().getLista().size() == 0) {
+						out.println("<li><b>No hay ninguna cancion en esa lista!</b></li>");
+					} else {
+						for (int i = 0; i < ListaModificacion.getInstancia().getLista().size(); i++) {
+							out.print("<li>");
+							out.print("<b>Titulo: "
+									+ ListaModificacion.getInstancia().getLista().get(i).getTitulo() + "  </b>");
+							out.print("Autor: " + ListaModificacion.getInstancia().getLista().get(i).getCantante());
+							out.print("</li>");
+						}
+					}
+			%>
+			</ul>
 		</div>
 	</div>
 	<div id='footer'>Aqui solo va la información del copyright y esas

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.backend.ListaCanciones;
+import com.backend.ListaModificacion;
 import com.backend.ListasUser;
 import com.tienda.musica.ConexOracle;
 
@@ -76,6 +77,7 @@ public class ModificaLista extends HttpServlet {
 						Integer.parseInt(id_lista), nuevoNombre);
 				ListasUser.getInstancia().getLista().add(l);
 
+				ListaModificacion.getInstancia().loadLista(id_lista,"1");
 				request.setAttribute("id_lista", id_lista);
 				request.getRequestDispatcher("/ModificaLista.jsp").forward(request, response);
 
@@ -88,6 +90,15 @@ public class ModificaLista extends HttpServlet {
 			}
 
 		} else{
+			try {
+				ListaModificacion.getInstancia().loadLista(request.getParameter("id_lista"),"1");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NamingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			request.setAttribute("id_lista", request.getParameter("id_lista"));
 			request.getRequestDispatcher("/ModificaLista.jsp").forward(request, response);
 		}

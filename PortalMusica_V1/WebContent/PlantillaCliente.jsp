@@ -40,6 +40,11 @@
 							out.print("<input type='hidden' value='"+ListasUser.getInstancia().getLista().get(i).getId_lista()+"' name='id_lista'>");
 							out.print("<input type='submit' value='Modificar'>"); 
 							out.print("</form>");
+							
+							out.print("<form name='id_lista' action='CargaLista' method='POST'>");
+							out.print("<input type='hidden' value='"+ListasUser.getInstancia().getLista().get(i).getId_lista()+"' name='id_lista'>");
+							out.print("<input type='submit' value='Cargar'>"); 
+							out.print("</form>");
 							out.print("</li>");
 						}
 					}
