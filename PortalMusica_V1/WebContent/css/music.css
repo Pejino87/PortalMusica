@@ -1,13 +1,5 @@
-.clbody {
-	/*
-	background-image: url(C:/BECAJAVA/escenario.jpg);
-	background-repeat: no-repeat;
-	background-position: 100px 100px;
-	width:80%;
-	*/
-}
-
 .pantalla {
+	margin-top:40%;
 	margin-left:5%;
 	width:85%;
 	height:500px;
@@ -16,7 +8,7 @@
 
 .usupass {
 	background-color: 	rgba(50, 50, 55, 0.3);
-	border:0px solid #6600FF;
+	border:20px solid #6600FF;
 	border-radius:15px;
 	padding:2px;
 	margin-bottom:2px;
@@ -64,7 +56,7 @@
 	
 }	
 
-/* MENU PRINCIPAL 4 BOTONES PRINCIPALES */
+/* MENU PRINCIPAL  */
 
 .altaCli{
 	
@@ -134,26 +126,3 @@
 }		
 
 
-.navigation, .navigation li {
-   margin:0;   
-   padding:0;
-}
-.navigation li {
-   border-top: 1px solid white;
-   list-style-type:none
-}
-.navigation li a {
-   background:
-   #E2E2E2 url(sprite_gradient_bkg.jpg)
-   repeat-x left center;
-   padding:20px;
-   display:block;
-   font-family: Arial, Helvetica, sans-serif;
-   color:#333;
-   font-size:18px;
-   text-decoration:none
-}
-/* hover effects */
-.navigation li a:hover, .navigation li a:focus{
-   background: transparent none;
-}
