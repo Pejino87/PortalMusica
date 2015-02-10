@@ -39,7 +39,7 @@
 											"VALUES(INCRELISTREPRO.nextval,'"+nombreLista+"')");
 				rs = conn.consultaQuery("SELECT Id_Lista FROM Listas_Reproduccion WHERE Nombre = '"+nombreLista+"'");
 				if(rs.next()){
-					conn.actualizarQuery("INSERT INTO Listas_Reproduccion (Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
+					conn.actualizarQuery("INSERT INTO Listas_Empresa (Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
 							"VALUES(1,"+rs.getString("Id_Lista")+",1,sysdate)");
 				}
 				
