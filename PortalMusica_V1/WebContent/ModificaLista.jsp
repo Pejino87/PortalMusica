@@ -50,7 +50,13 @@
 			</ul>
 		</div>
 		<div class='info'>
-			<h3>Lista: <% out.print(request.getAttribute("id_lista")); %></h3>
+			<h3>Lista: <% 
+			out.print("<form name='Guardar Lista' action='CambiosLista' method='POST'>");
+			out.print("<input type='text' name='titulo' value='"+ListaModificacion.getInstancia().getNombre()+"'>");
+			out.print("<input type='hidden' value='false' name='isEliminar'>");
+			out.print("<input type='hidden' value='"+request.getAttribute("id_lista")+"' name='id_lista'>");
+			out.print("<input type='submit' value='Guardar Lista'>");
+			out.print("</form>"); %></h3>
 			
 			<%
 				out.print("<form name='Borrar Lista' action='CambiosLista' method='POST'>");
@@ -58,6 +64,8 @@
 				out.print("<input type='hidden' value='"+request.getAttribute("id_lista")+"' name='id_lista'>");
 				out.print("<input type='submit' value='Eliminar Lista'>");
 				out.print("</form>");
+				
+
 			%>
 			<ul>
 			<%

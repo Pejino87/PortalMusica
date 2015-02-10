@@ -43,6 +43,8 @@
 									+ ListasUser.getInstancia().getLista().get(i)
 											.getId_lista() + "' name='id_lista'>");
 							out.print("<input type='submit' value='Modificar'>");
+							out.print("<input type='hidden' value='"+ListasUser.getInstancia().getLista().get(i)
+									.getNombre()+"' name='nombre'>");
 							out.print("</form>");
 
 							out.print("<form name='id_lista' action='CargaLista' method='POST'>");
@@ -62,14 +64,7 @@
 			</ul>
 		</div>
 		<div class='info'>
-			<ul>
-				<li>Ejemplo de lista canciones cargada:</li>
-				<li>Cancion 1: - Nombre - Autor - Etc <b>X</b></li>
-				<li>Cancion 2: - Nombre - Autor - Etc <b>X</b></li>
-				<li>Cancion 3: - Nombre - Autor - Etc <b>X</b></li>
-				<li>Cancion 4: - Nombre - Autor - Etc <b>X</b></li>
-				<li>Cancion 5: - Nombre - Autor - Etc <b>X</b></li>
-			</ul>
+			<h2>Bienvenido !</h2>
 		</div>
 	</div>
 	<div id='footer'>Aqui solo va la información del copyright y esas

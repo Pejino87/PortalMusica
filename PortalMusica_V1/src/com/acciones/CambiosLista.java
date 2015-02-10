@@ -1,6 +1,7 @@
 package com.acciones;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.naming.NamingException;
@@ -58,6 +59,22 @@ public class CambiosLista extends HttpServlet {
 			}
 			
 			response.sendRedirect("PlantillaCliente.jsp");		
+		}
+		else
+		{
+			try {
+				conexion.actualizarQuery("Update listas_reproduccion set nombre= '"+request.getParameter("titulo")+"' where id_lista = "+request.getParameter("id_lista"));
+				conexion.actualizarQuery("commit");
+				ListasUser.getInstancia().loadLista("1");
+				conexion.finalizarConexion();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NamingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			response.sendRedirect("PlantillaCliente.jsp");	
 		}
 	}
 

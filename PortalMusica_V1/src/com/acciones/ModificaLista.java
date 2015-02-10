@@ -65,7 +65,6 @@ public class ModificaLista extends HttpServlet {
 
 				System.out.println("ID de la lista que acabo de crear: "
 						+ id_lista);
-				System.out.println("ID del cliente que estoy manejando: ");
 
 				conexion.actualizarQuery("Insert into listas_cliente"
 						+ " values (" + id_cliente + "," + id_lista
@@ -73,11 +72,12 @@ public class ModificaLista extends HttpServlet {
 				conexion.actualizarQuery("commit");
 				conexion.finalizarConexion();
 
+				
 				ListaCanciones l = new ListaCanciones(
 						Integer.parseInt(id_lista), nuevoNombre);
 				ListasUser.getInstancia().getLista().add(l);
 
-				ListaModificacion.getInstancia().loadLista(id_lista,"1");
+				ListaModificacion.getInstancia().loadLista(id_lista,"1",nuevoNombre);
 				request.setAttribute("id_lista", id_lista);
 				request.getRequestDispatcher("/ModificaLista.jsp").forward(request, response);
 
@@ -87,15 +87,21 @@ public class ModificaLista extends HttpServlet {
 			} catch (NamingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 
 		} else{
 			try {
-				ListaModificacion.getInstancia().loadLista(request.getParameter("id_lista"),"1");
+				ListaModificacion.getInstancia().loadLista(request.getParameter("id_lista"),"1",request.getParameter("nombre"));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (NamingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
