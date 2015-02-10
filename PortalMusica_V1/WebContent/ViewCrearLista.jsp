@@ -37,6 +37,13 @@
 			if(!rs.next()){
 				conn.actualizarQuery("INSERT INTO Listas_Reproduccion (Id_Lista,Nombre)"+
 											"VALUES(INCRELISTREPRO.nextval,'"+nombreLista+"')");
+				rs = conn.consultaQuery("SELECT Id_Lista FROM Listas_Reproduccion WHERE Nombre = '"+nombreLista+"'");
+				if(rs.next()){
+					conn.actualizarQuery("INSERT INTO Listas_Reproduccion (Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
+							"VALUES(1,"+rs.getString("Id_Lista")+",1,sysdate)");
+				}
+				
+				conn.actualizarQuery("commit");
 			}
 		%>
 		<form method="POST" name="Volver" action="PrincipalEmpresa.jsp">
