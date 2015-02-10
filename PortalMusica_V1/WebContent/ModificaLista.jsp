@@ -51,6 +51,13 @@
 		</div>
 		<div class='info'>
 			<h3>Lista: <% out.print(request.getAttribute("id_lista")); %></h3>
+			
+			<%
+				out.print("<form name='Borrar Lista' action='ModificaLista' method='POST'>");
+				out.print("<input type='hidden' value='true' name='isEliminar'>");
+				out.print("<input type='submit' value='Eliminar Lista'>"); 
+				out.print("</form>");
+			%>
 			<ul>
 			<%
 					if (ListaModificacion.getInstancia().getLista().size() == 0) {
