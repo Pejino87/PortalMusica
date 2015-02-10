@@ -48,6 +48,24 @@
     			</ul>
 		</div>
 		<button id="btnEliminarSeleccion">Eliminar Seleccion</button>
+		<% 	rs = conn.consultaQuery("SELECT LR.Id_Lista as Lista, LR.Nombre as Nombre FROM Listas_Reproduccion LR, Listas_Empresa LE"+
+									"WHERE LR.Id_Lista=LE.Id_Lista and LE.Id_Empresa=1"+
+									"GROUP BY  LR.Id_Lista, LR.Nombre;");
+			String idLista = "";
+			if(rs.next()){
+				idLista = rs.getString("Lista");%>
+				<button id="btnEliminarSeleccion">Eliminar Cancion En Lista</button>
+				<select id="SelecLista" name="SelecLista">
+				<option value="<%= idLista %>"><%= rs.getString("Nombre") %></option>
+					<%while(rs.next()){
+						 idLista = rs.getString("Id_Lista");%>
+						<option value="<%= idLista %>"><%= rs.getString("Nombre") %></option>
+					<%}%>
+				</select>
+			<%}else{
+				
+			}
+			%>
 		</form>
 	</div>
 	<div id="btnsFormEliminar">
