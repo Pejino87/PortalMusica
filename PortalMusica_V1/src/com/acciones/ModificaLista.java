@@ -43,10 +43,13 @@ public class ModificaLista extends HttpServlet {
 		if(request.getParameter("isNueva").equals("true")){
 			ConexOracle conexion = new ConexOracle();
 			String id_lista = null;
+			String id_cliente = "1";
+			String nuevoNombre = "Nueva";
 			
 			try {
-				//conexion.actualizarQuery("Insert into listas_reproduccion values(increlistas.nextval,'Nueva')");
-				//conexion.actualizarQuery("commit");
+				conexion.actualizarQuery("Insert into listas_reproduccion values(increlistas.nextval,'"+nuevoNombre+"')");
+				conexion.actualizarQuery("commit");
+
 				ResultSet rs = conexion.consultaQuery("select id_lista from listas_reproduccion");
 				
 				while (rs.next()){
@@ -56,7 +59,15 @@ public class ModificaLista extends HttpServlet {
 				System.out.println("ID de la lista que acabo de crear: " + id_lista);
 				System.out.println("ID del cliente que estoy manejando: ");
 				
+				conexion.actualizarQuery("Insert into listas_cliente"
+						+ " values ("+id_cliente+","+id_lista+",1,sysdate)");
+				conexion.actualizarQuery("commit");
 				conexion.finalizarConexion();
+				
+				ListaCanciones l = new ListaCanciones(Integer.parseInt(id_lista),nuevoNombre);
+				ListasUser.getInstancia().getLista().add(l);
+				
+				response.sendRedirect("PlantillaCliente.jsp");
 				
 				
 			} catch (SQLException e) {
