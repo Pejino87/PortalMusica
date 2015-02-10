@@ -53,9 +53,10 @@
 			<h3>Lista: <% out.print(request.getAttribute("id_lista")); %></h3>
 			
 			<%
-				out.print("<form name='Borrar Lista' action='ModificaLista' method='POST'>");
+				out.print("<form name='Borrar Lista' action='CambiosLista' method='POST'>");
 				out.print("<input type='hidden' value='true' name='isEliminar'>");
-				out.print("<input type='submit' value='Eliminar Lista'>"); 
+				out.print("<input type='hidden' value='"+request.getAttribute("id_lista")+"' name='id_lista'>");
+				out.print("<input type='submit' value='Eliminar Lista'>");
 				out.print("</form>");
 			%>
 			<ul>

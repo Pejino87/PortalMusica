@@ -140,4 +140,24 @@
     <servlet-name>CambiosLista</servlet-name>
     <url-pattern>/CambiosLista</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EliminarCancionEnLista</display-name>
+    <servlet-name>EliminarCancionEnLista</servlet-name>
+    <servlet-class>gft.curso.formcancion.EliminarCancionEnLista</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminarCancionEnLista</servlet-name>
+    <url-pattern>/EliminarCancionEnLista</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EliminarSeleccionEnLista</display-name>
+    <servlet-name>EliminarSeleccionEnLista</servlet-name>
+    <servlet-class>gft.curso.formcancion.EliminarSeleccionEnLista</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminarSeleccionEnLista</servlet-name>
+    <url-pattern>/EliminarSeleccionEnLista</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -3,10 +3,13 @@
 <%@ page import="com.tienda.musica.*" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
-<%
+<%	
+ 	//ListaCanciones miLista = new ListaCanciones(1,"Lista 1");
 	ConexOracle conn = new ConexOracle();
 	Statement stmt = conn.establecerConexion();
-	ResultSet rs;
+	ResultSet rs,rs2;
+	String listaSeleccionada = request.getParameter("SelecLista");
+	String[] seleccionadas = request.getParameterValues("lstCancion");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -30,31 +33,21 @@
 	</div>
 
 	<div id='main'>
-		<form method="POST" name="EliminarSeleccion" action="./EliminarSeleccion">
-		<div class='menuEliminar'>
-			<p></p>
-				<ul class="listaCanciones">
-					<% 	rs = conn.consultaQuery("SELECT Id_Cancion,Titulo,Album,Genero,Cantante,Duracion FROM Canciones "+
-												"WHERE Id_Cancion>1");
-						while(rs.next()){%>
-							<li><a class="list-item"><%= rs.getString("Titulo") %> </a></li>
-        					<li><a class="list-item"><%= rs.getString("Album") %></a></li>
-        					<li><a class="list-item"><%= rs.getString("Genero") %></a></li>
-        					<li><a class="list-item"><%= rs.getString("Cantante") %></a></li>
-        					<li><a class="list-item"><%= rs.getString("Duracion") %></a></li>
-        					<li><input class="list-item" type="checkbox" name="lstCancion" value="<%= rs.getString("Id_Cancion") %>"></li>
-						<%}
-					%>
-    			</ul>
-		</div>
-		<button id="btnEliminarSeleccion">Eliminar Seleccion</button>
+		<%
+		for(int i=0;i<seleccionadas.length;i++){
+			if(Integer.parseInt(seleccionadas[i])>1){
+				conn.actualizarQuery("DELETE FROM Listas_Empresa WHERE Id_Cancion="+seleccionadas[i] +
+									" and Id_Lista="+listaSeleccionada+" and Id_Empresa=1");
+			}
+		}
+		conn.actualizarQuery("commit");
+		%>
+		<form method="POST" name="Volver" action="PrincipalEmpresa.jsp">
+			<button id="btnVolver">Volver</button>
 		</form>
 	</div>
-		<form method="POST" name="Volver" action="PrincipalEmpresa.jsp">
-			<a id="btnVolver" href="PrincipalEmpresa.jsp">Volver</a>
-		</form>
+	
 	<div id='footer'>Aqui solo va la información del copyright y esas
 		cosas</div>
-	
 </body>
 </html>

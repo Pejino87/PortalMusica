@@ -12,7 +12,13 @@ public class ListaModificacion {
 	
 	private final static ListaModificacion instancia;
 	ArrayList<Cancion> lista = new ArrayList<Cancion>();
+	String id_lista;
 	
+	public String getId_lista() {
+		return id_lista;
+	}
+
+
 	static {
 		instancia = new ListaModificacion();
 	}
@@ -37,6 +43,7 @@ public class ListaModificacion {
 			c=new Cancion(canciones.getInt(1),canciones.getString(2),canciones.getString(3),canciones.getString(4),canciones.getString(5),canciones.getInt(6),canciones.getString(7));
 			lista.add(c);
 		}
+		this.id_lista = id_lista;
 		
 	}
 
