@@ -51,7 +51,7 @@
 				%>
 				<option value="<%= idLista %>"><%= rs.getString("Nombre") %></option>
 					<%while(rs.next()){
-						 idLista = rs.getString("Id_Lista");%>
+						 idLista = rs.getString("Lista");%>
 						<option value="<%= idLista %>"><%= rs.getString("Nombre") %></option>
 					<%}%>
 				</select>
