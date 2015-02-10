@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="com.backend.*"%>
-<%//COMENT PARA COMMIT %>
+<%
+	//COMENT PARA COMMIT
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -37,16 +39,25 @@
 											.getNombre() + "  </b>");
 							out.print("<form name='id_lista' action='ModificaLista' method='POST'>");
 							out.print("<input type='hidden' value='false' name='isNueva'>");
-							out.print("<input type='hidden' value='"+ListasUser.getInstancia().getLista().get(i).getId_lista()+"' name='id_lista'>");
-							out.print("<input type='submit' value='Modificar'>"); 
+							out.print("<input type='hidden' value='"
+									+ ListasUser.getInstancia().getLista().get(i)
+											.getId_lista() + "' name='id_lista'>");
+							out.print("<input type='submit' value='Modificar'>");
+							out.print("</form>");
+
+							out.print("<form name='id_lista' action='CargaLista' method='POST'>");
+							out.print("<input type='hidden' value='"
+									+ ListasUser.getInstancia().getLista().get(i)
+											.getId_lista() + "' name='id_lista'>");
+							out.print("<input type='submit' value='Cargar'>");
 							out.print("</form>");
 							out.print("</li>");
 						}
 					}
-				out.print("<form name='Nueva Lista' action='ModificaLista' method='POST'>");
-				out.print("<input type='hidden' value='true' name='isNueva'>");
-				out.print("<input type='submit' value='Nueva Lista'>"); 
-				out.print("</form>");
+					out.print("<form name='Nueva Lista' action='ModificaLista' method='POST'>");
+					out.print("<input type='hidden' value='true' name='isNueva'>");
+					out.print("<input type='submit' value='Nueva Lista'>");
+					out.print("</form>");
 				%>
 			</ul>
 		</div>
@@ -207,6 +218,8 @@
 					<li><a
 						href="http://freshly-ground.com/data/audio/sm2/20130320%20-%20Po%27ipu%20Beach%20Waves.ogg">Po'ipu
 							Beach Waves (OGG)</a></li>
+					<li><a
+						href="http://freedownloads.last.fm/download/534446808/Event%2BHorizon.mp3"><b>Joe Cocker</b> Up where we belong</a></li>
 				</ul>
 			</div>
 
