@@ -8,7 +8,6 @@
 	ConexOracle conn = new ConexOracle();
 	Statement stmt = conn.establecerConexion();
 	ResultSet rs,rs2;
-	String listaSeleccionada = request.getParameter("SelecLista");
 	String[] seleccionadas = request.getParameterValues("lstCancion");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -34,9 +33,6 @@
 
 	<div id='main'>
 		<%
-		if(Integer.parseInt(listaSeleccionada)>0){
-			
-		}else{
 			for(int i=0;i<seleccionadas.length;i++){
 				if(Integer.parseInt(seleccionadas[i])>1){
 					conn.actualizarQuery("DELETE FROM Listas_Empresa WHERE Id_Cancion="+seleccionadas[i]);
@@ -44,7 +40,6 @@
 				}
 			}
 			conn.actualizarQuery("commit");
-		}
 		%>
 		<form method="POST" name="Volver" action="PrincipalEmpresa.jsp">
 			<button id="btnVolver">Volver</button>
