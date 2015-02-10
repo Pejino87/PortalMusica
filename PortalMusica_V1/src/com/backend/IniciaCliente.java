@@ -57,7 +57,7 @@ public class IniciaCliente extends HttpServlet {
 					while (listas.next()){
 						l = new ListaCanciones(listas.getInt("id"),listas.getString("nombre"));
 						ListasUser.getInstancia().lista.add(l);
-						System.out.println("Entra");
+						System.out.println("Entra"); 
 					}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block

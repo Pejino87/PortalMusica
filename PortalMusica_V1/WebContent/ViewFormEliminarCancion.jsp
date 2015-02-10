@@ -30,10 +30,12 @@
 	</div>
 
 	<div id='main'>
+		<form method="POST" name="EliminarSeleccion" action="./EliminarSeleccion">
 		<div class='menuEliminar'>
 			<p></p>
 				<ul class="listaCanciones">
-					<% 	rs = conn.consultaQuery("SELECT Titulo,Album,Genero,Cantante,Duracion FROM Canciones");
+					<% 	rs = conn.consultaQuery("SELECT Titulo,Album,Genero,Cantante,Duracion FROM Canciones "+
+												"WHERE Id_Cancion>1");
 						while(rs.next()){%>
 							<li><a class="list-item"><%= rs.getString("Titulo") %> </a></li>
         					<li><a class="list-item"><%= rs.getString("Album") %></a></li>
@@ -45,12 +47,10 @@
 					%>
     			</ul>
 		</div>
-		
+		<button id="btnEliminarSeleccion">Eliminar Seleccion</button>
+		</form>
 	</div>
 	<div id="btnsFormEliminar">
-		<form method="POST" name="EliminarSeleccion" action="./EliminarSeleccion">
-			<a id="btnEliminarSeleccion" href="./EliminarSeleccion">Eliminar Seleccion</a>
-		</form>
 		<form method="POST" name="Volver" action="PrincipalEmpresa.jsp">
 			<a id="btnVolver" href="PrincipalEmpresa.jsp">Volver</a>
 		</form>

@@ -110,4 +110,24 @@
     <servlet-name>CrearLista</servlet-name>
     <url-pattern>/CrearLista</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>ModificaLista</display-name>
+    <servlet-name>ModificaLista</servlet-name>
+    <servlet-class>com.acciones.ModificaLista</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModificaLista</servlet-name>
+    <url-pattern>/ModificaLista</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EliminarSeleccion</display-name>
+    <servlet-name>EliminarSeleccion</servlet-name>
+    <servlet-class>gft.curso.operacionesempresario.EliminarSeleccion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminarSeleccion</servlet-name>
+    <url-pattern>/EliminarSeleccion</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -34,23 +34,23 @@
 							out.print("<b>"
 									+ ListasUser.getInstancia().getLista().get(i)
 											.getNombre() + "  </b>");
-							out.print("<button>Cargar</button>");
-							out.print("<button>Modificar</button>");
+							out.print("<form name='id_lista' action='ModificaLista' method='POST'>");
+							out.print("<input type='hidden' value='false' name='isNueva'>");
+							out.print("<input type='hidden' value='"+ListasUser.getInstancia().getLista().get(i).getId_lista()+"' name='id_lista'>");
+							out.print("<input type='submit' value='Modificar'>"); 
+							out.print("</form>");
 							out.print("</li>");
 						}
 					}
+				out.print("<form name='Nueva Lista' action='ModificaLista' method='POST'>");
+				out.print("<input type='hidden' value='true' name='isNueva'>");
+				out.print("<input type='submit' value='Nueva Lista'>"); 
+				out.print("</form>");
 				%>
 			</ul>
 		</div>
 		<div class='info'>
-			<ul>
-				<li>Ejemplo de lista canciones cargada:</li>
-				<li>Cancion 1: - Nombre - Autor - Etc <b>X</b></li>
-				<li>Cancion 2: - Nombre - Autor - Etc <b>X</b></li>
-				<li>Cancion 3: - Nombre - Autor - Etc <b>X</b></li>
-				<li>Cancion 4: - Nombre - Autor - Etc <b>X</b></li>
-				<li>Cancion 5: - Nombre - Autor - Etc <b>X</b></li>
-			</ul>
+			<h3>Lista: <% out.print(request.getAttribute("id_lista")); %></h3>
 		</div>
 	</div>
 	<div id='footer'>Aqui solo va la información del copyright y esas
