@@ -34,7 +34,7 @@
 		<div class='menuEliminar'>
 			<p></p>
 				<ul class="listaCanciones">
-					<% 	rs = conn.consultaQuery("SELECT Titulo,Album,Genero,Cantante,Duracion FROM Canciones "+
+					<% 	rs = conn.consultaQuery("SELECT Id_Cancion,Titulo,Album,Genero,Cantante,Duracion FROM Canciones "+
 												"WHERE Id_Cancion>1");
 						while(rs.next()){%>
 							<li><a class="list-item"><%= rs.getString("Titulo") %> </a></li>
@@ -42,7 +42,7 @@
         					<li><a class="list-item"><%= rs.getString("Genero") %></a></li>
         					<li><a class="list-item"><%= rs.getString("Cantante") %></a></li>
         					<li><a class="list-item"><%= rs.getString("Duracion") %></a></li>
-        					<li><input class="list-item" type="checkbox" name="lstCancion" value="idCancion"></li>
+        					<li><input class="list-item" type="checkbox" name="lstCancion" value="<%= rs.getString("Id_Cancion") %>"></li>
 						<%}
 					%>
     			</ul>
