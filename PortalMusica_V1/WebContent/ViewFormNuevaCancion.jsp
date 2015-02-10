@@ -41,16 +41,16 @@
 		</div>
 		<div class='info'>
 		<p></p>
-			<form method="POST" name="InsertarCancion" action="./InsertarCancion">
-					<% 	rs = conn.consultaQuery("SELECT Id_Lista FROM Listas_Reproduccion");
+					<% 	rs = conn.consultaQuery("SELECT Id_Lista, Nombre FROM Listas_Reproduccion");
 						String idLista;
 						if(rs.next()){
 							idLista = rs.getString("Id_Lista");%>
+						<form method="POST" name="InsertarCancion" action="./InsertarCancion">
 							<p><select id="SelecLista" name="SelecLista">
-							<option value="<%= idLista %>">Lista <%= idLista %></option>
+							<option value="<%= idLista %>"><%= rs.getString("Nombre") %></option>
 							<%while(rs.next()){
 							 idLista = rs.getString("Id_Lista");%>
-							<option value="<%= idLista %>">Lista <%= idLista %></option>
+							<option value="<%= idLista %>"><%= rs.getString("Nombre") %></option>
 							<%}%>
 							</select></p>
 							<p><input type="text" name="txtURL" value="" placeholder="URL"></p>
@@ -60,12 +60,19 @@
 							<p><input type="text" name="txtCantante" value="" placeholder="Cantante"></p>
 							<p><input type="text" name="txtDuracion" value="" placeholder="Duracion"></p>
 							<button id="btnCargar">Cargar Cancion</button>
-						<%}else{%>
+						</form>
+						<form method="POST" name="CrearLista" action="./CrearLista">
 							<p><input type="text" name="listaNueva" value="" placeholder="Nombre Lista"></p>
 							<button id="btnCargar">Crear Lista</button>
+						</form>
+						<%}else{%>
+						<form method="POST" name="CrearLista" action="./CrearLista">
+							<p><input type="text" name="listaNueva" value="" placeholder="Nombre Lista"></p>
+							<button id="btnCargar">Crear Lista</button>
+						</form>
 						<%}
 					%>
-			</form>
+			
 		</div>
 		<form method="POST" name="Volver" action="PrincipalEmpresa.jsp">
 			<a id="btnVolver" href="PrincipalEmpresa.jsp">Volver</a>

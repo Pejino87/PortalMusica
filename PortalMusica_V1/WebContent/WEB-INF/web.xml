@@ -100,4 +100,14 @@
     <servlet-name>IniciaCliente</servlet-name>
     <url-pattern>/IniciaCliente</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CrearLista</display-name>
+    <servlet-name>CrearLista</servlet-name>
+    <servlet-class>gft.curso.operacionesempresario.CrearLista</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CrearLista</servlet-name>
+    <url-pattern>/CrearLista</url-pattern>
+  </servlet-mapping>
 </web-app>
