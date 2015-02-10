@@ -41,14 +41,6 @@
 
 	<div id='main'>
 		<%
-			/*int numEle = miLista.getLista().size(); 
-			miLista.getLista().add(new Cancion((numEle+1),titulo,album,genero,cantante,duracion,URL));
-			int numEleDespues = miLista.getLista().size();
-			if((numEle+1)==numEleDespues){
-				request.getRequestDispatcher("PrincipalEmpresa.jsp").forward(request, response);
-			}else{
-				request.getRequestDispatcher("Error.html").forward(request, response);
-			}*/
 			rs2 = conn.consultaQuery("SELECT count(1) TotalElementos FROM Canciones");
 			if(rs2.next()){
 				totalEle = Integer.parseInt(rs2.getString("TotalElementos"));
@@ -66,8 +58,8 @@
 						"VALUES(1," + idLista +","+ rs.getString("Id_Cancion") +",to_date('10/12/2010','dd/mm/yyyy'))");
 			}
 		%>
-		<form method="POST" name="Volver" action="PrincipalEmpresa.jsp">
-			<a id="btnVolver" href="PrincipalEmpresa.jsp">Volver</a>
+		<form method="POST" name="Volver" action="./PrincipalEmpresa">
+			<a id="btnVolver" href="./PrincipalEmpresa">Volver</a>
 		</form>
 	</div>
 	
