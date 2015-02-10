@@ -47,27 +47,17 @@ public class IniciaCliente extends HttpServlet {
 		if(request.getSession().getAttribute("validado").equals("true")){
 				usuario = "1";
 				ListaCanciones l = null;
-				System.out.println("Tiene k salir un 1: "+usuario);
-				
-				ConexOracle conexion = new ConexOracle();
-				try {
-					ResultSet listas = conexion.consultaQuery(""
-							+ "SELECT LC.id_lista id, LR.nombre nombre "
-							+ "FROM listas_cliente LC,listas_reproduccion LR "
-							+ "WHERE id_cliente =1 AND LC.id_lista = LR.id_lista");
-					
-					while (listas.next()){
-						l = new ListaCanciones(listas.getInt("id"),listas.getString("nombre"));
-						ListasUser.getInstancia().getLista().add(l);
-						System.out.println("Entra");
+
+					try {
+						ListasUser.getInstancia().loadLista("1");
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (NamingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (NamingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				
 				
 				response.sendRedirect("PlantillaCliente.jsp");				
 		}
