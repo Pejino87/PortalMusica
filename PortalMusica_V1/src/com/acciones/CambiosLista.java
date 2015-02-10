@@ -1,7 +1,6 @@
 package com.acciones;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.naming.NamingException;
@@ -10,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.backend.ListaReproduccion;
 import com.backend.ListasUser;
 import com.tienda.musica.ConexOracle;
 
@@ -44,7 +44,6 @@ public class CambiosLista extends HttpServlet {
 		if(request.getParameter("isEliminar").equals("true"))
 		{
 			try {
-				System.out.println("Entra aqui");
 				conexion.actualizarQuery("delete from listas_cliente where id_lista = "+request.getParameter("id_lista"));
 				conexion.actualizarQuery("delete from listas_reproduccion where id_lista = "+request.getParameter("id_lista"));
 				conexion.actualizarQuery("commit");
@@ -58,6 +57,7 @@ public class CambiosLista extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+			ListaReproduccion.getInstancia().unloadLista();
 			response.sendRedirect("PlantillaCliente.jsp");		
 		}
 		else
