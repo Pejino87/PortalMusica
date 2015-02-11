@@ -50,6 +50,7 @@ public class CambiosLista extends HttpServlet {
 		}
 		else{
 		ConexOracle conexion = new ConexOracle();
+		String id_cliente = Integer.toString((Integer)request.getSession(false).getAttribute("ident"));
 		
 		if(request.getParameter("isEliminar").equals("true"))
 		{
@@ -57,7 +58,7 @@ public class CambiosLista extends HttpServlet {
 				conexion.actualizarQuery("delete from listas_cliente where id_lista = "+request.getParameter("id_lista"));
 				conexion.actualizarQuery("delete from listas_reproduccion where id_lista = "+request.getParameter("id_lista"));
 				conexion.actualizarQuery("commit");
-				ListasUser.getInstancia().loadLista("1");
+				ListasUser.getInstancia().loadLista(id_cliente);
 				conexion.finalizarConexion();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -75,7 +76,7 @@ public class CambiosLista extends HttpServlet {
 			try {
 				conexion.actualizarQuery("Update listas_reproduccion set nombre= '"+request.getParameter("titulo")+"' where id_lista = "+request.getParameter("id_lista"));
 				conexion.actualizarQuery("commit");
-				ListasUser.getInstancia().loadLista("1");
+				ListasUser.getInstancia().loadLista(id_cliente);
 				conexion.finalizarConexion();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

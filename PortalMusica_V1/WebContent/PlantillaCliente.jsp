@@ -28,7 +28,6 @@ if(miRol==null || miRol.equals("empresa")){
 	</div>
 	<div id='nav'>
 		<p>nav nav nav nav nav nav</p>
-		<% out.println(request.getSession(false).getAttribute("ident")); %>
 	</div>
 
 <!-- MAIN -->

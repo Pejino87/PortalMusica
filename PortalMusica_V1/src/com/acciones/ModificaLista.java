@@ -58,7 +58,7 @@ public class ModificaLista extends HttpServlet {
 		if (request.getParameter("isNueva").equals("true")) {
 			ConexOracle conexion = new ConexOracle();
 			String id_lista = null;
-			String id_cliente = "1";
+			String id_cliente = Integer.toString((Integer)request.getSession(false).getAttribute("ident"));
 			String nuevoNombre = "Nueva";
 
 			try {
@@ -90,7 +90,7 @@ public class ModificaLista extends HttpServlet {
 						Integer.parseInt(id_lista), nuevoNombre);
 				ListasUser.getInstancia().getLista().add(l);
 
-				ListaModificacion.getInstancia().loadLista(id_lista,"1",nuevoNombre);
+				ListaModificacion.getInstancia().loadLista(id_lista,id_cliente,nuevoNombre);
 				request.setAttribute("id_lista", id_lista);
 				request.getRequestDispatcher("/ModificaLista.jsp").forward(request, response);
 
@@ -107,7 +107,8 @@ public class ModificaLista extends HttpServlet {
 
 		} else{
 			try {
-				ListaModificacion.getInstancia().loadLista(request.getParameter("id_lista"),"1",request.getParameter("nombre"));
+				String id_cliente = Integer.toString((Integer)request.getSession(false).getAttribute("ident"));
+				ListaModificacion.getInstancia().loadLista(request.getParameter("id_lista"),id_cliente,request.getParameter("nombre"));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

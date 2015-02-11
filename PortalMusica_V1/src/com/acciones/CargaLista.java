@@ -49,9 +49,10 @@ public class CargaLista extends HttpServlet {
 			response.sendRedirect("index.jsp");
 		}
 		else{
+		String id_cliente = Integer.toString((Integer)request.getSession(false).getAttribute("ident"));
 		String id_lista = request.getParameter("id_lista");
 		try {
-			ListaReproduccion.getInstancia().loadLista(id_lista,"1");
+			ListaReproduccion.getInstancia().loadLista(id_lista,id_cliente);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
