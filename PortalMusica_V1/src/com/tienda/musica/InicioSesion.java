@@ -59,12 +59,11 @@ public class InicioSesion extends HttpServlet {
 		}
 					
 		// crea la variable sesion para asignar sesión si es usuario válido.
-		if (sesion == null) {
+		if (!sesion.isNew()) {
 			HttpSession sesion1 = request.getSession();
 			sesion1.setAttribute("ident",identif);		
 			sesion1.setAttribute("usu",nombre); 
 			sesion1.setAttribute("rol",tipoUsu);		
-			return;
 		}
 		
 		// si no coincide la password vá inicio de sesión sino pregunta si es cliente ó empresa para
