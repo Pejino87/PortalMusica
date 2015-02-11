@@ -8,7 +8,7 @@
  	//ListaCanciones miLista = new ListaCanciones(1,"Lista 1");
 	ConexOracle conn = new ConexOracle();
 	Statement stmt = conn.establecerConexion();
-	ResultSet rs,rs2;
+	ResultSet rs,rs2,rs3;
 	int totalEle = -1;
 	String idLista = (String) request.getParameter("SelecLista");
 	String URL = (String) request.getParameter("txtURL"); 
@@ -47,15 +47,30 @@
 				System.out.println("TotalEle--> " + totalEle);
 			}
 			
-			rs = conn.consultaQuery("SELECT Id_Cancion FROM Canciones WHERE titulo='" + titulo + "'");
+			rs = conn.consultaQuery("SELECT Id_Cancion FROM Canciones"+
+								" WHERE titulo='" + titulo + "' and url='"+URL+"'");
 			if(!rs.next()){
 				conn.actualizarQuery("INSERT INTO Canciones(Id_Cancion,Titulo,Album,Genero,Cantante,Duracion,URL)" +
-						"VALUES ("+ (totalEle+1) +",'"+ titulo +"','"+ album +"','"+ genero +"','"+ cantante +"','"+ duracion +"','"+ URL +"')");
-				conn.actualizarQuery("INSERT INTO Listas_Empresa(Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
-									"VALUES(1," + idLista +","+ (totalEle+1) +",to_date('10/12/2010','dd/mm/yyyy'))");
+						"VALUES (INCRECANCIONES.nextval,'"+ titulo +"','"+ album +"','"+ genero +"','"+ cantante +"',"+ duracion +",'"+ URL +"')");
+				conn.actualizarQuery("commit");
+				rs3 = conn.consultaQuery("Select MAX(Id_Cancion) as Maximo FROM Canciones");
+				if(rs.next()){
+					conn.actualizarQuery("INSERT INTO Listas_Empresa(Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
+							"VALUES(1," + idLista +","+ rs3.getString("Maximo") +",sysdate)");
+				}else{
+					System.out.println("Cancion no insertada en lista_empresa");
+				}
+				conn.actualizarQuery("commit");
 			}else{
-				conn.actualizarQuery("INSERT INTO Listas_Empresa(Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
-						"VALUES(1," + idLista +","+ rs.getString("Id_Cancion") +",to_date('10/12/2010','dd/mm/yyyy'))");
+				rs2 = conn.consultaQuery("SELECT Id_Empresa,Id_Lista,Id_Cancion FROM Listas_Empresa"+
+										" WHERE Id_Lista="+idLista);
+				if(!rs2.next()){
+					conn.actualizarQuery("INSERT INTO Listas_Empresa(Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
+							"VALUES(1," + idLista +","+ rs.getString("Id_Cancion") +",sysdate)");
+					conn.actualizarQuery("commit");
+				}else{
+					System.out.println("La cancion ya existe en la lista");%>
+				<%}
 			}
 		%>
 		<form method="POST" name="Volver" action="./PrincipalEmpresa">

@@ -68,8 +68,7 @@
 			<%
 			if(Integer.parseInt(idLista)>0){%>
 				<ul class="listaCanciones">
-				<% 	/*rs = conn.consultaQuery("SELECT Id_Cancion,Titulo,Album,Genero,Cantante,Duracion FROM Canciones "+
-											"WHERE Id_Cancion>1");*/
+				<% 	
 					rs = conn.consultaQuery("SELECT can.Id_Cancion,can.Titulo,can.Album,can.Genero,can.Cantante,can.Duracion"+
 											" FROM Canciones can, Listas_Empresa LE"+
 											" WHERE can.Id_Cancion>1 and LE.Id_Cancion=can.Id_Cancion and LE.Id_Lista="+idLista);

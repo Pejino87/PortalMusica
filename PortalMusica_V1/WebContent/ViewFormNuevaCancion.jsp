@@ -86,6 +86,7 @@
 	
 	<div id='footer'>Aqui solo va la información del copyright y esas
 		cosas</div>
-	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="toast.js"></script>
 </body>
 </html>
