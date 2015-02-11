@@ -63,8 +63,6 @@ public class AddCancion extends HttpServlet {
 			String titulo = info[1];
 			ConexOracle conexion = new ConexOracle();
 			Cancion c = null;
-			System.out.println("Autor : " + autor);
-			System.out.println("Titulo : " + titulo);
 			String id_lista = request.getParameter("id_lista");
 			boolean encuentraCancion = false, esNueva = true;
 
@@ -114,8 +112,10 @@ public class AddCancion extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else{
 		request.getRequestDispatcher("/ModificaLista.jsp").forward(
 				request, response);
+		}
 
 	}
 	}

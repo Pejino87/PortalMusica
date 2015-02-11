@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import java.security.*;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -87,20 +88,32 @@ public class AltaClient extends HttpServlet {
 		String cPwd = getStringMessageDigest(cPwd1,MD5);
 	    System.out.println("MD5 = " + cPwd );
 			    
+	    try {
+			ConexOracle sentencia = new ConexOracle();
 		// Preparar una sentencia SQL y ejecutarla
 			
-		String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,DIRECCION,TELEFONO,EMAIL,USUARIO,CONTRASENA) VALUES " +
+	    String sSQLlogin = "INSERT INTO LOGIN (ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER) VALUES " +
+	    		"(INCRELOGIN.nextval, '" + cUser + "' , '" + cPwd + "' ,'cliente')";
+		sentencia.actualizarQuery(sSQLlogin);
+	    
+		
+		ResultSet id_login = sentencia.consultaQuery("Select max(id_login) from login");
+		int login = 0;
+		
+		if(id_login.next()){
+			login = (Integer)id_login.getInt(1);
+		}
+		else{
+			System.out.println("Error al insertar cliente");
+			sentencia.actualizarQuery("rollback");
+		}
+		
+		String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,DIRECCION,TELEFONO,EMAIL,id_login) VALUES " +
 				"(INCRECLIENTE11.nextval, '" + cNom + "' , '" + cApe + "' , '" + cNif + "' , '" + cDir + "'  , '" + cTel + 
-				"' , '" + cEmail + "' , '" + cUser + "' , '" + cPwd + "' )";
+				"' , '" + cEmail + "' , " + login + " )";
 				
-		String sSQLlogin = "INSERT INTO LOGIN (ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER) VALUES " +
-		"(INCRELOGIN.nextval, '" + cUser + "' , '" + cPwd + "' ,'cliente')";
+		sentencia.actualizarQuery(sSQL);
 		
-		
-		ConexOracle sentencia = new ConexOracle();
-		try {
-			sentencia.actualizarQuery(sSQL);
-			sentencia.actualizarQuery(sSQLlogin);
 			response.sendRedirect("index.jsp");
 		} catch (SQLException | NamingException e) {
 			// TODO Auto-generated catch block
