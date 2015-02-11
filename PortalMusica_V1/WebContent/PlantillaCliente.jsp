@@ -13,6 +13,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript" src="script/soundmanager2.js"></script>
 <script src="script/bar-ui.js"></script>
+<script>
+	jQuery(function() {
+		$("#canciones").autocomplete("info.jsp");
+	});
+</script>
 <link rel="stylesheet" href="css/bar-ui.css" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -25,6 +30,7 @@
 		<p>nav nav nav nav nav nav</p>
 	</div>
 
+<!-- MAIN -->
 	<div id='main'>
 		<div class='menu'>
 			<ul>
@@ -43,8 +49,9 @@
 									+ ListasUser.getInstancia().getLista().get(i)
 											.getId_lista() + "' name='id_lista'>");
 							out.print("<input type='submit' value='Modificar'>");
-							out.print("<input type='hidden' value='"+ListasUser.getInstancia().getLista().get(i)
-									.getNombre()+"' name='nombre'>");
+							out.print("<input type='hidden' value='"
+									+ ListasUser.getInstancia().getLista().get(i)
+											.getNombre() + "' name='nombre'>");
 							out.print("</form>");
 
 							out.print("<form name='id_lista' action='CargaLista' method='POST'>");
@@ -63,13 +70,28 @@
 				%>
 			</ul>
 		</div>
+<!-- FIN MAIN -->
+
+
+<!-- VENTANA MODAL -->
 		<div class='info'>
 			<h2>Bienvenido !</h2>
+				Seleccion la cancion:	
+		<input type="text" id="canciones" name="canciones" class="input_text"/>
 		</div>
 	</div>
+<!-- FIN VENTANA -->
+	
+	
+	
+	<!-- FOOTER -->
 	<div id='footer'>Aqui solo va la información del copyright y esas
 		cosas</div>
-	<!-- fixed, bottom-aligned, full-width player -->
+	<!-- FIN FOOTER -->	
+
+
+
+	<!-- A PARTIR DE AQUI, REPRODUCTOR DE MUSICA -->
 
 	<div class="sm2-bar-ui full-width fixed">
 
