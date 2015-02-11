@@ -30,13 +30,12 @@ public class ListasUser {
 
 		ListaCanciones l = null;
 		lista.clear();
-		Cancion c = null;
 		ConexOracle conexion = new ConexOracle();
 		
 		ResultSet listas = conexion.consultaQuery(""
 				+ "SELECT LC.id_lista id, LR.nombre nombre "
 				+ "FROM listas_cliente LC,listas_reproduccion LR "
-				+ "WHERE id_cliente ="+id_cliente+" AND LC.id_lista = LR.id_lista");	
+				+ "WHERE id_cliente ="+id_cliente+" AND LC.id_lista = LR.id_lista group by lc.id_lista, lr.nombre");	
 		
 		while (listas.next()){
 			l = new ListaCanciones(listas.getInt("id"),listas.getString("nombre"));

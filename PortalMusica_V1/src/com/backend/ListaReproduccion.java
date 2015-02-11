@@ -39,5 +39,9 @@ public class ListaReproduccion {
 		}
 		
 	}
+	
+	public void unloadLista(){
+		lista.clear();
+	}
 
 }

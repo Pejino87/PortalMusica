@@ -1,7 +1,6 @@
 package com.acciones;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.naming.NamingException;
@@ -10,9 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.backend.ListaCanciones;
 import com.backend.ListasUser;
-import com.tienda.musica.ConexOracle;
 
 /**
  * Servlet implementation class IniciaCliente
@@ -40,13 +37,12 @@ public class IniciaCliente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String usuario;
+	
 		
 		request.getSession().setAttribute("validado", "true");
 		
 		if(request.getSession().getAttribute("validado").equals("true")){
-				usuario = "1";
-				ListaCanciones l = null;
+			
 
 					try {
 						ListasUser.getInstancia().loadLista("1");

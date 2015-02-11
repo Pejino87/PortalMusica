@@ -25,6 +25,7 @@
 		<p>nav nav nav nav nav nav</p>
 	</div>
 
+<!-- MAIN -->
 	<div id='main'>
 		<div class='menu'>
 			<ul>
@@ -43,8 +44,9 @@
 									+ ListasUser.getInstancia().getLista().get(i)
 											.getId_lista() + "' name='id_lista'>");
 							out.print("<input type='submit' value='Modificar'>");
-							out.print("<input type='hidden' value='"+ListasUser.getInstancia().getLista().get(i)
-									.getNombre()+"' name='nombre'>");
+							out.print("<input type='hidden' value='"
+									+ ListasUser.getInstancia().getLista().get(i)
+											.getNombre() + "' name='nombre'>");
 							out.print("</form>");
 
 							out.print("<form name='id_lista' action='CargaLista' method='POST'>");
@@ -63,13 +65,28 @@
 				%>
 			</ul>
 		</div>
+
+
+
+<!-- INFO  -->
 		<div class='info'>
 			<h2>Bienvenido !</h2>
 		</div>
+<!-- FIN INFO -->
 	</div>
+<!-- FIN MAIN -->
+
+	
+	
+	
+	<!-- FOOTER -->
 	<div id='footer'>Aqui solo va la información del copyright y esas
 		cosas</div>
-	<!-- fixed, bottom-aligned, full-width player -->
+	<!-- FIN FOOTER -->	
+
+
+
+	<!-- A PARTIR DE AQUI, REPRODUCTOR DE MUSICA -->
 
 	<div class="sm2-bar-ui full-width fixed">
 
@@ -182,39 +199,6 @@
 							}
 						}
 					%>
-					<li><a
-						href="http://srv43.clipconverter.cc/download/4pqabGlonWlpr6yq3JeWtGpkmmVoanBvmpnfe6WZ2HWjoa%2Bd2NfIqg%3D%3D/K-391%20-%20Dream%20Of%20Something%20Sweet%20ft.%20Cory%20Friesenhan%20%5BNCS%20Release%5D.mp3"><b>K-391</b>
-							- Dream Of Something Sweet (Test descarga youtube)</a></li>
-					<li><a
-						href="http://freshly-ground.com/data/audio/sm2/SonReal%20-%20LA%20%28Prod%20Chin%20Injetti%29.mp3"><b>SonReal</b>
-							- LA (Prod. Chin Injetti)<span class="label">Explicit</span></a></li>
-					<li><a
-						href="http://freshly-ground.com/data/audio/sm2/SonReal%20-%20Already%20There%20Remix%20ft.%20Rich%20Kidd%2C%20Saukrates.mp3"><b>SonReal</b>
-							- Already There Remix ft. Rich Kidd, Saukrates <span
-							class="label">Explicit</span></a></li>
-					<li><a
-						href="http://freshly-ground.com/data/audio/sm2/The%20Fugitives%20-%20Graffiti%20Sex.mp3"><b>The
-								Fugitives</b> - Graffiti Sex</a></li>
-					<li><a
-						href="http://freshly-ground.com/data/audio/sm2/Adrian%20Glynn%20-%20Seven%20Or%20Eight%20Days.mp3"><b>Adrian
-								Glynn</b> - Seven Or Eight Days</a></li>
-					<li><a
-						href="http://freshly-ground.com/data/audio/sm2/SonReal%20-%20I%20Tried.mp3"><b>SonReal</b>
-							- I Tried</a></li>
-					<li><a
-						href="http://freshly-ground.com/data/audio/mpc/20060826%20-%20Armstrong.mp3">Armstrong
-							Beat</a></li>
-					<li><a
-						href="http://freshly-ground.com/data/audio/mpc/20090119%20-%20Untitled%20Groove.mp3">Untitled
-							Groove</a></li>
-					<li><a
-						href="http://freshly-ground.com/data/audio/sm2/birds-in-kauai-128kbps-aac-lc.mp4">Birds
-							In Kaua'i (AAC)</a></li>
-					<li><a
-						href="http://freshly-ground.com/data/audio/sm2/20130320%20-%20Po%27ipu%20Beach%20Waves.ogg">Po'ipu
-							Beach Waves (OGG)</a></li>
-					<li><a
-						href="http://freedownloads.last.fm/download/534446808/Event%2BHorizon.mp3"><b>Joe Cocker</b> Up where we belong</a></li>
 				</ul>
 			</div>
 
