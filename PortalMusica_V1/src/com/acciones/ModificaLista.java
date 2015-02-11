@@ -71,9 +71,6 @@ public class ModificaLista extends HttpServlet {
 						+ ",1,sysdate)");
 				conexion.actualizarQuery("Insert into listas_cliente"
 						+ " values (" + id_cliente + "," + id_lista
-						+ ",2,sysdate)");
-				conexion.actualizarQuery("Insert into listas_cliente"
-						+ " values (" + id_cliente + "," + id_lista
 						+ ",3,sysdate)");
 				conexion.actualizarQuery("commit");
 				conexion.finalizarConexion();

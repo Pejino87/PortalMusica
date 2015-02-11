@@ -106,8 +106,10 @@
 				%>
 
 			<li>Busca una nueva cancion : 
-				<form name='Add Cancion' action='addCancion' method='POST'>
+				<form name='Add Cancion' action='AddCancion' method='POST'>
 				<input type="text" id="cancion" name="cancion" class="input_text" /> 
+				<%out.print("<input type='hidden' value='"
+						+ request.getAttribute("id_lista") + "' name='id_lista'>"); %>
 				<input type='submit' value='Añadir cancion'>
 				</form>
 			</li>
