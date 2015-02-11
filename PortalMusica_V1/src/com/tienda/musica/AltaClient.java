@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import java.security.*;
 import java.sql.SQLException;
@@ -63,9 +64,19 @@ public class AltaClient extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		/*
+		HttpSession sesion = request.getSession();
+		String cli = (String) sesion.getAttribute("rol");
+		
+		if (cli != "cliente") {
+			sesion.invalidate();
+			response.sendRedirect("index.jsp");
+		}
+		*/
 		String cNom = request.getParameter("cNom");
 		String cApe = request.getParameter("cApe");
 		String cNif = request.getParameter("cNif");
+		String cDir = request.getParameter("cDir");
 		String cTel1 = request.getParameter("cTel");
 		String cEmail = request.getParameter("cEmail");
 		String cUser = request.getParameter("cUser");
@@ -78,8 +89,8 @@ public class AltaClient extends HttpServlet {
 			    
 		// Preparar una sentencia SQL y ejecutarla
 			
-		String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,TELEFONO,EMAIL,USUARIO,CONTRASENA) VALUES " +
-				"(INCRECLIENTE.nextval, '" + cNom + "' , '" + cApe + "' , '" + cNif + "' , '" + cTel + 
+		String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,DIRECCION,TELEFONO,EMAIL,USUARIO,CONTRASENA) VALUES " +
+				"(INCRECLIENTE11.nextval, '" + cNom + "' , '" + cApe + "' , '" + cNif + "' , '" + cDir + "'  , '" + cTel + 
 				"' , '" + cEmail + "' , '" + cUser + "' , '" + cPwd + "' )";
 				
 		String sSQLlogin = "INSERT INTO LOGIN (ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER) VALUES " +
