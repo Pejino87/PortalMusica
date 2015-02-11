@@ -6,6 +6,7 @@
  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
  <link href="css/music.css" rel="stylesheet" type="text/css">
  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+ <link rel="stylesheet" href="css/style.css" />
  <script src="js/jquery-2.1.1.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
  <script src="js/jsmusic.js"></script>
@@ -13,9 +14,12 @@
  <title>CORREOS</title>
 </head>
 
-<body class="clbody">
+<body>
 
-<div class="clbody">
+	<div id='header'>
+		<h1>Imagen del logo del portal. Header</h1>
+	</div>
+	
 	<img src="img/escenario.jpg" class="pantalla"><img>
 	<div class="usupass"> 
 		<form name="usupwd" method="POST" action="InicioSesion" onsubmit = "return validaraltausu()">
@@ -36,7 +40,7 @@
 
   <div class="altaCli">
 	<!-- Button trigger modal -->
-	<button class="btn btn-primary" id="pulsaralta" data-toggle="modal" data-target="#myModal" >
+	<button  id="pulsaralta" data-toggle="modal" data-target="#myModal" >
 			ALTA CLIENTE		
 	</button>
 	<!-- Modal -->
@@ -151,7 +155,7 @@
 
   <div class="altaEmp">
 	<!-- Button trigger modal -->
-	<button class="btn btn-primary" id="pulsaralta" data-toggle="modal" data-target="#myModal2" >
+	<button id="pulsaralta" data-toggle="modal" data-target="#myModal2" >
 			ALTA EMPRESA		
 	</button>
 	
@@ -255,7 +259,7 @@
 		</div>
 
   </div>
-</div>
+
 
 </body>
 </html>
