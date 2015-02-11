@@ -11,7 +11,7 @@
  <script src="js/bootstrap.min.js"></script>
  <script src="js/jsmusic.js"></script>
  
- <title>CORREOS</title>
+ <title>PORTAL MUSICA</title>
 </head>
 
 <body>
