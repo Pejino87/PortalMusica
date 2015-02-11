@@ -180,4 +180,14 @@
     <servlet-name>EliminarLista</servlet-name>
     <url-pattern>/EliminarLista</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PerfilCliente</display-name>
+    <servlet-name>PerfilCliente</servlet-name>
+    <servlet-class>com.tienda.musica.PerfilCliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PerfilCliente</servlet-name>
+    <url-pattern>/PerfilCliente</url-pattern>
+  </servlet-mapping>
 </web-app>
