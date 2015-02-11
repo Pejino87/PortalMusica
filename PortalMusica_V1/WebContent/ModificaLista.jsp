@@ -12,15 +12,10 @@
 <link rel="stylesheet" href="css/bar-ui.css" />
 <link rel="stylesheet" href="css/style.css" />
 <script src="script/bar-ui.js"></script>
-<script src="js/jquery-2.1.1.min.js"></script>
+<<script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="script/soundmanager2.js"></script>
-<script src="JS/jquery.autocomplete.js"></script>
-<script>
-	jQuery(function() {
-		$("#country").autocomplete("list.jsp");
-	});
-</script>
+
 
 </head>
 <body>
@@ -125,10 +120,9 @@
 				<div class="modal-body">
 
 				
-					<p>Selecciona la cancion:</p>
-					<input type="text" id="canciones" name="canciones"
-						class="input_text" />
-
+				<p>Nueva cancion</p>
+					
+					
 				</div>
 				<!--FIN DENTRO DE LA VENTANA MODAL-->
 				<div class="modal-footer">
