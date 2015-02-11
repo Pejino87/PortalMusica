@@ -160,4 +160,14 @@
     <servlet-name>EliminarSeleccionEnLista</servlet-name>
     <url-pattern>/EliminarSeleccionEnLista</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddCancion</display-name>
+    <servlet-name>AddCancion</servlet-name>
+    <servlet-class>com.acciones.AddCancion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCancion</servlet-name>
+    <url-pattern>/AddCancion</url-pattern>
+  </servlet-mapping>
 </web-app>

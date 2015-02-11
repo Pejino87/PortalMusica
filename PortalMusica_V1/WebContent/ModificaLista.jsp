@@ -12,9 +12,17 @@
 <link rel="stylesheet" href="css/bar-ui.css" />
 <link rel="stylesheet" href="css/style.css" />
 <script src="script/bar-ui.js"></script>
-<<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="script/soundmanager2.js"></script>
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script src="js/jquery.autocomplete.js"></script>
+
+<script>
+	jQuery(function() {
+		$("#cancion").autocomplete("list.jsp");
+	});
+</script>
 
 
 </head>
@@ -96,14 +104,19 @@
 
 					}
 				%>
-				<button class="btn btn-primary" id="pulsaralta" data-toggle="modal"
-					data-target="#myModal">Nueva Cancion</button>
-			</ul>
+
+			<li>Busca una nueva cancion : 
+				<form name='Add Cancion' action='addCancion' method='POST'>
+				<input type="text" id="cancion" name="cancion" class="input_text" /> 
+				<input type='submit' value='Añadir cancion'>
+				</form>
+			</li>
+		</ul>
+
 		</div>
 	</div>
 
 	<!--  Ventana de añadir cancion -->
-
 
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -116,14 +129,8 @@
 					</button>
 					<h4 class="modal-title" id="myModalLabel">Nueva canción</h4>
 				</div>
-		<!--DENTRO DE LA VENTANA MODAL-->
-				<div class="modal-body">
-
-				
-				<p>Nueva cancion</p>
-					
-					
-				</div>
+				<!--DENTRO DE LA VENTANA MODAL-->
+				<div class="modal-body"></div>
 				<!--FIN DENTRO DE LA VENTANA MODAL-->
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
