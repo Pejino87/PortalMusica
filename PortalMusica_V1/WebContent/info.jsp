@@ -35,7 +35,7 @@
 				int cnt=1;
 				for(int j=0;j<str.length;j++)
 				{
-					if(str[j].toUpperCase().startsWith(query.toUpperCase()))
+					if(str[j].toUpperCase().contains(query.toUpperCase()))
 					{
 						out.print(str[j]+"\n");
 						if(cnt>=5)

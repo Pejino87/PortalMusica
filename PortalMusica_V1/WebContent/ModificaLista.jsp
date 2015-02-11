@@ -15,6 +15,13 @@
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="script/soundmanager2.js"></script>
+<script src="JS/jquery.autocomplete.js"></script>
+<script>
+	jQuery(function() {
+		$("#country").autocomplete("list.jsp");
+	});
+</script>
+
 </head>
 <body>
 
@@ -39,84 +46,99 @@
 											.getNombre() + "  </b>");
 							out.print("<form name='id_lista' action='ModificaLista' method='POST'>");
 							out.print("<input type='hidden' value='false' name='isNueva'>");
-							out.print("<input type='hidden' value='"+ListasUser.getInstancia().getLista().get(i).getId_lista()+"' name='id_lista'>");
-							out.print("<input type='submit' value='Modificar'>"); 
+							out.print("<input type='hidden' value='"
+									+ ListasUser.getInstancia().getLista().get(i)
+											.getId_lista() + "' name='id_lista'>");
+							out.print("<input type='submit' value='Modificar'>");
 							out.print("</form>");
 							out.print("</li>");
 						}
 					}
-				out.print("<form name='Nueva Lista' action='ModificaLista' method='POST'>");
-				out.print("<input type='hidden' value='true' name='isNueva'>");
-				out.print("<input type='submit' value='Nueva Lista'>"); 
-				out.print("</form>");
+					out.print("<form name='Nueva Lista' action='ModificaLista' method='POST'>");
+					out.print("<input type='hidden' value='true' name='isNueva'>");
+					out.print("<input type='submit' value='Nueva Lista'>");
+					out.print("</form>");
 				%>
 			</ul>
 		</div>
 		<div class='info'>
-			<h3>Lista: </h3><% 
-			out.print("<form name='Guardar Lista' action='CambiosLista' method='POST'>");
-			out.print("<input type='text' name='titulo' value='"+ListaModificacion.getInstancia().getNombre()+"'>");
-			out.print("<input type='hidden' value='false' name='isEliminar'>");
-			out.print("<input type='hidden' value='"+request.getAttribute("id_lista")+"' name='id_lista'>");
-			out.print("<input type='submit' value='Guardar Lista'>");
-			out.print("</form>"); %>
-			
+			<h3>Lista:</h3>
+			<%
+				out.print("<form name='Guardar Lista' action='CambiosLista' method='POST'>");
+				out.print("<input type='text' name='titulo' value='"
+						+ ListaModificacion.getInstancia().getNombre() + "'>");
+				out.print("<input type='hidden' value='false' name='isEliminar'>");
+				out.print("<input type='hidden' value='"
+						+ request.getAttribute("id_lista") + "' name='id_lista'>");
+				out.print("<input type='submit' value='Guardar Lista'>");
+				out.print("</form>");
+			%>
+
 			<%
 				out.print("<form name='Borrar Lista' action='CambiosLista' method='POST'>");
 				out.print("<input type='hidden' value='true' name='isEliminar'>");
-				out.print("<input type='hidden' value='"+request.getAttribute("id_lista")+"' name='id_lista'>");
+				out.print("<input type='hidden' value='"
+						+ request.getAttribute("id_lista") + "' name='id_lista'>");
 				out.print("<input type='submit' value='Eliminar Lista'>");
 				out.print("</form>");
-				
-
 			%>
 			<ul>
-			<%
+				<%
 					if (ListaModificacion.getInstancia().getLista().size() == 0) {
 						out.println("<li><b>No hay ninguna cancion en esa lista!</b></li>");
 					} else {
-						for (int i = 0; i < ListaModificacion.getInstancia().getLista().size(); i++) {
+						for (int i = 0; i < ListaModificacion.getInstancia().getLista()
+								.size(); i++) {
 							out.print("<li>");
 							out.print("<b>Titulo: "
-									+ ListaModificacion.getInstancia().getLista().get(i).getTitulo() + "  </b>");
-							out.print("Autor: " + ListaModificacion.getInstancia().getLista().get(i).getCantante());
+									+ ListaModificacion.getInstancia().getLista()
+											.get(i).getTitulo() + "  </b>");
+							out.print("Autor: "
+									+ ListaModificacion.getInstancia().getLista()
+											.get(i).getCantante());
 							out.print("</li>");
 						}
 
 					}
-			%>
-				<button class="btn btn-primary" id="pulsaralta" data-toggle="modal" data-target="#myModal" >
-			Nueva Cancion		
-	</button>
+				%>
+				<button class="btn btn-primary" id="pulsaralta" data-toggle="modal"
+					data-target="#myModal">Nueva Cancion</button>
 			</ul>
 		</div>
 	</div>
-	
+
 	<!--  Ventana de añadir cancion -->
-	
+
 
 	<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-			<div class="modal-content" >
-			  <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="myModalLabel">NUEVA CANCION</h4>
-			  </div>
-			  <div class="modal-body">
-			  
-						<!--ALTA CLIENTE-->
-					  	<p> Aqui va a ir esto</p>
-					
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-			  </div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Nueva canción</h4>
+				</div>
+		<!--DENTRO DE LA VENTANA MODAL-->
+				<div class="modal-body">
+
+				
+					<p>Selecciona la cancion:</p>
+					<input type="text" id="canciones" name="canciones"
+						class="input_text" />
+
+				</div>
+				<!--FIN DENTRO DE LA VENTANA MODAL-->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+				</div>
 			</div>
-		  </div>
 		</div>
-	
-	
+	</div>
+
+
 	<div id='footer'>Aqui solo va la información del copyright y esas
 		cosas</div>
 

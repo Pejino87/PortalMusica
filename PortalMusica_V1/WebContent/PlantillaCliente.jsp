@@ -13,11 +13,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript" src="script/soundmanager2.js"></script>
 <script src="script/bar-ui.js"></script>
-<script>
-	jQuery(function() {
-		$("#canciones").autocomplete("info.jsp");
-	});
-</script>
 <link rel="stylesheet" href="css/bar-ui.css" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -70,17 +65,17 @@
 				%>
 			</ul>
 		</div>
-<!-- FIN MAIN -->
 
 
-<!-- VENTANA MODAL -->
+
+<!-- INFO  -->
 		<div class='info'>
 			<h2>Bienvenido !</h2>
-				Seleccion la cancion:	
-		<input type="text" id="canciones" name="canciones" class="input_text"/>
 		</div>
+<!-- FIN INFO -->
 	</div>
-<!-- FIN VENTANA -->
+<!-- FIN MAIN -->
+
 	
 	
 	
