@@ -29,7 +29,8 @@ public class IniciaCliente extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("Que mierda esta pasando aqui");
+		response.sendRedirect("index.jsp");
 	}
 
 	/**
@@ -39,13 +40,16 @@ public class IniciaCliente extends HttpServlet {
 		// TODO Auto-generated method stub
 	
 		
-		request.getSession().setAttribute("validado", "true");
+		boolean isCliente = request.getSession(false).getAttribute("rol").equals("cliente");
 		
-		if(request.getSession().getAttribute("validado").equals("true")){
-			
+		System.out.println("Antes del if");
+		
+		if(isCliente){
+			System.out.println("despues del if");
+			String id_cliente = (String) request.getSession(false).getAttribute("ident");
 
 					try {
-						ListasUser.getInstancia().loadLista("1");
+						ListasUser.getInstancia().loadLista(id_cliente);
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -54,7 +58,7 @@ public class IniciaCliente extends HttpServlet {
 						e.printStackTrace();
 					}
 				
-				
+					System.out.println("Antes del redirect");
 				response.sendRedirect("PlantillaCliente.jsp");				
 		}
 		else{
