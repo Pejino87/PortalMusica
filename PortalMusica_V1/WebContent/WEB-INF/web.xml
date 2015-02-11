@@ -170,4 +170,14 @@
     <servlet-name>AddCancion</servlet-name>
     <url-pattern>/AddCancion</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EliminarLista</display-name>
+    <servlet-name>EliminarLista</servlet-name>
+    <servlet-class>gft.curso.operacionesempresario.EliminarLista</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminarLista</servlet-name>
+    <url-pattern>/EliminarLista</url-pattern>
+  </servlet-mapping>
 </web-app>
