@@ -41,7 +41,7 @@
 			}
 			conn.actualizarQuery("commit");
 		%>
-		<form method="POST" name="Volver" action="PrincipalEmpresa.jsp">
+		<form method="POST" name="Volver" action="./PrincipalEmpresa">
 			<button id="btnVolver">Volver</button>
 		</form>
 	</div>

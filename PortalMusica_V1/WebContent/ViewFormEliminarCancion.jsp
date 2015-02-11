@@ -50,8 +50,8 @@
 		<button id="btnEliminarSeleccion">Eliminar Seleccion</button>
 		</form>
 	</div>
-		<form method="POST" name="Volver" action="PrincipalEmpresa.jsp">
-			<a id="btnVolver" href="PrincipalEmpresa.jsp">Volver</a>
+		<form method="POST" name="Volver" action="./PrincipalEmpresa">
+			<a id="btnVolver" href="./PrincipalEmpresa">Volver</a>
 		</form>
 	<div id='footer'>Aqui solo va la información del copyright y esas
 		cosas</div>

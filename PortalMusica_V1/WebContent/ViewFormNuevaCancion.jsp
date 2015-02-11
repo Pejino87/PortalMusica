@@ -44,7 +44,9 @@
 		</div>
 		<div class='info'>
 		<p></p>
-					<% 	rs = conn.consultaQuery("SELECT Id_Lista, Nombre FROM Listas_Reproduccion");
+					<% 	rs = conn.consultaQuery("SELECT LR.Id_Lista as Lista, LR.Nombre as Nombre FROM Listas_Reproduccion LR, Listas_Empresa LE"+
+							" WHERE LR.Id_Lista=LE.Id_Lista and LE.Id_Empresa=1"+
+							" GROUP BY  LR.Id_Lista, LR.Nombre");
 						String idLista;
 						if(rs.next()){
 							idLista = rs.getString("Id_Lista");%>
@@ -77,8 +79,8 @@
 					%>
 			
 		</div>
-		<form method="POST" name="Volver" action="PrincipalEmpresa.jsp">
-			<a id="btnVolver" href="PrincipalEmpresa.jsp">Volver</a>
+		<form method="POST" name="Volver" action="./PrincipalEmpresa">
+			<a id="btnVolver" href="./PrincipalEmpresa">Volver</a>
 		</form>
 	</div>
 	

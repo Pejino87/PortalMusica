@@ -8,7 +8,7 @@
 	ConexOracle conn = new ConexOracle();
 	Statement stmt = conn.establecerConexion();
 	ResultSet rs,rs2;
-	String listaSeleccionada = request.getParameter("SelecLista");
+	String listaSeleccionada = request.getParameter("idLista");
 	String[] seleccionadas = request.getParameterValues("lstCancion");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -42,7 +42,7 @@
 		}
 		conn.actualizarQuery("commit");
 		%>
-		<form method="POST" name="Volver" action="PrincipalEmpresa.jsp">
+		<form method="POST" name="Volver" action="./PrincipalEmpresa">
 			<button id="btnVolver">Volver</button>
 		</form>
 	</div>
