@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import com.backend.*;
 import gft.curso.principalempresa.*;
+
 
 /**
  * Servlet implementation class InicioSesion
@@ -39,41 +41,29 @@ public class InicioSesion extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession sesion = request.getSession(false);
+		boolean valClave = false;
 		String nombre = request.getParameter("usu");
 		String password = request.getParameter("pwd");
 		String tipoUsu = null;
-		int num;
-		System.out.println("entra en INICIOSESION EN POST");
-		GestionUser correo = new GestionUser();
-		boolean valClave = false;
+		int identif = 0;
+				
+		// valida el usuario y contraseña y obtiene el idLogin y tipoUser.
+		GestionUser autentificar = new GestionUser();
 		try {
-			valClave = correo.validaClave(nombre,password);
-			System.out.println("POST valClave" + valClave);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		// valida si el tipo de usuario es cliente ó empresa.
-		GestionUser correo1 = new GestionUser();
-		try {
-			tipoUsu = correo1.validaRol(nombre,password);
+			valClave = autentificar.validaClave(nombre,password);
+			tipoUsu = autentificar.validaRol(nombre,password);
+			identif = autentificar.validaId(nombre,password);
 		} catch (SQLException | NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+					
 		// crea la variable sesion para asignar sesión si es usuario válido.
 		if (sesion == null) {
 			HttpSession sesion1 = request.getSession();
-			num = 1;
+			sesion1.setAttribute("ident",identif);		
 			sesion1.setAttribute("usu",nombre); 
-			sesion1.setAttribute("count",num);
 			sesion1.setAttribute("rol",tipoUsu);		
-			//request.getRequestDispatcher("MostrarCorreos").forward(request, response);
 			return;
 		}
 		
