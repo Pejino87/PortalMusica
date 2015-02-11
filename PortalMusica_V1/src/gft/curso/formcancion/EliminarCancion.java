@@ -36,7 +36,7 @@ public class EliminarCancion extends HttpServlet {
 		HttpSession sesion = request.getSession();
 		String miRol = (String)sesion.getAttribute("rol");
 		
-		if(miRol!=null){
+		if(miRol!=null && miRol.equals("empresa")){
 			request.getRequestDispatcher("ViewFormEliminarCancion.jsp").forward(request, response);
 		}else {
 			response.sendRedirect("index.jsp");

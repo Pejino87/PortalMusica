@@ -36,7 +36,7 @@ public class EliminarLista extends HttpServlet {
 		HttpSession sesion = request.getSession();
 		String miRol = (String)sesion.getAttribute("rol");
 		
-		if(miRol!=null){
+		if(miRol!=null && miRol.equals("empresa")){
 			request.getRequestDispatcher("ViewEliminarLista.jsp").forward(request, response);
 		}else {
 			response.sendRedirect("index.jsp");
