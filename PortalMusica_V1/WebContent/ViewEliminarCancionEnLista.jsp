@@ -71,7 +71,7 @@
 				<% 	
 					rs = conn.consultaQuery("SELECT can.Id_Cancion,can.Titulo,can.Album,can.Genero,can.Cantante,can.Duracion"+
 											" FROM Canciones can, Listas_Empresa LE"+
-											" WHERE can.Id_Cancion>1 and LE.Id_Cancion=can.Id_Cancion and LE.Id_Lista="+idLista);
+											" WHERE can.Id_Cancion>0 and LE.Id_Cancion=can.Id_Cancion and LE.Id_Lista="+idLista);
 					while(rs.next()){%>
 						<li><a class="list-item"><%= rs.getString("Titulo") %> </a></li>
     					<li><a class="list-item"><%= rs.getString("Album") %></a></li>

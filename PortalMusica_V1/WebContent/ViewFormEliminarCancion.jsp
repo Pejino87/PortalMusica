@@ -35,7 +35,7 @@
 			<p></p>
 				<ul class="listaCanciones">
 					<% 	rs = conn.consultaQuery("SELECT Id_Cancion,Titulo,Album,Genero,Cantante,Duracion FROM Canciones "+
-												"WHERE Id_Cancion>1");
+												"WHERE Id_Cancion>0");
 						while(rs.next()){%>
 							<li><a class="list-item"><%= rs.getString("Titulo") %> </a></li>
         					<li><a class="list-item"><%= rs.getString("Album") %></a></li>
