@@ -8,14 +8,14 @@
 		 String s[]=null;
 
 		ConexOracle st = new ConexOracle();
-		ResultSet rs = st.consultaQuery("select cantante from canciones");
+		ResultSet rs = st.consultaQuery("Select cantante c, titulo t from canciones");
 		
 
 	    	List<String> li = new ArrayList<String>();
 	    
 			while(rs.next()) 
  			{ 			    
- 			    li.add(rs.getString(1));
+ 			    li.add(rs.getString(1) + " - " + rs.getString(2));
  			}  
 			
 			String[] str = new String[li.size()];			
