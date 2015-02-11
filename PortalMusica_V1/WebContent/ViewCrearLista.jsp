@@ -3,8 +3,10 @@
 <%@ page import="com.tienda.musica.*" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
-<%	
- 	//ListaCanciones miLista = new ListaCanciones(1,"Lista 1");
+<%@ page import="javax.servlet.http.HttpSession"%>
+<%
+	HttpSession sesion = request.getSession();
+	String idEmpresa = Integer.toString((Integer)session.getAttribute("ident"));
 	ConexOracle conn = new ConexOracle();
 	Statement stmt = conn.establecerConexion();
 	ResultSet rs,rs2;
@@ -40,7 +42,7 @@
 				rs = conn.consultaQuery("SELECT Id_Lista FROM Listas_Reproduccion WHERE Nombre = '"+nombreLista+"'");
 				if(rs.next()){
 					conn.actualizarQuery("INSERT INTO Listas_Empresa (Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
-							"VALUES(1,"+rs.getString("Id_Lista")+",0,sysdate)");
+							"VALUES("+idEmpresa+","+rs.getString("Id_Lista")+",0,sysdate)");
 				}
 				
 				conn.actualizarQuery("commit");

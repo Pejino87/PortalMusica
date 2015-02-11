@@ -3,7 +3,10 @@
 <%@ page import="com.tienda.musica.*" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
+<%@ page import="javax.servlet.http.HttpSession"%>
 <%
+	HttpSession sesion = request.getSession();
+	String idEmpresa = Integer.toString((Integer)session.getAttribute("ident"));
 	ConexOracle conn = new ConexOracle();
 	Statement stmt = conn.establecerConexion();
 	ResultSet rs;
@@ -48,7 +51,7 @@
 		<div class='info'>
 		<p></p>
 					<% 	rs = conn.consultaQuery("SELECT LR.Id_Lista as Lista, LR.Nombre as Nombre FROM Listas_Reproduccion LR, Listas_Empresa LE"+
-							" WHERE LR.Id_Lista=LE.Id_Lista and LE.Id_Empresa=1"+
+							" WHERE LR.Id_Lista=LE.Id_Lista and LE.Id_Empresa="+idEmpresa+
 							" GROUP BY  LR.Id_Lista, LR.Nombre");
 						String idLista;
 						if(rs.next()){
@@ -89,7 +92,5 @@
 	
 	<div id='footer'>Aqui solo va la información del copyright y esas
 		cosas</div>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="toast.js"></script>
 </body>
 </html>

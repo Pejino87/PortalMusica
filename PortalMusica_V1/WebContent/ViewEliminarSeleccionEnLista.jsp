@@ -4,7 +4,6 @@
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
 <%	
- 	//ListaCanciones miLista = new ListaCanciones(1,"Lista 1");
 	ConexOracle conn = new ConexOracle();
 	Statement stmt = conn.establecerConexion();
 	ResultSet rs,rs2;

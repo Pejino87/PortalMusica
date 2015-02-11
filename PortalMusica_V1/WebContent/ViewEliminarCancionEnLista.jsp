@@ -3,8 +3,10 @@
 <%@ page import="com.tienda.musica.*" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
-<%	
- 	//ListaCanciones miLista = new ListaCanciones(1,"Lista 1");
+<%@ page import="javax.servlet.http.HttpSession"%>
+<%
+	HttpSession sesion = request.getSession();
+	String idEmpresa = Integer.toString((Integer)session.getAttribute("ident"));
 	ConexOracle conn = new ConexOracle();
 	Statement stmt = conn.establecerConexion();
 	ResultSet rs,rs2;
@@ -35,7 +37,7 @@
 	<div id='main'>
 		<form method="POST" name="EliminarSeleccion" action="./EliminarCancionEnLista">
 		<% 	rs = conn.consultaQuery("SELECT LR.Id_Lista as Lista, LR.Nombre as Nombre FROM Listas_Reproduccion LR, Listas_Empresa LE"+
-									" WHERE LR.Id_Lista=LE.Id_Lista and LE.Id_Empresa=1"+
+									" WHERE LR.Id_Lista=LE.Id_Lista and LE.Id_Empresa="+idEmpresa+
 									" GROUP BY  LR.Id_Lista, LR.Nombre");
 			String idLista = "";
 			if(rs.next()){
