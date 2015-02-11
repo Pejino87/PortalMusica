@@ -94,7 +94,7 @@
     <description></description>
     <display-name>IniciaCliente</display-name>
     <servlet-name>IniciaCliente</servlet-name>
-    <servlet-class>com.backend.IniciaCliente</servlet-class>
+    <servlet-class>com.acciones.IniciaCliente</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>IniciaCliente</servlet-name>

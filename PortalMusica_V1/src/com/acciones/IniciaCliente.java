@@ -29,7 +29,7 @@ public class IniciaCliente extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Que mierda esta pasando aqui");
+
 		response.sendRedirect("index.jsp");
 	}
 
@@ -42,10 +42,10 @@ public class IniciaCliente extends HttpServlet {
 		
 		boolean isCliente = request.getSession(false).getAttribute("rol").equals("cliente");
 		
-		System.out.println("Antes del if");
+
 		
 		if(isCliente){
-			System.out.println("despues del if");
+
 			String id_cliente = (String) request.getSession(false).getAttribute("ident");
 
 					try {
@@ -58,7 +58,6 @@ public class IniciaCliente extends HttpServlet {
 						e.printStackTrace();
 					}
 				
-					System.out.println("Antes del redirect");
 				response.sendRedirect("PlantillaCliente.jsp");				
 		}
 		else{
