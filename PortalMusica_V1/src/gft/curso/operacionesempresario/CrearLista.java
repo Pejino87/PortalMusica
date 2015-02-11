@@ -1,10 +1,12 @@
 package gft.curso.operacionesempresario;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class CrearLista
@@ -31,7 +33,14 @@ public class CrearLista extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("ViewCrearLista.jsp").forward(request, response);
+		HttpSession sesion = request.getSession();
+		String miRol = (String)sesion.getAttribute("rol");
+		
+		if(miRol!=null){
+			request.getRequestDispatcher("ViewCrearLista.jsp").forward(request, response);
+		}else {
+			response.sendRedirect("index.jsp");
+		}
 	}
 
 }
