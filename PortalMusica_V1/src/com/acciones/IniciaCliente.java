@@ -46,7 +46,7 @@ public class IniciaCliente extends HttpServlet {
 		
 		if(isCliente){
 
-			String id_cliente = (String) request.getSession(false).getAttribute("ident");
+			String id_cliente = Integer.toString((Integer)request.getSession(false).getAttribute("ident"));
 
 					try {
 						ListasUser.getInstancia().loadLista(id_cliente);

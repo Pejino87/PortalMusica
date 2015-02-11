@@ -2,7 +2,12 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="com.backend.*"%>
 <%
-	//COMENT PARA COMMIT
+HttpSession sesion = request.getSession();
+String miRol = (String)sesion.getAttribute("rol");
+
+if(miRol==null || miRol.equals("empresa")){
+	response.sendRedirect("index.jsp");
+}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -23,6 +28,7 @@
 	</div>
 	<div id='nav'>
 		<p>nav nav nav nav nav nav</p>
+		<% out.println(request.getSession(false).getAttribute("ident")); %>
 	</div>
 
 <!-- MAIN -->

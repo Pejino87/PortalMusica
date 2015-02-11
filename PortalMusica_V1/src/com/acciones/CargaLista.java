@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.backend.ListaReproduccion;
 
@@ -31,14 +32,23 @@ public class CargaLista extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
+			response.sendRedirect("index.jsp");
+	
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		HttpSession sesion = request.getSession();
+		String miRol = (String)sesion.getAttribute("rol");
 
+		if(miRol==null || miRol.equals("empresa")){
+			response.sendRedirect("index.jsp");
+		}
+		else{
 		String id_lista = request.getParameter("id_lista");
 		try {
 			ListaReproduccion.getInstancia().loadLista(id_lista,"1");
@@ -51,5 +61,5 @@ public class CargaLista extends HttpServlet {
 		}	
 		response.sendRedirect("PlantillaCliente.jsp");
 	}
-
+	}
 }

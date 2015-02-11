@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.backend.Cancion;
 import com.backend.ListaModificacion;
@@ -34,7 +35,9 @@ public class AddCancion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+			response.sendRedirect("index.jsp");
+		
 	}
 
 	/**
@@ -44,6 +47,14 @@ public class AddCancion extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
+		
+		HttpSession sesion = request.getSession();
+		String miRol = (String)sesion.getAttribute("rol");
+
+		if(miRol==null || miRol.equals("empresa")){
+			response.sendRedirect("index.jsp");
+		}
+		else{
 		String cancion = request.getParameter("cancion");
 		String[] info = cancion.split(" - ");
 
@@ -107,5 +118,5 @@ public class AddCancion extends HttpServlet {
 				request, response);
 
 	}
-
+	}
 }
