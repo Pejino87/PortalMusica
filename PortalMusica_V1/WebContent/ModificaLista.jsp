@@ -12,10 +12,18 @@
 <link rel="stylesheet" href="css/bar-ui.css" />
 <link rel="stylesheet" href="css/style.css" />
 <script src="script/bar-ui.js"></script>
-<<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="script/soundmanager2.js"></script>
-
+	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+	<script src="js/jquery.autocomplete.js"></script>	
+	
+	<script>
+	jQuery(function(){
+		$("#country").autocomplete("list.jsp");
+	});
+   </script>
+	
 
 </head>
 <body>
@@ -98,12 +106,16 @@
 				%>
 				<button class="btn btn-primary" id="pulsaralta" data-toggle="modal"
 					data-target="#myModal">Nueva Cancion</button>
+					
+									<p>Nueva cancion</p>
+	Select Country   :	
+	<input type="text" id="country" name="country" class="input_text"/>
 			</ul>
+
 		</div>
 	</div>
 
 	<!--  Ventana de añadir cancion -->
-
 
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -120,8 +132,7 @@
 				<div class="modal-body">
 
 				
-				<p>Nueva cancion</p>
-					
+
 					
 				</div>
 				<!--FIN DENTRO DE LA VENTANA MODAL-->
