@@ -41,6 +41,9 @@
 			<form method="POST" name="EliminarCancionEnLista" action="./EliminarCancionEnLista">
 				<button id="btnEliminarCancion">Eliminar Cancion En Lista</button>
 			</form>
+			<form method="POST" name="EliminarLista" action="./EliminarLista">
+				<button id="btnEliminarLista">Eliminar una Lista</button>
+			</form>
 		</div>
 		<div class='info'>
 		<p></p>
