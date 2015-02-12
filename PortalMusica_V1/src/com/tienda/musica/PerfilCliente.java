@@ -43,7 +43,6 @@ public class PerfilCliente extends HttpServlet {
 		ResultSet rs = null;
 		String obNom = null,obApe = null,obNif = null,obEma = null,obUsu = null,obPwd = null,obDir=null;
 		int obIde=0,obTel=0;
-		System.out.println("cliente sesion" + cli);
 		if (!cli.equals("cliente")) {
 			System.out.println("no es cliente");
 			sesion.invalidate();

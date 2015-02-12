@@ -65,15 +65,16 @@ public static String MD5 = "MD5";
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/*
+		// comprueba si la sesión es válida.
 		HttpSession sesion = request.getSession();
 		String cli = (String) sesion.getAttribute("rol");
-		
-		if (cli != "empresa") {
+		if (!cli.equals("cliente")) {
+			System.out.println("no es cliente");
 			sesion.invalidate();
 			response.sendRedirect("index.jsp");
 		}
-		*/
+		
+		// recibe los parámetros de index.jsp
 		String cNom = request.getParameter("cNom");
 		String cRazon = request.getParameter("cRazon");
 		String cDir = request.getParameter("cDir");
