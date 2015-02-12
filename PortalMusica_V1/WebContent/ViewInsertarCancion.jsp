@@ -43,6 +43,7 @@
 
 	<div id='main'>
 		<%
+			System.out.println("V");
 			rs = conn.consultaQuery("SELECT Id_Cancion FROM Canciones"+
 								" WHERE titulo='" + titulo + "' and url='"+URL+"'");
 			if(!rs.next()){

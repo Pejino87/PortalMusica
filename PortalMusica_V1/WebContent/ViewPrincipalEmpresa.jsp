@@ -15,6 +15,7 @@
 <script src="script/bar-ui.js"></script>
 <link rel="stylesheet" href="css/bar-ui.css" />
 <link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/styleAlberto.css" />
 </head>
 <body>
 
