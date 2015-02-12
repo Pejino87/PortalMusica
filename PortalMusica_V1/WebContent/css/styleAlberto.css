@@ -25,7 +25,7 @@
 	background-color: #033649;
 	color: white;
 	text-align: center;
-	height: 180px;
+	height: 150px;
 	margin-bottom: 0px;
 }
 
@@ -64,7 +64,7 @@
 	height: 100%;
 	min-height: 680px;
 	background-image: url(../image/test-fondo.png);
-	background-size: 1193px 1000px;
+	background-size: 1200px 1000px;
 	padding: 10px;
 }
 
@@ -80,6 +80,7 @@
 	border: 2px solid;
 	border-radius: 5px;
 	text-align:center;
+	overflow:auto;
 }
 
 #main div.info {
@@ -95,15 +96,13 @@
 	border: 1px solid;
 	border-radius: 25px;
 	text-align:center;
+	overflow:auto;
 }
 
 #main div.info h4{
 	margin-top:20%;
 }
 
-#main div.info p{
-	margin-left:60%;
-}
 
 #footer {
 	border: 1px solid;
@@ -122,15 +121,15 @@
 	padding: 0;
 }
 
-#main li {
+#main div.menu li {
 	font: 200 15px/1.5 Helvetica, Verdana, sans-serif;
-	border-bottom: 1px solid #ccc;
 	text-align: center;
 }
 
-#main li:last-child {
-	border: none;
+#main div.info li {
+	font: 200 15px/1.5 Helvetica, Verdana, sans-serif;
 }
+
 
 #main div.menu li a {
 	text-decoration: none;
@@ -148,17 +147,11 @@
 #main div.info li a {
 	text-decoration: none;
 	color: #000;
-	display: block;
 	width: 100%;
-	-webkit-transition: background-color 0.3s ease;
-	-moz-transition: background-color 0.3s ease;
-	-o-transition: background-color 0.3s ease;
-	-ms-transition: background-color 0.3s ease;
-	transition: font-size 0.3s ease, background-color 0.3s ease;
 	float: top;
 }
 
-#main li a:hover {
+#main div.menu li a:hover {
 	font-weight: bold;
 	background: #f6f6f6;
 }
@@ -176,15 +169,32 @@
 }
 
 #main div.info p {
-	margin-left: 55%;
-	float: top;
+	margin-left: 5%;
+	float: left;
 }
 
-#main div.menu .styled-button-3 {
+#main  .styled-button-3 {
 	-webkit-box-shadow: rgba(0, 0, 0, 0.0 .1) 0 1px 0 0;
 	-moz-box-shadow: rgba(0, 0, 0, 0.0 .1) 0 1px 0 0;
 	box-shadow: rgba(0, 0, 0, 0.0 .1) 0 1px 0 0;
 	background-color: #5B74A8;
+	border: 1px solid #29447E;
+	font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	padding: 2px 6px;
+	height: 28px;
+	color: #fff;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px
+}
+
+#main  .styled-button-4 {
+	-webkit-box-shadow: rgba(0, 0, 0, 0.0 .1) 0 1px 0 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.0 .1) 0 1px 0 0;
+	box-shadow: rgba(0, 0, 0, 0.0 .1) 0 1px 0 0;
+	background-color: #ba2341;
 	border: 1px solid #29447E;
 	font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
 	font-size: 12px;
@@ -203,7 +213,90 @@
 	font-weight: bold;
 }
 
+#main .styled-button-4:hover {
+	border: 2px solid #29447E;
+	font-weight: bold;
+}
+
 #main h3{
 		font-family: header;
 		font-size: 20px;
+}
+
+
+/* SCROLLBAR CAMBIOS*/
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+/* LISTA AL BUSCAR CANCIONES*/
+
+.ac_results {
+	padding: 0px;
+	border: 1px solid #84a10b;
+	background-color: #84a10b;
+	overflow: hidden;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	color: #fff;
+	font-family:verdana;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font-size: 12px;
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+
+}
+
+
+.ac_odd {
+	background-color: #84a10b;
+	color: #ffffff;
+}
+
+.ac_over {
+	background-color: #5a6b13;
+	color: #ffffff;
+}
+
+
+.input_text{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	border:1px solid #84a10b;
+	padding:2px;
+	width:150px;
+	color:#000;
+	padding-left:17px;
 }
