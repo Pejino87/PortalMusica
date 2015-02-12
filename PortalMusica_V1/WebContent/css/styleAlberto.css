@@ -1,40 +1,51 @@
 @CHARSET "ISO-8859-1";
 
 /* ESTILO GENERAL, DIVS PRINCIPALES */
+@font-face {
+	font-family: titulo;
+	src: url('../fonts/timeportal.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
 
 @font-face {
-    font-family:titulo;
-    src: url(../fonts/beat of drum.ttf);
+	font-family: header;
+	src: url('../fonts/crash test.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
 #header {
 	border: 2px solid;
-	border-color:black;
-	border-top-left-radius: 5px; 
-	border-top-right-radius : 5px;
-	border-bottom-right-radius : 0px; 
-	border-bottom-left-radius : 0px;
+	border-color: black;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
 	background-color: #033649;
 	color: white;
 	text-align: center;
 	height: 180px;
-	margin-bottom:0px;
+	margin-bottom: 0px;
 }
 
 #header img {
 	float: left;
 	margin-top: 25px;
 	margin-left: 25px;
-	width:150px;
-	height:130px;
+	width: 150px;
+	height: 130px;
 }
 
 #header h1 {
 	font-family: titulo;
+	color: #EEEE99;
 	float: left;
-	margin-top: 5%;
+	margin-top: 6%;
 	margin-left: 25px;
-	font-size: 80px;
+	font-size: 70px;
+	-webkit-text-stroke-width: 0.5px;
+	-webkit-text-stroke-color: #FFAA00;
 }
 
 #nav {
@@ -45,11 +56,11 @@
 	height: 30px;
 	padding-bottom: 11px;
 	text-align: center;
-	margin-top:0px;
+	margin-top: 0px;
 }
 
 #main {
-	border : 2px solid;
+	border: 2px solid;
 	height: 100%;
 	min-height: 680px;
 	background-image: url(../image/test-fondo.png);
@@ -68,6 +79,7 @@
 	background-color: #E8DDCB;
 	border: 2px solid;
 	border-radius: 5px;
+	text-align:center;
 }
 
 #main div.info {
@@ -76,13 +88,21 @@
 	height: 400px;
 	margin: 5px;
 	margin-left: 55%;
+	margin-right: 10%;
 	margin-top: 5%;
 	top: 5px;
 	background-color: #E8DDCB;
 	border: 1px solid;
 	border-radius: 25px;
-	opacity: 1;
-    filter: alpha(opacity=100);
+	text-align:center;
+}
+
+#main div.info h4{
+	margin-top:20%;
+}
+
+#main div.info p{
+	margin-left:60%;
 }
 
 #footer {
@@ -95,9 +115,7 @@
 	text-align: center;
 }
 
-
 /* ESTILO LISTAS REPRODUCCION Y CANCIONES */
-
 #main ul {
 	list-style-type: none;
 	margin: 0;
@@ -114,54 +132,78 @@
 	border: none;
 }
 
-#main li a {
+#main div.menu li a {
 	text-decoration: none;
 	color: #000;
 	display: block;
 	width: 100%;
-	-webkit-transition:  background-color 0.3s ease;
+	-webkit-transition: background-color 0.3s ease;
 	-moz-transition: background-color 0.3s ease;
 	-o-transition: background-color 0.3s ease;
 	-ms-transition: background-color 0.3s ease;
 	transition: font-size 0.3s ease, background-color 0.3s ease;
-	float:left;
+	float: left;
 }
 
-#main li a:hover{
+#main div.info li a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+	width: 100%;
+	-webkit-transition: background-color 0.3s ease;
+	-moz-transition: background-color 0.3s ease;
+	-o-transition: background-color 0.3s ease;
+	-ms-transition: background-color 0.3s ease;
+	transition: font-size 0.3s ease, background-color 0.3s ease;
+	float: top;
+}
+
+#main li a:hover {
 	font-weight: bold;
 	background: #f6f6f6;
 }
 
 #main input {
-	margin-top:3%;
-	margin-left:10px;
-	margin-right:2px;
-	float:left;
+	margin-top: 3%;
+	margin-left: 10px;
+	margin-right: 2px;
+	float: left;
 }
 
-#main p {
-	margin-left:5%;
-	float:left;
+#main div.menu p {
+	margin-left: 5%;
+	float: left;
 }
 
-#main .styled-button-3 {
-	-webkit-box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
-	-moz-box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
-	box-shadow:rgba(0,0,0,0.0.1) 0 1px 0 0;
-	background-color:#5B74A8;
-	border:1px solid #29447E;
-	font-family:'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
-	font-size:12px;
-	font-weight:700;
-	padding:2px 6px;
-	height:28px;
-	color:#fff;
-	border-radius:5px;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px
+#main div.info p {
+	margin-left: 55%;
+	float: top;
 }
 
-#main .styled-button-3:hover{
+#main div.menu .styled-button-3 {
+	-webkit-box-shadow: rgba(0, 0, 0, 0.0 .1) 0 1px 0 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.0 .1) 0 1px 0 0;
+	box-shadow: rgba(0, 0, 0, 0.0 .1) 0 1px 0 0;
+	background-color: #5B74A8;
+	border: 1px solid #29447E;
+	font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	padding: 2px 6px;
+	height: 28px;
+	color: #fff;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px
+}
+
+
+#main .styled-button-3:hover {
 	border: 2px solid #29447E;
-	font-weight:bold;
+	font-weight: bold;
+}
+
+#main h3{
+		font-family: header;
+		font-size: 20px;
 }

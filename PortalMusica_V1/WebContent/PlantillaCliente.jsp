@@ -25,7 +25,7 @@ if(miRol==null || miRol.equals("empresa")){
 
 	<div id='header'>
 		<img src="image/logo-1.png">
-		<h1>NombrePortal</h1>
+		<h1>Sharebeats</h1>
 	</div>
 	<div id='nav'>
 		
