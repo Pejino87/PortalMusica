@@ -79,10 +79,12 @@ public class AltaClient extends HttpServlet {
 		// recibe los parámetros de index.jsp
 		String cNom = request.getParameter("cNom");
 		String cApe = request.getParameter("cApe");
+		String cFec = request.getParameter("cFec");
 		String cNif = request.getParameter("cNif");
 		String cDir = request.getParameter("cDir");
 		String cTel1 = request.getParameter("cTel");
 		String cEmail = request.getParameter("cEmail");
+		String cFca = request.getParameter("cFca");
 		String cUser = request.getParameter("cUser");
 		String cPwd1 = request.getParameter("cPwd");
 		int cTel = Integer.parseInt(cTel1);
@@ -111,9 +113,9 @@ public class AltaClient extends HttpServlet {
 				sentencia.actualizarQuery("rollback");
 			}
 			
-			String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,DIRECCION,TELEFONO,EMAIL,id_login) VALUES " +
-					"(INCRECLIENTE.nextval, '" + cNom + "' , '" + cApe + "' , '" + cNif + "' , '" + cDir + "'  , '" + cTel + 
-					"' , '" + cEmail + "' , " + login + " )";
+			String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,Fecha_Nacimiento,TELEFONO,DIRECCION,EMAIL,fecha_alta,id_login) VALUES " +
+					"(INCRECLIENTE.nextval, '" + cNom + "' , '" + cApe + "' , '" + cNif + "' , '" + cFec + "'  , '" + cTel + "', '" + cDir + 
+					"' , '" + cEmail + "' , '" + cFca + "'  , " + login + " )";
 					
 			sentencia.actualizarQuery(sSQL);
 		
