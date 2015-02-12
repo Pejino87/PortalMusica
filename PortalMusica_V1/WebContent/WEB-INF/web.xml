@@ -200,4 +200,14 @@
     <servlet-name>ModiCliente</servlet-name>
     <url-pattern>/ModiCliente</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PerfilEmpresa</display-name>
+    <servlet-name>PerfilEmpresa</servlet-name>
+    <servlet-class>com.tienda.musica.PerfilEmpresa</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PerfilEmpresa</servlet-name>
+    <url-pattern>/PerfilEmpresa</url-pattern>
+  </servlet-mapping>
 </web-app>
