@@ -41,20 +41,20 @@ public class PerfilCliente extends HttpServlet {
 		String cli = (String) sesion.getAttribute("rol");
 		Integer idLog = (Integer) sesion.getAttribute("ident");
 		ResultSet rs = null;
-		String obNom = null,obApe = null,obNif = null,obEma = null,obUsu = null,obPwd = null,obDir=null;
-		int obIde=0,obTel=0;
+		String obNom = null,obApe = null,obNif = null,obEma = null,obDir=null;
+		int obIde=0,obTel=0,obLog=0;
 		if (!cli.equals("cliente")) {
 			System.out.println("no es cliente");
 			sesion.invalidate();
 			response.sendRedirect("index.jsp");
 		}
 		
-		String sSQL = "SELECT ID_CLIENTE,NOMBRE,APELLIDOS,NIF,DIRECCION,TELEFONO,EMAIL,USUARIO,CONTRASENA FROM CLIENTE";
+		String sSQL = "SELECT ID_CLIENTE,NOMBRE,APELLIDOS,NIF,DIRECCION,TELEFONO,EMAIL,ID_LOGIN FROM CLIENTE";
 		ConexOracle sentencia = new ConexOracle();
 		try {
 			rs = sentencia.consultaQuery(sSQL);
 			while (rs.next()) {
-				if (rs.getInt("ID_CLIENTE")==2) {
+				if (rs.getInt("ID_CLIENTE")==idLog) {
 					obIde = rs.getInt("ID_CLIENTE"); 
 					obNom = rs.getString("NOMBRE"); 
 					obApe = rs.getString("APELLIDOS"); 
@@ -62,8 +62,7 @@ public class PerfilCliente extends HttpServlet {
 					obDir = rs.getString("DIRECCION");
 					obTel = rs.getInt("TELEFONO"); 
 					obEma = rs.getString("EMAIL"); 
-					obUsu = rs.getString("USUARIO"); 
-					obPwd = rs.getString("CONTRASENA"); 
+					obLog = rs.getInt("ID_LOGIN"); 
 				}	
 			}
 			
@@ -79,9 +78,8 @@ public class PerfilCliente extends HttpServlet {
 		request.setAttribute("obsDir",obDir);
 		request.setAttribute("obsTel",obTel);
 		request.setAttribute("obsEma",obEma);
-		request.setAttribute("obsUsu",obUsu);
-		request.setAttribute("obsPwd",obPwd);
-		System.out.println("perfilCliente");
+		request.setAttribute("obsLog",obLog);
+		
 		request.getRequestDispatcher("perfilCliente.jsp").forward(request, response);
 	}
 

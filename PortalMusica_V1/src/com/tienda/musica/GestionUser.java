@@ -5,6 +5,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import javax.naming.NamingException;
 
 public class GestionUser {
@@ -74,6 +75,7 @@ public class GestionUser {
 			sentencia.finalizarConexion();
 		}
 		// devuelve si el tipo de usuario es cliente ó empresa.
+		System.out.println("tipoUsua: " + tipoUsua);
 		return tipoUsua;
 	}
 	

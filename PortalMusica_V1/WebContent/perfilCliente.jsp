@@ -25,16 +25,14 @@
 	<div id='main'>
 		<div class='menu'>
 			<% 
-			/*
+			// comprueba si la sesión es válida.
 			HttpSession sesion = request.getSession();
 			String cli = (String) sesion.getAttribute("rol");
-			Integer idLog = (Integer) sesion.getAttribute("ident");
-			
-			if (cli != "cliente") {
+			if (!cli.equals("cliente")) {
+				System.out.println("no es cliente");
 				sesion.invalidate();
 				response.sendRedirect("index.jsp");
 			}
-			*/
 			Integer varIde = (Integer) request.getAttribute("obsIde"); 
 			String varNom = (String) request.getAttribute("obsNom"); 
 			String varApe = (String) request.getAttribute("obsApe"); 
@@ -42,8 +40,7 @@
 			String varDir = (String) request.getAttribute("obsDir"); 
 			Integer varTel = (Integer) request.getAttribute("obsTel"); 
 			String varEma = (String) request.getAttribute("obsEma"); 
-			String varUsu = (String) request.getAttribute("obsUsu"); 
-			String varPwd = (String) request.getAttribute("obsPwd"); 
+			Integer varLog = (Integer) request.getAttribute("obLog"); 
 			
 			%>
 			
@@ -98,22 +95,7 @@
 						<input id="poncorreo" name="cEmail" type="text" maxlength="30" size="30" value="<% out.print(varEma); %>"></input>
 					</td>
 				  </tr>	
-				  <tr>
-					<td>		
-						<label for="cuser">USUARIO:</label>
-					</td>
-					<td>	
-						<input id="ponusuCli" name="cUser" type="text" maxlength="11" size="11" value="<% out.print(varUsu); %>"></input>
-					</td>
-				  </tr>				
-				  <tr>
-					<td>		
-						<label for="cpwd">CONTRASEÑA:</label>
-					</td>
-					<td>	
-						<input id="poncontra" name="cPwd" type="password" maxlength="11" size="11" value="<% out.print(varPwd); %>"></input>
-					</td>
-				  </tr>	
+				  
 				  <div id='modificar'>
 					  <a href="PerfilCliente?ident=<%=varIde%>">
 									MODIFICAR
