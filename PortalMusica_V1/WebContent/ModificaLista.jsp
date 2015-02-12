@@ -41,11 +41,11 @@ if(miRol==null || miRol.equals("empresa")){
 		<h1>NombrePortal</h1>
 	</div>
 	<div id='nav'>
-		<p>nav nav nav nav nav nav</p>
 	</div>
 
 	<div id='main'>
 		<div class='menu'>
+		<h3>Tus listas de musica:</h3>
 			<ul>
 				<%
 					if (ListasUser.getInstancia().getLista().size() == 0) {
@@ -53,26 +53,44 @@ if(miRol==null || miRol.equals("empresa")){
 					} else {
 						for (int i = 0; i < ListasUser.getInstancia().getLista().size(); i++) {
 							out.print("<li>");
-							out.print("<b>"
+							out.print("<a><p>"
 									+ ListasUser.getInstancia().getLista().get(i)
-											.getNombre() + "  </b>");
+											.getNombre() + "");
 							out.print("<form name='id_lista' action='ModificaLista' method='POST'>");
 							out.print("<input type='hidden' value='false' name='isNueva'>");
 							out.print("<input type='hidden' value='"
 									+ ListasUser.getInstancia().getLista().get(i)
 											.getId_lista() + "' name='id_lista'>");
-							out.print("<input type='submit' value='Modificar'>");
+							out.print("<input type='submit' class='styled-button-3' value='Modificar'>");
+							out.print("<input type='hidden' value='"
+									+ ListasUser.getInstancia().getLista().get(i)
+											.getNombre() + "' name='nombre'>");
 							out.print("</form>");
+							
+
+							out.print("<form name='id_lista' action='CargaLista' method='POST'>");
+							out.print("<input type='hidden' value='"
+									+ ListasUser.getInstancia().getLista().get(i)
+											.getId_lista() + "' name='id_lista'>");
+							out.print("<input type='submit' class='styled-button-3' value='Cargar'>");
+							out.print("</form>");
+							out.print("</p>");
+							out.print("</a>");
 							out.print("</li>");
 						}
 					}
+					out.print("<li>");
+					out.print("<a> <p>Crea una nueva lista</p>");
 					out.print("<form name='Nueva Lista' action='ModificaLista' method='POST'>");
 					out.print("<input type='hidden' value='true' name='isNueva'>");
-					out.print("<input type='submit' value='Nueva Lista'>");
+					out.print("<input type='submit' class='styled-button-3' value='Nueva Lista'>");
 					out.print("</form>");
+					out.print("</a>");
+					out.print("</li>");
 				%>
 			</ul>
 		</div>
+		
 		<div class='info'>
 			<h3>Lista:</h3>
 			<%
