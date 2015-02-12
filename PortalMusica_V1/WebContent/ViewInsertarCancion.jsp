@@ -4,8 +4,10 @@
 <%@ page import="com.tienda.musica.*" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
-<%	
- 	//ListaCanciones miLista = new ListaCanciones(1,"Lista 1");
+<%@ page import="javax.servlet.http.HttpSession"%>
+<%
+	HttpSession sesion = request.getSession();
+	String idEmpresa = Integer.toString((Integer)session.getAttribute("ident"));
 	ConexOracle conn = new ConexOracle();
 	Statement stmt = conn.establecerConexion();
 	ResultSet rs,rs2,rs3;
@@ -41,22 +43,16 @@
 
 	<div id='main'>
 		<%
-			/*rs2 = conn.consultaQuery("SELECT count(1) TotalElementos FROM Canciones");
-			if(rs2.next()){
-				totalEle = Integer.parseInt(rs2.getString("TotalElementos"));
-				System.out.println("TotalEle--> " + totalEle);
-			}*/
-			
 			rs = conn.consultaQuery("SELECT Id_Cancion FROM Canciones"+
 								" WHERE titulo='" + titulo + "' and url='"+URL+"'");
 			if(!rs.next()){
 				conn.actualizarQuery("INSERT INTO Canciones(Id_Cancion,Titulo,Album,Genero,Cantante,Duracion,URL)" +
-						"VALUES (INCRECANCIONES.nextval,'"+ titulo +"','"+ album +"','"+ genero +"','"+ cantante +"',"+ duracion +",'"+ URL +"')");
+						"VALUES (INCRECANCIONES.nextval,'"+ titulo +"','"+ album +"','"+ genero +"','"+ cantante +"','"+ duracion +"','"+ URL +"')");
 
 				rs2 = conn.consultaQuery("Select MAX(Id_Cancion) as Maximo FROM Canciones");
 				if(rs2.next()){
 					conn.actualizarQuery("INSERT INTO Listas_Empresa(Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
-							"VALUES(1," + idLista +","+ rs2.getString("Maximo") +",sysdate)");
+							"VALUES("+idEmpresa+"," + idLista +","+ rs2.getString("Maximo") +",sysdate)");
 				}else{
 					System.out.println("Cancion no insertada en lista_empresa");
 				}
@@ -66,7 +62,7 @@
 										" WHERE Id_Lista="+idLista+" and Id_Cancion="+rs.getString("Id_Cancion"));
 				if(!rs2.next()){
 					conn.actualizarQuery("INSERT INTO Listas_Empresa(Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
-							"VALUES(1," + idLista +","+ rs.getString("Id_Cancion") +",sysdate)");
+							"VALUES("+idEmpresa+"," + idLista +","+ rs.getString("Id_Cancion") +",sysdate)");
 					conn.actualizarQuery("commit");
 				}else{
 					System.out.println("La cancion ya existe en la lista");%>

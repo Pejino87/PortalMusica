@@ -3,7 +3,10 @@
 <%@ page import="com.tienda.musica.*" %>
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.sql.ResultSet" %>
-<%	
+<%@ page import="javax.servlet.http.HttpSession"%>
+<%
+	HttpSession sesion = request.getSession();
+	String idEmpresa = Integer.toString((Integer)session.getAttribute("ident"));
 	ConexOracle conn = new ConexOracle();
 	Statement stmt = conn.establecerConexion();
 	ResultSet rs,rs2;
@@ -36,7 +39,7 @@
 		for(int i=0;i<seleccionadas.length;i++){
 			if(Integer.parseInt(seleccionadas[i])>1){
 				conn.actualizarQuery("DELETE FROM Listas_Empresa WHERE Id_Cancion="+seleccionadas[i] +
-									" and Id_Lista="+listaSeleccionada+" and Id_Empresa=1");
+									" and Id_Lista="+listaSeleccionada+" and Id_Empresa="+idEmpresa);
 			}
 		}
 		conn.actualizarQuery("commit");
