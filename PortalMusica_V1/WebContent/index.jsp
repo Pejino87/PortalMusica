@@ -27,9 +27,9 @@
 				<tr>
 					<td class="bordertd2">
 						<label for="user" class="loginlabel" >Usuario</label><br>
-						<input type="text" id="ponusu" class="logininput" name="usu" required maxlength="9"><br>
+						<input type="text" id="ponusu" class="logininput" name="usu" required maxlength="20"><br>
 						<label for="pwd" class="loginlabel">Contraseña</label><br>
-						<input type="password" id="ponpwd" class="logininput" name="pwd" required maxlength="9"><br>
+						<input type="password" id="ponpwd" class="logininput" name="pwd" required maxlength="20"><br>
 						<label for="enviar"></label>
 						<input type="submit" class="logininput" value="ENVIAR"  >
 					</td>
