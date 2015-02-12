@@ -106,12 +106,6 @@ if(miRol==null || miRol.equals("empresa")){
 				out.print("<input type='submit' class='styled-button-3' value='Guardar Lista'>");
 				out.print("</form>");
 				out.print("<br>");
-				out.print("<form name='Borrar Lista' action='CambiosLista' method='POST'>");
-				out.print("<input type='hidden' value='true' name='isEliminar'>");
-				out.print("<input type='hidden' value='"
-						+ request.getAttribute("id_lista") + "' name='id_lista'>");
-				out.print("<input type='submit' class='styled-button-3' value='Eliminar Lista'>");
-				out.print("</form>");
 				out.print("</p>");
 				out.print("</a>");
 				out.print("</li>");
@@ -124,22 +118,23 @@ if(miRol==null || miRol.equals("empresa")){
 						for (int i = 0; i < ListaModificacion.getInstancia().getLista()
 								.size(); i++) {
 							out.print("<li>");
-							out.print("<a><p>");
-							out.print("Titulo: "
-									+ ListaModificacion.getInstancia().getLista()
-											.get(i).getTitulo() );
-							out.print("Autor: "
+							out.print("<a><p>----- ");
+							out.print(""
 									+ ListaModificacion.getInstancia().getLista()
 											.get(i).getCantante() + " ");
-							out.print("</p>");
+							out.print(" - "
+									+ ListaModificacion.getInstancia().getLista()
+											.get(i).getTitulo() );
+							out.print(" -----</p>");
 							out.print("</a>");
 							out.print("</li>");
+
 						}
 
 					}
 				%>
 
-			<li><p><a>Busca una nueva cancion : 
+			<li><p><a>
 				<form name='Add Cancion' action='AddCancion' method='POST'>
 				<input type="text" id="cancion" name="cancion" class="input_text" /> 
 				<%out.print("<input type='hidden' value='"
@@ -149,6 +144,19 @@ if(miRol==null || miRol.equals("empresa")){
 				</a>
 				</p>
 			</li>
+			
+			<%	
+			out.print("<li>");
+			out.print("<a><p>");
+			out.print("<form name='Borrar Lista' action='CambiosLista' method='POST'>");
+			out.print("<input type='hidden' value='true' name='isEliminar'>");
+			out.print("<input type='hidden' value='"
+					+ request.getAttribute("id_lista") + "' name='id_lista'>");
+			out.print("<input type='submit' class='styled-button-4' value='Eliminar Lista'>");
+			out.print("</form>");
+			out.print("</p>");
+			out.print("</a>");
+			out.print("</li>");%>
 		</ul>
 
 		</div>

@@ -27,9 +27,9 @@
 				<tr>
 					<td class="bordertd2">
 						<label for="user" class="loginlabel" >Usuario</label><br>
-						<input type="text" id="ponusu" class="logininput" name="usu" required maxlength="9"><br>
+						<input type="text" id="ponusu" class="logininput" name="usu" required maxlength="20"><br>
 						<label for="pwd" class="loginlabel">Contraseña</label><br>
-						<input type="password" id="ponpwd" class="logininput" name="pwd" required maxlength="9"><br>
+						<input type="password" id="ponpwd" class="logininput" name="pwd" required maxlength="20"><br>
 						<label for="enviar"></label>
 						<input type="submit" class="logininput" value="ENVIAR"  >
 					</td>
@@ -85,13 +85,12 @@
 								  </tr>	
 								  <tr>
 									<td>		
-										<label for="cdir">DIRECCION:</label>
+										<label for="cdir">FECHA NACIMIENTO:</label>
 									</td>
 									<td>	
-										<input id="pondire" name="cDir" type="text" maxlength="30" size="30" ></input>
+										<input id="" name="cFec" type="text" maxlength="10" size="10" ></input>
 									</td>
-								  </tr>		
-								  
+								  </tr>	
 								  <tr>
 									<td>		
 										<label for="ctel">TELEFONO:</label>
@@ -99,13 +98,31 @@
 									<td>	
 										<input id="pontele" name="cTel" type="text" maxlength="11" size="11" ></input>
 									</td>
-								  </tr>	
+								  </tr>		
+								  <tr>
+									<td>		
+										<label for="cdir">DIRECCION:</label>
+									</td>
+									<td>	
+										<input id="pondire" name="cDir" type="text" maxlength="30" size="30" ></input>
+									</td>
+								  </tr>		
+								  
+								  
 								  <tr>
 									<td>		
 										<label for="cemail">EMAIL:</label>
 									</td>
 									<td>	
 										<input id="poncorreo" name="cEmail" type="text" maxlength="30" size="30" ></input>
+									</td>
+								  </tr>	
+								  <tr>
+									<td>		
+										<label for="cdir">FECHA ALTA:</label>
+									</td>
+									<td>	
+										<input id="" name="cFca" type="text" maxlength="10" size="10" ></input>
 									</td>
 								  </tr>	
 								  <tr>
@@ -190,7 +207,23 @@
 									<td>	
 										<input id="ponrazonE" name="cRazon" type="text" maxlength="11" size="11" ></input>
 									</td>
+								  </tr>
+								  <tr>
+									<td>		
+										<label for="cdir">FECHA NACIMIENTO:</label>
+									</td>
+									<td>	
+										<input id="" name="cFec" type="text" maxlength="10" size="10" ></input>
+									</td>
 								  </tr>	
+								  <tr>
+									<td>		
+										<label for="ctel">TELEFONO:</label>
+									</td>
+									<td>	
+										<input id="ponteleE" name="cTel" type="text" maxlength="11" size="11" ></input>
+									</td>
+								  </tr>				
 								  <tr>
 									<td>		
 										<label for="cdir">DIRECCION:</label>
@@ -199,21 +232,20 @@
 										<input id="pondireE" name="cDir" type="text" maxlength="30" size="30" ></input>
 									</td>
 								  </tr>		
-								  
-								  <tr>
-									<td>		
-										<label for="ctel">TELEFONO:</label>
-									</td>
-									<td>	
-										<input id="ponteleE" name="cTel" type="text" maxlength="11" size="11" ></input>
-									</td>
-								  </tr>		
 								  <tr>
 									<td>		
 										<label for="cemail">EMAIL:</label>
 									</td>
 									<td>	
 										<input id="poncorreoE" name="cEmail" type="text" maxlength="30" size="30" ></input>
+									</td>
+								  </tr>	
+								  <tr>
+									<td>		
+										<label for="cdir">FECHA ALTA:</label>
+									</td>
+									<td>	
+										<input id="" name="cFca" type="text" maxlength="10" size="10" ></input>
 									</td>
 								  </tr>	
 								  <tr>

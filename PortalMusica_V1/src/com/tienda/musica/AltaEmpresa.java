@@ -78,9 +78,11 @@ public static String MD5 = "MD5";
 		// recibe los parámetros de index.jsp
 		String cNom = request.getParameter("cNom");
 		String cRazon = request.getParameter("cRazon");
+		String cFec = request.getParameter("cFec");
 		String cDir = request.getParameter("cDir");
 		String cTel1 = request.getParameter("cTel");
 		String cEmail = request.getParameter("cEmail");
+		String cFca = request.getParameter("cFca");
 		String cUser = request.getParameter("cUser");
 		String cPwd1 = request.getParameter("cPwd");
 		int cTel = Integer.parseInt(cTel1);
@@ -109,9 +111,9 @@ public static String MD5 = "MD5";
 			sentencia.actualizarQuery("rollback");
 		}
 		
-		String sSQL = "INSERT INTO EMPRESA (ID_EMPRESA,NOMBRE,RAZONSOCIAL,DIRECCION,TELEFONO,EMAIL,id_login) VALUES " +
-				"(INCRECLIENTE.nextval, '" + cNom + "'  , '" + cRazon + "' , '" + cDir + "'  , '" + cTel + 
-				"' , '" + cEmail + "' , " + login + " )";
+		String sSQL = "INSERT INTO EMPRESA (ID_EMPRESA,NOMBRE,RAZONSOCIAL,Fecha_Nacimiento,TELEFONO,DIRECCION,EMAIL,fecha_alta,id_login) VALUES " +
+				"(INCRECLIENTE.nextval, '" + cNom + "'  , '" + cRazon + "' , '" + cFec + "'  , '" + cTel + "'  , '" + cDir + 
+				"' , '" + cEmail + "' , '" + cFca + "'  , " + login + " )";
 				
 		sentencia.actualizarQuery(sSQL);
 		
