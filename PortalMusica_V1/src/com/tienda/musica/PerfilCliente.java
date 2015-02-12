@@ -30,6 +30,12 @@ public class PerfilCliente extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String iden = request.getParameter("ident");
+		int ident = Integer.parseInt(iden);
+		System.out.println("ident" + ident);		
+		request.setAttribute("ident", ident);
+		
+		request.getRequestDispatcher("TodosCorreos.jsp").forward(request, response);
 	}
 
 	/**
@@ -40,6 +46,7 @@ public class PerfilCliente extends HttpServlet {
 		HttpSession sesion = request.getSession();
 		String cli = (String) sesion.getAttribute("rol");
 		Integer idLog = (Integer) sesion.getAttribute("ident");
+		
 		ResultSet rs = null;
 		String obNom = null,obApe = null,obNif = null,obEma = null,obDir=null;
 		int obIde=0,obTel=0,obLog=0;
@@ -54,7 +61,7 @@ public class PerfilCliente extends HttpServlet {
 		try {
 			rs = sentencia.consultaQuery(sSQL);
 			while (rs.next()) {
-				if (rs.getInt("ID_CLIENTE")==idLog) {
+				if (rs.getInt("ID_LOGIN")==idLog) {
 					obIde = rs.getInt("ID_CLIENTE"); 
 					obNom = rs.getString("NOMBRE"); 
 					obApe = rs.getString("APELLIDOS"); 
