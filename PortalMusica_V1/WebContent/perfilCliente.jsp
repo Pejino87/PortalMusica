@@ -8,7 +8,7 @@
  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
  <link href="css/music.css" rel="stylesheet" type="text/css">
  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
- <link rel="stylesheet" href="css/style.css" />
+ <link rel="stylesheet" href="css/stylePerfil.css" />
  <script src="js/jquery-2.1.1.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
  <script src="js/jsmusic.js"></script>
@@ -112,12 +112,13 @@
 					</td>
 					<td>	
 						<input id="poncontra" name="cPwd" type="password" maxlength="11" size="11" value="<% out.print(varPwd); %>"></input>
-						</td>
+					</td>
 				  </tr>	
-				  
-				  <a href="PerfilCliente?ident=<%=varIde%>">
-								MODIFICAR
-				  </a>
+				  <div id='modificar'>
+					  <a href="PerfilCliente?ident=<%=varIde%>">
+									MODIFICAR
+					  </a>
+				  </div>
 		  </table>
 		
 			
