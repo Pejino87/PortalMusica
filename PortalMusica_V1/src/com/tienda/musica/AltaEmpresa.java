@@ -1,6 +1,7 @@
 package com.tienda.musica;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.naming.NamingException;
@@ -85,24 +86,40 @@ public static String MD5 = "MD5";
 		// encriptación contraseña
 		String cPwd = getStringMessageDigest(cPwd1,MD5);
 		System.out.println("MD5 = " + cPwd );
-		// Preparar una sentencia SQL y ejecutarla
 		
-		String sSQL = "INSERT INTO EMPRESA (ID_EMPRESA,NOMBRE,RAZONSOCIAL,DIRECCION,TELEFONO,EMAIL,USUARIO,CONTRASENA) VALUES " +
-				"(INCRECLIENTE11.nextval, '" + cNom + "' , '" + cRazon + "' , '" + cDir + "'  , '" + cTel + 
-				"' , '" + cEmail + "' , '" + cUser + "' , '" + cPwd + "' )";
-				
-		String sSQLlogin = "INSERT INTO LOGIN (ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER) VALUES " +
-		"(INCRELOGIN.nextval, '" + cUser + "' , '" + cPwd + "' ,'empresa')";
-		
-		ConexOracle sentencia = new ConexOracle();
 		try {
-			sentencia.actualizarQuery(sSQL);
-			sentencia.actualizarQuery(sSQLlogin);
+			ConexOracle sentencia = new ConexOracle();
+		// Preparar una sentencia SQL y ejecutarla
+			
+	    String sSQLlogin = "INSERT INTO LOGIN (ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER) VALUES " +
+	    		"(INCRELOGIN.nextval, '" + cUser + "' , '" + cPwd + "' ,'empresa')";
+		sentencia.actualizarQuery(sSQLlogin);
+	    
+		
+		ResultSet id_login = sentencia.consultaQuery("Select max(id_login) from login");
+		int login = 0;
+		
+		if(id_login.next()){
+			login = (Integer)id_login.getInt(1);
+		}
+		else{
+			System.out.println("Error al insertar cliente");
+			sentencia.actualizarQuery("rollback");
+		}
+		
+		String sSQL = "INSERT INTO EMPRESA (ID_CLIENTE,NOMBRE,RAZONSOCIAL,DIRECCION,TELEFONO,EMAIL,id_login) VALUES " +
+				"(INCRECLIENTE.nextval, '" + cNom + "'  , '" + cRazon + "' , '" + cDir + "'  , '" + cTel + 
+				"' , '" + cEmail + "' , " + login + " )";
+				
+		sentencia.actualizarQuery(sSQL);
+		
 			response.sendRedirect("index.jsp");
 		} catch (SQLException | NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 	}
 
 }

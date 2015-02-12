@@ -109,7 +109,7 @@ public class AltaClient extends HttpServlet {
 		}
 		
 		String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,DIRECCION,TELEFONO,EMAIL,id_login) VALUES " +
-				"(INCRECLIENTE11.nextval, '" + cNom + "' , '" + cApe + "' , '" + cNif + "' , '" + cDir + "'  , '" + cTel + 
+				"(INCRECLIENTE.nextval, '" + cNom + "' , '" + cApe + "' , '" + cNif + "' , '" + cDir + "'  , '" + cTel + 
 				"' , '" + cEmail + "' , " + login + " )";
 				
 		sentencia.actualizarQuery(sSQL);
