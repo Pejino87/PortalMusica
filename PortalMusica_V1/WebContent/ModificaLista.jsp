@@ -18,7 +18,7 @@ if(miRol==null || miRol.equals("empresa")){
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" href="css/bar-ui.css" />
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/styleAlberto.css" />
 <script src="script/bar-ui.js"></script>
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -37,7 +37,8 @@ if(miRol==null || miRol.equals("empresa")){
 <body>
 
 	<div id='header'>
-		<h1>Imagen del logo del portal. Header</h1>
+		<img src="image/logo-1.png">
+		<h1>NombrePortal</h1>
 	</div>
 	<div id='nav'>
 		<p>nav nav nav nav nav nav</p>

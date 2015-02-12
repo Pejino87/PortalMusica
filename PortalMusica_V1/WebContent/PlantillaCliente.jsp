@@ -18,21 +18,23 @@ if(miRol==null || miRol.equals("empresa")){
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript" src="script/soundmanager2.js"></script>
 <script src="script/bar-ui.js"></script>
+<link rel="stylesheet" href="css/styleAlberto.css" />
 <link rel="stylesheet" href="css/bar-ui.css" />
-<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
 	<div id='header'>
-		<h1>Imagen del logo del portal. Header</h1>
+		<img src="image/logo-1.png">
+		<h1>NombrePortal</h1>
 	</div>
 	<div id='nav'>
-		<p>nav nav nav nav nav nav</p>
+		
 	</div>
 
 <!-- MAIN -->
 	<div id='main'>
 		<div class='menu'>
+		<h3>Tus listas de musica:</h3>
 			<ul>
 				<%
 					if (ListasUser.getInstancia().getLista().size() == 0) {
@@ -40,33 +42,40 @@ if(miRol==null || miRol.equals("empresa")){
 					} else {
 						for (int i = 0; i < ListasUser.getInstancia().getLista().size(); i++) {
 							out.print("<li>");
-							out.print("<b>"
+							out.print("<a><p>"
 									+ ListasUser.getInstancia().getLista().get(i)
-											.getNombre() + "  </b>");
+											.getNombre() + "");
 							out.print("<form name='id_lista' action='ModificaLista' method='POST'>");
 							out.print("<input type='hidden' value='false' name='isNueva'>");
 							out.print("<input type='hidden' value='"
 									+ ListasUser.getInstancia().getLista().get(i)
 											.getId_lista() + "' name='id_lista'>");
-							out.print("<input type='submit' value='Modificar'>");
+							out.print("<input type='submit' class='styled-button-3' value='Modificar'>");
 							out.print("<input type='hidden' value='"
 									+ ListasUser.getInstancia().getLista().get(i)
 											.getNombre() + "' name='nombre'>");
 							out.print("</form>");
+							
 
 							out.print("<form name='id_lista' action='CargaLista' method='POST'>");
 							out.print("<input type='hidden' value='"
 									+ ListasUser.getInstancia().getLista().get(i)
 											.getId_lista() + "' name='id_lista'>");
-							out.print("<input type='submit' value='Cargar'>");
+							out.print("<input type='submit' class='styled-button-3' value='Cargar'>");
 							out.print("</form>");
+							out.print("</p>");
+							out.print("</a>");
 							out.print("</li>");
 						}
 					}
+					out.print("<li>");
+					out.print("<a> <p>Crea una nueva lista</p>");
 					out.print("<form name='Nueva Lista' action='ModificaLista' method='POST'>");
 					out.print("<input type='hidden' value='true' name='isNueva'>");
-					out.print("<input type='submit' value='Nueva Lista'>");
+					out.print("<input type='submit' class='styled-button-3' value='Nueva Lista'>");
 					out.print("</form>");
+					out.print("</a>");
+					out.print("</li>");
 				%>
 			</ul>
 		</div>
@@ -75,7 +84,8 @@ if(miRol==null || miRol.equals("empresa")){
 
 <!-- INFO  -->
 		<div class='info'>
-			<h2>Bienvenido !</h2>
+			<h4>" Aqui he pensado que puede ir una cita sobre musica, que sea aleatoria y vaya cambiando "</h4>
+			<p> Alberto - 2015</p>
 		</div>
 <!-- FIN INFO -->
 	</div>
