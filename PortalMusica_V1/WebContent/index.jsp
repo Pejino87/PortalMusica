@@ -57,8 +57,7 @@
 					  	
 							<form name="formenviar" method="POST" action="AltaClient" onsubmit = "return validaraltacliente()">
 								<table   class="table table-striped"  >
-								  <caption>ALTA CLIENTE</caption><br><br>
-								  
+								  								  
 								  <tr>
 									<td>
 										<label for="cnombre">NOMBRE:</label><br>
@@ -190,8 +189,7 @@
 					  	
 							<form name="formenviar" method="POST" action="AltaEmpresa" onsubmit = "return validaraltaempresa()">
 								<table   class="table table-striped"  >
-								  <caption>ALTA EMPRESA</caption><br><br>
-								  
+								  							  
 								  <tr>
 									<td>
 										<label for="cnombre">NOMBRE:</label><br>

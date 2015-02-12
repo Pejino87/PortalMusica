@@ -12,15 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class PerfilCliente
+ * Servlet implementation class PerfilEmpresa
  */
-public class PerfilCliente extends HttpServlet {
+public class PerfilEmpresa extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PerfilCliente() {
+    public PerfilEmpresa() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,7 +30,6 @@ public class PerfilCliente extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 	}
 
 	/**
@@ -43,15 +42,15 @@ public class PerfilCliente extends HttpServlet {
 		Integer idLog = (Integer) sesion.getAttribute("ident");
 		
 		ResultSet rs = null;
-		String obNom = null,obApe = null,obNif = null,obFec = null,obEma = null,obDir=null;
+		String obNom = null,obNif = null,obFec = null,obEma = null,obDir=null;
 		int obIde=0,obTel=0,obLog=0;
-		if (!cli.equals("cliente")) {
-			System.out.println("no es cliente");
+		if (!cli.equals("empresa")) {
+			System.out.println("no es empresa");
 			sesion.invalidate();
 			response.sendRedirect("index.jsp");
 		}
 		
-		String sSQL = "SELECT ID_CLIENTE,NOMBRE,APELLIDOS,NIF,Fecha_Nacimiento,DIRECCION,TELEFONO,EMAIL,ID_LOGIN FROM CLIENTE";
+		String sSQL = "SELECT Id_Empresa,NOMBRE,RazonSocial,Fecha_Nacimiento,DIRECCION,TELEFONO,EMAIL,ID_LOGIN FROM EMPRESA";
 		ConexOracle sentencia = new ConexOracle();
 		try {
 			rs = sentencia.consultaQuery(sSQL);
@@ -59,8 +58,7 @@ public class PerfilCliente extends HttpServlet {
 				if (rs.getInt("ID_LOGIN")==idLog) {
 					obIde = rs.getInt("ID_CLIENTE"); 
 					obNom = rs.getString("NOMBRE"); 
-					obApe = rs.getString("APELLIDOS"); 
-					obNif = rs.getString("NIF"); 
+					obNif = rs.getString("RazonSocial"); 
 					obFec = rs.getString("Fecha_Nacimiento"); 
 					obDir = rs.getString("DIRECCION");
 					obTel = rs.getInt("TELEFONO"); 
@@ -76,7 +74,6 @@ public class PerfilCliente extends HttpServlet {
 		
 		request.setAttribute("obsIde",obIde);
 		request.setAttribute("obsNom",obNom);
-		request.setAttribute("obsApe",obApe);
 		request.setAttribute("obsNif",obNif);
 		request.setAttribute("obsFec",obFec);
 		request.setAttribute("obsDir",obDir);
@@ -84,7 +81,7 @@ public class PerfilCliente extends HttpServlet {
 		request.setAttribute("obsEma",obEma);
 		request.setAttribute("obsLog",obLog);
 		
-		request.getRequestDispatcher("perfilCliente.jsp").forward(request, response);
+		request.getRequestDispatcher("perfilEmpresa.jsp").forward(request, response);
 	}
 
 }

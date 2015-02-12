@@ -36,6 +36,7 @@
 			Integer varIde = (Integer) request.getAttribute("obsIde"); 
 			String varNom = (String) request.getAttribute("obsNom"); 
 			String varApe = (String) request.getAttribute("obsApe"); 
+			String varFec = (String) request.getParameter("obsFec");
 			String varNif = (String) request.getAttribute("obsNif"); 
 			String varDir = (String) request.getAttribute("obsDir"); 
 			Integer varTel = (Integer) request.getAttribute("obsTel"); 
@@ -73,12 +74,13 @@
 				  </tr>	
 				  <tr>
 					<td>		
-						<label for="cdir">DIRECCION:</label>
+						<label for="cdir">FECHA NACIMIENTO:</label>
 					</td>
 					<td>	
-						<input id="pondire" name="cDir" type="text" maxlength="30" size="30" readonly value="<% out.print(varDir); %>"></input>
+						<input id="" name="cFec" type="text" maxlength="10" size="10" readonly value="<% out.print(varFec); %>"></input>
 					</td>
-			      </tr>		
+				  </tr>	
+				  
 				  <tr>
 					<td>		
 						<label for="ctel">TELEFONO:</label>
@@ -87,6 +89,14 @@
 						<input id="pontele" name="cTel" type="text" maxlength="11" size="11" readonly value="<% out.print(varTel); %>"></input>
 					</td>
 				  </tr>	
+				  <tr>
+					<td>		
+						<label for="cdir">DIRECCION:</label>
+					</td>
+					<td>	
+						<input id="pondire" name="cDir" type="text" maxlength="30" size="30" readonly value="<% out.print(varDir); %>"></input>
+					</td>
+			      </tr>		
 				  <tr>
 					<td>		
 						<label for="cemail">EMAIL:</label>
@@ -98,13 +108,6 @@
 				  
 				  
 		  </table>
-		 
-			  
-		  
-		  
-		  
-			
-			
 			
 			
 		</div>
@@ -129,7 +132,7 @@
 					  	
 							<form name="formenviar" method="POST" action="ModiCliente" onsubmit = "return validaraltacliente()">
 								<table   class="table table-striped"  >
-								    <caption>CLIENTE</caption><br><br>
+								    <caption>CLIENTE</caption>
 									  <tr>
 										<td>
 											<label for="cnombre">NOMBRE:</label><br>
@@ -157,12 +160,13 @@
 									  </tr>	
 									  <tr>
 										<td>		
-											<label for="cdir">DIRECCION:</label>
+											<label for="cdir">FECHA NACIMIENTO:</label>
 										</td>
 										<td>	
-											<input id="pondire" name="mDir" type="text" maxlength="30" size="30" value="<% out.print(varDir); %>"></input>
+											<input id="" name="cFec" type="text" maxlength="10" size="10" value="<% out.print(varFec); %>"></input>
 										</td>
-								      </tr>		
+									  </tr>	
+									  
 									  <tr>
 										<td>		
 											<label for="ctel">TELEFONO:</label>
@@ -171,6 +175,14 @@
 											<input id="pontele" name="mTel" type="text" maxlength="11" size="11" value="<% out.print(varTel); %>"></input>
 										</td>
 									  </tr>	
+									  <tr>
+										<td>		
+											<label for="cdir">DIRECCION:</label>
+										</td>
+										<td>	
+											<input id="pondire" name="mDir" type="text" maxlength="30" size="30" value="<% out.print(varDir); %>"></input>
+										</td>
+								      </tr>		
 									  <tr>
 										<td>		
 											<label for="cemail">EMAIL:</label>
