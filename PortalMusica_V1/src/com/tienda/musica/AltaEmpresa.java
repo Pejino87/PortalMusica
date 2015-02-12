@@ -112,7 +112,7 @@ public static String MD5 = "MD5";
 		}
 		
 		String sSQL = "INSERT INTO EMPRESA (ID_EMPRESA,NOMBRE,RAZONSOCIAL,Fecha_Nacimiento,TELEFONO,DIRECCION,EMAIL,fecha_alta,id_login) VALUES " +
-				"(INCRECLIENTE.nextval, '" + cNom + "'  , '" + cRazon + "' , '" + cFec + "'  , '" + cTel + "'  , '" + cDir + 
+				"("+login+", '" + cNom + "'  , '" + cRazon + "' , '" + cFec + "'  , '" + cTel + "'  , '" + cDir + 
 				"' , '" + cEmail + "' , '" + cFca + "'  , " + login + " )";
 				
 		sentencia.actualizarQuery(sSQL);
