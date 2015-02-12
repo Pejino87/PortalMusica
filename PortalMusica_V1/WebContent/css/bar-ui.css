@@ -233,7 +233,7 @@
  -ms-transform: scale(0.9);
  -webkit-transform: scale(0.9);
  -webkit-transform-origin: 50% 50%;
- /* firefox doesn't scale quite right. */
+ /* firefox doesn't scale quite right. cambio*/
  transform: scale(0.9);
  transform-origin: 50% 50%;
  /* firefox doesn't scale quite right. */
