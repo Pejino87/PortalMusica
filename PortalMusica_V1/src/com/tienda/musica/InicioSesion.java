@@ -74,6 +74,7 @@ public class InicioSesion extends HttpServlet {
 		} else
 		if (tipoUsu.equals("cliente")){
 			request.getRequestDispatcher("IniciaCliente").forward(request, response);
+			//request.getRequestDispatcher("PerfilCliente").forward(request, response);
 		} else 
 		if (tipoUsu.equals("empresa")){
 			request.getRequestDispatcher("PrincipalEmpresa").forward(request, response);

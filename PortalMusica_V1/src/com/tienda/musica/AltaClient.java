@@ -93,29 +93,29 @@ public class AltaClient extends HttpServlet {
 			    
 	    try {
 			ConexOracle sentencia = new ConexOracle();
-		// Preparar una sentencia SQL y ejecutarla
-			
-	    String sSQLlogin = "INSERT INTO LOGIN (ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER) VALUES " +
-	    		"(INCRELOGIN.nextval, '" + cUser + "' , '" + cPwd + "' ,'cliente')";
-		sentencia.actualizarQuery(sSQLlogin);
-	    
-		
-		ResultSet id_login = sentencia.consultaQuery("Select max(id_login) from login");
-		int login = 0;
-		
-		if(id_login.next()){
-			login = (Integer)id_login.getInt(1);
-		}
-		else{
-			System.out.println("Error al insertar cliente");
-			sentencia.actualizarQuery("rollback");
-		}
-		
-		String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,DIRECCION,TELEFONO,EMAIL,id_login) VALUES " +
-				"(INCRECLIENTE.nextval, '" + cNom + "' , '" + cApe + "' , '" + cNif + "' , '" + cDir + "'  , '" + cTel + 
-				"' , '" + cEmail + "' , " + login + " )";
+			// Preparar una sentencia SQL y ejecutarla
 				
-		sentencia.actualizarQuery(sSQL);
+		    String sSQLlogin = "INSERT INTO LOGIN (ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER) VALUES " +
+		    		"(INCRELOGIN.nextval, '" + cUser + "' , '" + cPwd + "' ,'cliente')";
+			sentencia.actualizarQuery(sSQLlogin);
+		    
+			
+			ResultSet id_login = sentencia.consultaQuery("Select max(id_login) from login");
+			int login = 0;
+			
+			if(id_login.next()){
+				login = (Integer)id_login.getInt(1);
+			}
+			else{
+				System.out.println("Error al insertar cliente");
+				sentencia.actualizarQuery("rollback");
+			}
+			
+			String sSQL = "INSERT INTO CLIENTE (ID_CLIENTE,NOMBRE,APELLIDOS,NIF,DIRECCION,TELEFONO,EMAIL,id_login) VALUES " +
+					"(INCRECLIENTE.nextval, '" + cNom + "' , '" + cApe + "' , '" + cNif + "' , '" + cDir + "'  , '" + cTel + 
+					"' , '" + cEmail + "' , " + login + " )";
+					
+			sentencia.actualizarQuery(sSQL);
 		
 			response.sendRedirect("index.jsp");
 		} catch (SQLException | NamingException e) {

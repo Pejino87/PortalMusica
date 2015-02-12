@@ -75,7 +75,6 @@ public class GestionUser {
 			sentencia.finalizarConexion();
 		}
 		// devuelve si el tipo de usuario es cliente ó empresa.
-		System.out.println("tipoUsua: " + tipoUsua);
 		return tipoUsua;
 	}
 	
