@@ -250,4 +250,14 @@
     <servlet-name>PerfilModificar</servlet-name>
     <url-pattern>/PerfilModificar</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BorraCancion</display-name>
+    <servlet-name>BorraCancion</servlet-name>
+    <servlet-class>com.acciones.BorraCancion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BorraCancion</servlet-name>
+    <url-pattern>/BorraCancion</url-pattern>
+  </servlet-mapping>
 </web-app>
