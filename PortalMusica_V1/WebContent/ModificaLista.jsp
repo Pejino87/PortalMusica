@@ -115,22 +115,24 @@ if(miRol==null || miRol.equals("empresa")){
 					if (ListaModificacion.getInstancia().getLista().size() == 0) {
 						out.println("<li><b>No hay ninguna cancion en esa lista!</b></li>");
 					} else {
+						out.print("<li><a><p>-------------------------------------</p></a></li>");
 						for (int i = 0; i < ListaModificacion.getInstancia().getLista()
 								.size(); i++) {
+
 							out.print("<li>");
-							out.print("<a><p>----- ");
+							out.print("<a><p>");
 							out.print(""
 									+ ListaModificacion.getInstancia().getLista()
 											.get(i).getCantante() + " ");
 							out.print(" - "
 									+ ListaModificacion.getInstancia().getLista()
 											.get(i).getTitulo() );
-							out.print(" -----</p>");
+							out.print("</p>");
 							out.print("</a>");
 							out.print("</li>");
-
 						}
 
+						out.print("<li><a><p>-------------------------------------</p></a></li>");
 					}
 				%>
 

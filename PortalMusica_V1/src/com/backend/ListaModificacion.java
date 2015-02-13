@@ -46,7 +46,9 @@ public class ListaModificacion {
 		
 		while(canciones.next()){
 			c=new Cancion(canciones.getInt(1),canciones.getString(2),canciones.getString(3),canciones.getString(4),canciones.getString(5),canciones.getString(6),canciones.getString(7));
+			if(c.id_cancion!=0){
 			lista.add(c);
+			}
 		}
 
 	

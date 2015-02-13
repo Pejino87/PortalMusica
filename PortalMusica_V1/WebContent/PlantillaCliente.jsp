@@ -23,13 +23,22 @@ if(miRol==null || miRol.equals("empresa")){
 </head>
 <body>
 
+<!-- HEADER -->
 	<div id='header'>
 		<img src="image/logo-1.png">
 		<h1>Sharebeats</h1>
 	</div>
+<!-- FIN HEADER -->
+	
+<!-- NAV -->	
 	<div id='nav'>
-		
+		<h3> Bienvenido <% out.print(ListasUser.getInstancia().getCliente()); %></h3> 
+		<a href='perfilCliente.jsp'>Acceder a perfil</a>
+		<a href='index.jsp'>Cerrar sesion</a>
 	</div>
+<!-- FIN NAV -->
+
+
 
 <!-- MAIN -->
 	<div id='main'>

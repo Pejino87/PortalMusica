@@ -13,7 +13,12 @@ public class ListasUser {
 	private final static ListasUser instancia;
 	
 	ArrayList<ListaCanciones> lista = new ArrayList<ListaCanciones>();
+	String cliente;
 	
+	public String getCliente() {
+		return cliente;
+	}
+
 	static {
 		instancia = new ListasUser();
 	}
@@ -41,6 +46,11 @@ public class ListasUser {
 			l = new ListaCanciones(listas.getInt("id"),listas.getString("nombre"));
 			ListasUser.getInstancia().getLista().add(l);
 		}
+		
+		ResultSet cliente = conexion.consultaQuery("SELECT id_user from login where id_login="+id_cliente+"");
+		
+		cliente.first();
+		this.cliente = cliente.getString(1);
 		
 	}
 
