@@ -132,9 +132,6 @@
 					%>
 			
 		</div>
-		<form method="POST" name="Volver" action="./PrincipalEmpresa">
-			<a id="btnVolver" href="./PrincipalEmpresa">Volver</a>
-		</form>
 	</div>
 	
 	<div id='footer'>Aqui solo va la información del copyright y esas

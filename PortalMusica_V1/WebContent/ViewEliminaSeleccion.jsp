@@ -31,19 +31,24 @@
 	</div>
 
 	<div id='main'>
+		<div id='info'>
 		<%
-			for(int i=0;i<seleccionadas.length;i++){
-				if(Integer.parseInt(seleccionadas[i])>1){
-					conn.actualizarQuery("DELETE FROM Listas_Empresa WHERE Id_Cancion="+seleccionadas[i]);
-					conn.actualizarQuery("DELETE FROM Canciones WHERE Id_Cancion="+seleccionadas[i]);
+			if(seleccionadas.length>0){
+				for(int i=0;i<seleccionadas.length;i++){
+					if(Integer.parseInt(seleccionadas[i])>0){
+						conn.actualizarQuery("DELETE FROM Listas_Empresa WHERE Id_Cancion="+seleccionadas[i]);
+						conn.actualizarQuery("DELETE FROM Canciones WHERE Id_Cancion="+seleccionadas[i]);
+					}
 				}
+				conn.actualizarQuery("commit");
+				response.sendRedirect("./PrincipalEmpresa");
 			}
-			conn.actualizarQuery("commit");
-			response.sendRedirect("./PrincipalEmpresa");
+			
 		%>
 		<form method="POST" name="Volver" action="./PrincipalEmpresa">
 			<button id="btnVolver">Volver</button>
 		</form>
+		</div>
 	</div>
 	
 	<div id='footer'>Aqui solo va la información del copyright y esas

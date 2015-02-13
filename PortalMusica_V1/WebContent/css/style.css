@@ -1,28 +1,5 @@
 @CHARSET "ISO-8859-1";
 
-#header {
-    background-color:black;
-    color:white;
-    text-align:center;
-    padding:5px;
-}
-#nav {
-    line-height:30px;
-    background-color:#eeeeee;
-    height:30px;
-    width:100%;
-    float:top;
-    padding:5px; 
-    padding-bottom:10px;
-    text-align:center;
-}
-
-#main {
-    height:100%;
-    padding:10px;
-    min-height:680px;
-}
-
 #main div.menu{
 	border-style: solid;
     border-width: 1px;
@@ -52,42 +29,12 @@
 	height: 350px;
 }
 
-#main div.menuEliminar{
-	border-style: solid;
-    border-width: 1px;
-    float: left;
-    width: 65%;
-    height: 400px;
-    margin: 5px;
-    margin-left:15%;
-    margin-right:10%;
-    margin-top:5%;
-    overflow: auto;
+#main div.info #listaCanciones{
+	margin-left: 15px;
 }
 
-#main div.listaCanciones  {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-   
-}
-
-#main div.listaCanciones ul {
-    list-style-type: none;
-    text-align:center;
-}
-
-#main div.listaCanciones li {
-    background-color: white;
-    display: inline;
-    float: left;
-    margin: 10px;
-}
-#main div.listaCanciones li a.list-item{
-    height: 75px;
-    text-align: center;
-    width:75px;
-
+#main div.info #listaCanciones tr td{
+	margin-left: 75px;
 }
 
 #main div.menu #tablaMenu{
@@ -100,15 +47,8 @@
 #main div.info #tablaInfo{
 	margin-left: 75px;
 }
-#footer {
-	width:100%;
-    background-color:black;
-    color:white;
-    clear:both;
-    text-align:center;
-}
 
-.ac_results {
+/*.ac_results {
 	padding: 0px;
 	border: 1px solid #84a10b;
 	background-color: #84a10b;
@@ -140,7 +80,7 @@
 	it is very important, if line-height not setted or setted 
 	in relative units scroll will be broken in firefox
 	*/
-	line-height: 16px;
+/*	line-height: 16px;
 	overflow: hidden;
 
 }
@@ -165,4 +105,4 @@
 	width:150px;
 	color:#000;
 	padding-left:17px;
-}
+}*/

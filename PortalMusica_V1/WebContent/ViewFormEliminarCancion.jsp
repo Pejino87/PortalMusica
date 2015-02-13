@@ -18,6 +18,7 @@
 <script type="text/javascript" src="script/soundmanager2.js"></script>
 <script src="script/bar-ui.js"></script>
 <link rel="stylesheet" href="css/bar-ui.css" />
+<link rel="stylesheet" href="css/styleAlberto.css" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -30,31 +31,62 @@
 	</div>
 
 	<div id='main'>
-		<form method="POST" name="EliminarSeleccion" action="./EliminarSeleccion">
-		<div class='menuEliminar'>
-			<p></p>
-				<ul class="listaCanciones">
-					<% 	rs = conn.consultaQuery("SELECT Id_Cancion,Titulo,Album,Genero,Cantante,Duracion FROM Canciones "+
-												"WHERE Id_Cancion>0");
-						while(rs.next()){%>
-							<li><a class="list-item"><%= rs.getString("Titulo") %> </a></li>
-        					<li><a class="list-item"><%= rs.getString("Album") %></a></li>
-        					<li><a class="list-item"><%= rs.getString("Genero") %></a></li>
-        					<li><a class="list-item"><%= rs.getString("Cantante") %></a></li>
-        					<li><a class="list-item"><%= rs.getString("Duracion") %></a></li>
-        					<li><input class="list-item" type="checkbox" name="lstCancion" value="<%= rs.getString("Id_Cancion") %>"></li>
-						<%}
-					%>
-    			</ul>
+		<div class='menu'>
+			<table id='tablaMenu'>
+    			<tr>
+    				<form method="POST" name="nuevaCancion" action="./NuevaCancion">
+						<td>Añada una nueva cancion</td>
+						<td><button id="btnNuevaCancion" class="styled-button-3">Nueva</button></td>
+					</form>
+    			</tr>
+    			<tr>
+    				<form method="POST" name="EliminarCancion" action="./EliminarCancion">
+						<td>Elimine una cancion de la base de datos:(</td>
+						<td><button id="btnEliminarCancion" class="styled-button-3">Eliminar</button></td>
+					</form>
+    			</tr>
+    			<tr>
+    				<form method="POST" name="EliminarCancionEnLista" action="./EliminarCancionEnLista">
+						<td>Elimine una cancion de una lista :(</td>
+						<td><button id="btnEliminarCancion" class="styled-button-3">Eliminar</button></td>
+					</form>
+    			</tr>
+    			<tr>
+    				<form method="POST" name="EliminarLista" action="./EliminarLista">
+						<td>Elimine una lista de reproduccion :(</td>
+						<td><button id="btnEliminarLista" class="styled-button-3">Eliminar</button></td>
+					</form>
+    			</tr>
+    			<tr>
+    				<form method="POST" name="CrearLista" action="./CrearLista">
+						<td><input type="text" name="listaNueva" value="" placeholder="Nombre Lista"></td>
+						<td><button id="btnCargar" class="styled-button-3">Crear</button></td>
+					</form>
+    			</tr>
+			</table>
 		</div>
-		<button id="btnEliminarSeleccion">Eliminar Seleccion</button>
-		</form>
+		<div class='info'>
+			<form method="POST" name="EliminarSeleccion" action="./EliminarSeleccion">
+			<table id="listaCanciones">
+				<% 	rs = conn.consultaQuery("SELECT Id_Cancion,Titulo,Album,Genero,Cantante,Duracion FROM Canciones "+
+											"WHERE Id_Cancion>0");
+					if(rs.next()){
+						do{%>
+						<tr>
+							<td><a class="list-item"><%= rs.getString("Titulo") %> </a></td>
+							<td><a class="list-item"><%= rs.getString("Album") %></a></td>
+        					<td><a class="list-item"><%= rs.getString("Cantante") %></a></td>
+        					<td><input class="list-item" type="checkbox" name="lstCancion" value="<%= rs.getString("Id_Cancion") %>"></td>
+        				</tr>
+						<%}while(rs.next());%>
+						</table>
+						<button id="btnEliminarSeleccion" class=".styled-button-3">Eliminar Seleccion</button>
+					<%}else{%>
+						<h4>" No hay canciones para eliminar!!!! "</h4>
+					<%}
+				%>
+			</form>
+		</div>
 	</div>
-		<form method="POST" name="Volver" action="./PrincipalEmpresa">
-			<a id="btnVolver" href="./PrincipalEmpresa">Volver</a>
-		</form>
-	<div id='footer'>Aqui solo va la información del copyright y esas
-		cosas</div>
-	
 </body>
 </html>
