@@ -31,7 +31,7 @@
 
 #header img {
 	float: left;
-	margin-top: 25px;
+	margin-top: 15px;
 	margin-left: 25px;
 	width: 150px;
 	height: 130px;
@@ -48,99 +48,274 @@
 	-webkit-text-stroke-color: #FFAA00;
 }
 
-
-
-
 #nav {
-    line-height:30px;
-    background-color:#eeeeee;
-    height:30px;
-    width:100%;
-    float:top;
-    padding:5px; 
-    padding-bottom:10px;
-    text-align:center;
+	border: 1px solid;
+	border-left: 2px solid;
+	border-right: 2px solid;
+	background-color: #036564;
+	height: 30px;
+	margin-top: 0px;
+	text-align:left;
 }
 
 #main {
-    height:100%;
-    padding:10px;
-    min-height:680px;
+	border: 2px solid;
+	height: 100%;
+	min-height: 680px;
+	background-image: url(../image/test-fondo.png);
+	background-size: 1200px 1000px;
+	padding: 10px;
 }
 
-#main div.menu{
-	border-style: solid;
-    border-width: 1px;
-    float: left;
-    width: 35%;
-    height: 500px;
-    margin: 5px;
-    margin-left:15%;
-    margin-right:10%;
-    margin-top:5%;
+#main div.menu {
+	float: left;
+	width: 35%;
+	height: 500px;
+	margin: 5px;
+	margin-left: 15%;
+	margin-right: 10%;
+	margin-top: 5%;
+	background-color: #E8DDCB;
+	border: 2px solid;
+	border-radius: 5px;
+	text-align:center;
+	overflow:auto;
 }
 
-#main div.info{
-	border-style: solid;
-    border-width: 1px;
-    float: top;
-    width: 30%;
-    height: 400px;
-    margin: 5px;
-    margin-left:55%;
-    margin-top:5%;
-    top:5px;
+
+
+#main div.info {
+	float: top;
+	width: 30%;
+	height: 400px;
+	margin: 5px;
+	margin-left: 55%;
+	margin-right: 10%;
+	margin-top: 5%;
+	top: 5px;
+	background-color: #E8DDCB;
+	border: 1px solid;
+	border-radius: 25px;
+	text-align:center;
+	overflow:auto;
 }
 
-#main div.info>#imgNotaMusical{
-	width: 90%; 
-	height: 350px;
+#main div.info h4{
+	margin-top:20%;
 }
 
-#main div.menuEliminar{
-	border-style: solid;
-    border-width: 1px;
-    float: left;
-    width: 65%;
-    height: 400px;
-    margin: 5px;
-    margin-left:15%;
-    margin-right:10%;
-    margin-top:5%;
-    overflow: auto;
-}
-
-#main div.listaCanciones  {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-   
-}
-
-#main div.listaCanciones ul {
-    list-style-type: none;
-    text-align:center;
-}
-
-#main div.listaCanciones li {
-    background-color: white;
-    display: inline;
-    float: left;
-    margin: 10px;
-}
-#main div.listaCanciones li a.list-item{
-    height: 75px;
-    text-align: center;
-    width:75px;
-
-}
 
 #footer {
-	width:100%;
-    background-color:black;
-    color:white;
-    clear:both;
-    text-align:center;
+	border: 1px solid;
+	border-radius: 25px;
+	width: 100%;
+	background-color: #003366;
+	color: white;
+	clear: both;
+	text-align: center;
+}
+
+/* ESTILO LISTAS REPRODUCCION Y CANCIONES */
+#main ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	margin-bottom:25px;
+}
+
+#main div.menu li {
+	font: 200 15px/1.5 Helvetica, Verdana, sans-serif;
+	text-align: center;
+}
+
+#main div.info li {
+	font: 200 15px/1.5 Helvetica, Verdana, sans-serif;
+}
+
+
+#main div.menu li a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+	width: 100%;
+	-webkit-transition: background-color 0.3s ease;
+	-moz-transition: background-color 0.3s ease;
+	-o-transition: background-color 0.3s ease;
+	-ms-transition: background-color 0.3s ease;
+	transition: font-size 0.3s ease, background-color 0.3s ease;
+	float: left;
+}
+
+#main div.info li a {
+	text-decoration: none;
+	color: #000;
+	width: 100%;
+	float: top;
+}
+
+#main div.menu li a:hover {
+	font-weight: bold;
+	background: #f6f6f6;
+}
+
+#main input {
+	margin-top: 3%;
+	margin-left: 10px;
+	margin-right: 2px;
+	float: left;
+}
+
+#main div.menu p {
+	margin-left: 5%;
+	float: left;
+}
+
+#main div.info p {
+	margin-left: 5%;
+	float: left;
+}
+
+#main  .styled-button-3 {
+	-webkit-box-shadow: rgba(0, 0, 0, 0.0 .1) 0 1px 0 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.0 .1) 0 1px 0 0;
+	box-shadow: rgba(0, 0, 0, 0.0 .1) 0 1px 0 0;
+	background-color: #5B74A8;
+	border: 1px solid #29447E;
+	font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	padding: 2px 6px;
+	height: 28px;
+	color: #fff;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px
+}
+
+#main  .styled-button-4 {
+	-webkit-box-shadow: rgba(0, 0, 0, 0.0 .1) 0 1px 0 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.0 .1) 0 1px 0 0;
+	box-shadow: rgba(0, 0, 0, 0.0 .1) 0 1px 0 0;
+	background-color: #ba2341;
+	border: 1px solid #29447E;
+	font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	padding: 2px 6px;
+	height: 28px;
+	color: #fff;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px
+}
+
+
+#main .styled-button-3:hover {
+	border: 2px solid #29447E;
+	font-weight: bold;
+}
+
+#main .styled-button-4:hover {
+	border: 2px solid #29447E;
+	font-weight: bold;
+}
+
+#main h3{
+		font-family: header;
+		font-size: 20px;
+}
+
+
+/* SCROLLBAR CAMBIOS*/
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+/* LISTA AL BUSCAR CANCIONES*/
+
+.ac_results {
+	padding: 0px;
+	border: 1px solid #84a10b;
+	background-color: #84a10b;
+	overflow: hidden;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	color: #fff;
+	font-family:verdana;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font-size: 12px;
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+
+}
+
+.ac_odd {
+	background-color: #84a10b;
+	color: #ffffff;
+}
+
+.ac_over {
+	background-color: #5a6b13;
+	color: #ffffff;
+}
+
+
+.input_text{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	border:1px solid #84a10b;
+	padding:2px;
+	width:150px;
+	color:#000;
+	padding-left:17px;
+}
+
+/* CSS DEL NAV, INFORMACION DEL CLIENTE Y BOTON DE LOGOUT */
+#nav h3{
+		font-family:Arial, Helvetica, sans-serif;
+		color:white;
+		float:left;
+		margin-top:5px;
+		margin-right:10px;
+		margin-left:250px;
+}
+#nav a{
+	color:#ffff80;
+	margin-top:10px;
+	margin-right:10px;
+	float:left;
 }
 
 #modificar {
@@ -149,7 +324,7 @@
     
 }
 #borrar {
-	margin-top:20%;
+	margin-top:50%;
 	margin-left:50%;
     
 }

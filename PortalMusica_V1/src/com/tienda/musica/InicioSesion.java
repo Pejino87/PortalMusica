@@ -73,12 +73,12 @@ public class InicioSesion extends HttpServlet {
 			response.sendRedirect("index.jsp");
 		} else
 		if (tipoUsu.equals("cliente")){
-			//request.getRequestDispatcher("IniciaCliente").forward(request, response);
-			request.getRequestDispatcher("PerfilCliente").forward(request, response);
+			request.getRequestDispatcher("IniciaCliente").forward(request, response);
+			//request.getRequestDispatcher("PerfilCliente").forward(request, response);
 		} else 
 		if (tipoUsu.equals("empresa")){
-			//request.getRequestDispatcher("PrincipalEmpresa").forward(request, response);
-			request.getRequestDispatcher("PerfilEmpresa").forward(request, response);
+			request.getRequestDispatcher("PrincipalEmpresa").forward(request, response);
+			//request.getRequestDispatcher("PerfilEmpresa").forward(request, response);
 		}	
 	}
 

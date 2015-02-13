@@ -16,7 +16,8 @@
 </head>
 <body>
 	<div id='header'>
-		<h1>Imagen del logo del portal. Header</h1>
+		<img src="image/logo-1.png">
+		<h1>Sharebeats</h1>
 	</div>
 	<div id='nav'>
 		<p>nav nav nav nav nav nav</p>
