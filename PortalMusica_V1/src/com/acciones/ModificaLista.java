@@ -62,7 +62,7 @@ public class ModificaLista extends HttpServlet {
 			String nuevoNombre = "Nueva";
 
 			try {
-				conexion.actualizarQuery("Insert into listas_reproduccion values(increlistas.nextval,'"
+				conexion.actualizarQuery("Insert into listas_reproduccion values(INCRELISTREPRO.nextval,'"
 						+ nuevoNombre + "')");
 				conexion.actualizarQuery("commit");
 
