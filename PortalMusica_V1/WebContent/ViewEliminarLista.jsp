@@ -45,7 +45,7 @@
 			String idLista = "";
 			if(rs.next()){
 			idLista = rs.getString("Lista");%>
-			<button id="btnEliminarLista">Eliminar lista</button>
+			<button id="btnEliminarLista" class="styled-button-3">Eliminar lista</button>
 			<select id="SelecLista" name="SelecLista" selected="0">
 				<option value="0">Selecciona lista</option>
 				<option value="<%= idLista %>"><%= rs.getString("Nombre") %></option>

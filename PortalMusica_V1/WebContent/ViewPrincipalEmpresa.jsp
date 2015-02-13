@@ -30,16 +30,16 @@
 		<div class='menu'>
 			<p></p>
 			<form method="POST" name="nuevaCancion" action="./NuevaCancion">
-				<button id="btnNuevaCancion">Nueva Cancion</button>
+				<button id="btnNuevaCancion" class="styled-button-3">Nueva Cancion</button>
 			</form>
 			<form method="POST" name="EliminarCancion" action="./EliminarCancion">
-				<button id="btnEliminarCancion">Eliminar Cancion</button>
+				<button id="btnEliminarCancion" class="styled-button-3">Eliminar Cancion</button>
 			</form>
 			<form method="POST" name="EliminarCancionEnLista" action="./EliminarCancionEnLista">
-				<button id="btnEliminarCancion">Eliminar Cancion En Lista</button>
+				<button id="btnEliminarCancion" class="styled-button-3">Eliminar Cancion En Lista</button>
 			</form>
 			<form method="POST" name="EliminarLista" action="./EliminarLista">
-				<button id="btnEliminarLista">Eliminar una Lista</button>
+				<button id="btnEliminarLista" class="styled-button-3">Eliminar una Lista</button>
 			</form>
 		</div>
 		<div class='info'>

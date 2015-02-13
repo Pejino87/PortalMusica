@@ -35,19 +35,38 @@
 
 	<div id='main'>
 		<div class='menu'>
-			<p></p>
-			<form method="POST" name="nuevaCancion" action="./NuevaCancion">
-				<button id="btnNuevaCancion">Nueva Cancion</button>
-			</form>
-			<form method="POST" name="EliminarCancion" action="./EliminarCancion">
-				<button id="btnEliminarCancion">Eliminar Cancion</button>
-			</form>
-			<form method="POST" name="EliminarCancionEnLista" action="./EliminarCancionEnLista">
-				<button id="btnEliminarCancion">Eliminar Cancion En Lista</button>
-			</form>
-			<form method="POST" name="EliminarLista" action="./EliminarLista">
-				<button id="btnEliminarLista">Eliminar una Lista</button>
-			</form>
+			<table align="center">
+    			<tr>
+    				<form method="POST" name="nuevaCancion" action="./NuevaCancion">
+						<td align="left">Añada una nueva cancion</td>
+						<td align="left"><button id="btnNuevaCancion" class="styled-button-3">Nueva</button></td>
+					</form>
+    			</tr>
+    			<tr>
+    				<form method="POST" name="EliminarCancion" action="./EliminarCancion">
+						<td align="left">Elimine una cancion de la base de datos:(</td>
+						<td align="left"><button id="btnEliminarCancion" class="styled-button-3">Eliminar</button></td>
+					</form>
+    			</tr>
+    			<tr>
+    				<form method="POST" name="EliminarCancionEnLista" action="./EliminarCancionEnLista">
+						<td align="left">Elimine una cancion de una lista :(</td>
+						<td align="left"><button id="btnEliminarCancion" class="styled-button-3">Eliminar</button></td>
+					</form>
+    			</tr>
+    			<tr>
+    				<form method="POST" name="EliminarLista" action="./EliminarLista">
+						<td align="left">Elimine una lista de reproduccion :(</td>
+						<td align="left"><button id="btnEliminarLista" class="styled-button-3">Eliminar</button></td>
+					</form>
+    			</tr>
+    			<tr>
+    				<form method="POST" name="CrearLista" action="./CrearLista">
+						<td align="left"><input type="text" name="listaNueva" value="" placeholder="Nombre Lista"></td>
+						<td align="left"><button id="btnCargar" class="styled-button-3">Crear</button></td>
+					</form>
+    			</tr>
+			</table>
 		</div>
 		<div class='info'>
 		<p></p>
@@ -71,17 +90,10 @@
 							<p><input type="text" name="txtGenero" value="" placeholder="Genero"></p>
 							<p><input type="text" name="txtCantante" value="" placeholder="Cantante"></p>
 							<p><input type="text" name="txtDuracion" value="" placeholder="Duracion"></p>
-							<button id="btnCargar">Cargar Cancion</button>
-						</form>
-						<form method="POST" name="CrearLista" action="./CrearLista">
-							<p><input type="text" name="listaNueva" value="" placeholder="Nombre Lista"></p>
-							<button id="btnCargar">Crear Lista</button>
+							<button id="btnCargar" class="styled-button-3">Cargar Cancion</button>
 						</form>
 						<%}else{%>
-						<form method="POST" name="CrearLista" action="./CrearLista">
-							<p><input type="text" name="listaNueva" value="" placeholder="Nombre Lista"></p>
-							<button id="btnCargar">Crear Lista</button>
-						</form>
+							<h4>" Aún no has creado ninguna lista de reproducción. No esperes mas!!!! "</h4>
 						<%}
 					%>
 			

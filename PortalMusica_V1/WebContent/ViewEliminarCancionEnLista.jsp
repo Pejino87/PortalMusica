@@ -42,7 +42,7 @@
 			String idLista = "";
 			if(rs.next()){
 				idLista = rs.getString("Lista");%>
-				<button id="btnFlitrarCanciones">Filtrar canciones</button>
+				<button id="btnFlitrarCanciones" class="styled-button-3">Filtrar canciones</button>
 				<%
 				if(listaSeleccionada==null){%>
 					<select id="SelecLista" name="SelecLista" selected="0">
@@ -88,7 +88,7 @@
 			<%}
 			%>
 		</div>
-		<button id="btnEliminarSeleccion">Eliminar Cancion En Lista</button>
+		<button id="btnEliminarSeleccion" class="styled-button-3">Eliminar Cancion En Lista</button>
 		</form>
 	</div>
 		<form method="POST" name="Volver" action="./PrincipalEmpresa">
