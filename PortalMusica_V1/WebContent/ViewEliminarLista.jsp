@@ -23,6 +23,7 @@
 <script type="text/javascript" src="script/soundmanager2.js"></script>
 <script src="script/bar-ui.js"></script>
 <link rel="stylesheet" href="css/bar-ui.css" />
+<link rel="stylesheet" href="css/styleAlberto.css" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -35,38 +36,73 @@
 	</div>
 
 	<div id='main'>
-		<form method="POST" name="EliminarSeleccion" action="./EliminarLista">
-		<% 	
-		if(listaSeleccionada==null){
-			rs = conn.consultaQuery("SELECT LR.Id_Lista as Lista, LR.Nombre as Nombre FROM Listas_Reproduccion LR, Listas_Empresa LE"+
-					" WHERE LR.Id_Lista=LE.Id_Lista and LE.Id_Empresa="+idEmpresa+
-					" GROUP BY  LR.Id_Lista, LR.Nombre");
-
-			String idLista = "";
-			if(rs.next()){
-			idLista = rs.getString("Lista");%>
-			<button id="btnEliminarLista" class="styled-button-3">Eliminar lista</button>
-			<select id="SelecLista" name="SelecLista" selected="0">
-				<option value="0">Selecciona lista</option>
-				<option value="<%= idLista %>"><%= rs.getString("Nombre") %></option>
-				<%while(rs.next()){
-					 idLista = rs.getString("Lista");%>
+		<div class='menu'>
+			<table id='tablaMenu'>
+    			<tr>
+    				<form method="POST" name="nuevaCancion" action="./NuevaCancion">
+						<td>Añada una nueva cancion</td>
+						<td><button id="btnNuevaCancion" class="styled-button-3">Nueva</button></td>
+					</form>
+    			</tr>
+    			<tr>
+    				<form method="POST" name="EliminarCancion" action="./EliminarCancion">
+						<td>Elimine una cancion de la base de datos:(</td>
+						<td><button id="btnEliminarCancion" class="styled-button-3">Eliminar</button></td>
+					</form>
+    			</tr>
+    			<tr>
+    				<form method="POST" name="EliminarCancionEnLista" action="./EliminarCancionEnLista">
+						<td>Elimine una cancion de una lista :(</td>
+						<td><button id="btnEliminarCancion" class="styled-button-3">Eliminar</button></td>
+					</form>
+    			</tr>
+    			<tr>
+    				<form method="POST" name="EliminarLista" action="./EliminarLista">
+						<td>Elimine una lista de reproduccion :(</td>
+						<td><button id="btnEliminarLista" class="styled-button-3">Eliminar</button></td>
+					</form>
+    			</tr>
+    			<tr>
+    				<form method="POST" name="CrearLista" action="./CrearLista">
+						<td><input type="text" name="listaNueva" value="" placeholder="Nombre Lista"></td>
+						<td><button id="btnCargar" class="styled-button-3">Crear</button></td>
+					</form>
+    			</tr>
+			</table>
+		</div>
+		<div class='info'>
+			<form method="POST" name="EliminarSeleccion" action="./EliminarLista">
+			<% 	
+			if(listaSeleccionada==null){
+				rs = conn.consultaQuery("SELECT LR.Id_Lista as Lista, LR.Nombre as Nombre FROM Listas_Reproduccion LR, Listas_Empresa LE"+
+						" WHERE LR.Id_Lista=LE.Id_Lista and LE.Id_Empresa="+idEmpresa+
+						" GROUP BY  LR.Id_Lista, LR.Nombre");
+	
+				String idLista = "";
+				if(rs.next()){
+				idLista = rs.getString("Lista");%>
+				<button id="btnEliminarLista" class="styled-button-3">Eliminar lista</button>
+				<select id="SelecLista" name="SelecLista" selected="0">
+					<option value="0">Selecciona lista</option>
 					<option value="<%= idLista %>"><%= rs.getString("Nombre") %></option>
-				<%}%>
-			</select>
-			<%}else{%>
-				<p>No hay listas creadas</p>
-			<%}
-		}else{
-			conn.actualizarQuery("DELETE FROM Listas_Empresa"+
-								" WHERE Id_Lista="+listaSeleccionada+" and Id_Empresa="+idEmpresa);
-			System.out.println("Lista "+ listaSeleccionada+" eliminada");
-			conn.actualizarQuery("commit");
-			response.sendRedirect("./PrincipalEmpresa");
-		}
-		%>
-		</form>
-		
+					<%while(rs.next()){
+						 idLista = rs.getString("Lista");%>
+						<option value="<%= idLista %>"><%= rs.getString("Nombre") %></option>
+					<%}%>
+				</select>
+				<%}else{%>
+					<h4>No hay listas creadas</h4>
+				<%}
+			}else{
+				conn.actualizarQuery("DELETE FROM Listas_Empresa"+
+									" WHERE Id_Lista="+listaSeleccionada+" and Id_Empresa="+idEmpresa);
+				System.out.println("Lista "+ listaSeleccionada+" eliminada");
+				conn.actualizarQuery("commit");
+				response.sendRedirect("./PrincipalEmpresa");
+			}
+			%>
+			</form>
+		</div>
 	</div>
 		<form method="POST" name="Volver" action="./PrincipalEmpresa">
 			<a id="btnVolver" href="./PrincipalEmpresa">Volver</a>

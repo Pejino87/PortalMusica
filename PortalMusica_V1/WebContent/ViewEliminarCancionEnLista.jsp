@@ -95,6 +95,8 @@
 							<%}%>
 						</select>
 						</form>
+				<%}else{%>
+					<h4>No hay listas creadas</h4>
 				<%}
 				idLista = request.getParameter("SelecLista");
 				if(idLista==null){
@@ -107,17 +109,22 @@
 					rs = conn.consultaQuery("SELECT can.Id_Cancion,can.Titulo,can.Album,can.Genero,can.Cantante,can.Duracion"+
 											" FROM Canciones can, Listas_Empresa LE"+
 											" WHERE can.Id_Cancion>0 and LE.Id_Cancion=can.Id_Cancion and LE.Id_Lista="+idLista);
-					while(rs.next()){%>
-					<tr>
-						<td><a class="list-item"><%= rs.getString("Titulo") %> </a></td>
-    					<td><a class="list-item"><%= rs.getString("Album") %></a></td>
-    					<td><a class="list-item"><%= rs.getString("Genero") %></a></td>
-    					<td><a class="list-item"><%= rs.getString("Cantante") %></a></td>
-    					<td><a class="list-item"><%= rs.getString("Duracion") %></a></td>
-    					<td><input class="list-item" type="checkbox" name="lstCancion" value="<%= rs.getString("Id_Cancion") %>"></td>
-    					<td><input type="hidden" name="idLista" value="<%= listaSeleccionada %>"></td>
-					</tr>
-					<%}%>
+					if(rs.next()){
+						do{%>
+						<tr>
+							<td><a class="list-item"><%= rs.getString("Titulo") %> </a></td>
+	    					<td><a class="list-item"><%= rs.getString("Album") %></a></td>
+	    					<td><a class="list-item"><%= rs.getString("Genero") %></a></td>
+	    					<td><a class="list-item"><%= rs.getString("Cantante") %></a></td>
+	    					<td><a class="list-item"><%= rs.getString("Duracion") %></a></td>
+	    					<td><input class="list-item" type="checkbox" name="lstCancion" value="<%= rs.getString("Id_Cancion") %>"></td>
+	    					<td><input type="hidden" name="idLista" value="<%= listaSeleccionada %>"></td>
+						</tr>
+						<%}while(rs.next());
+					}else{%>
+						<h4>No hay canciones en la lista</h4>
+					<%}
+					%>
 				</table>
 				<button id="btnEliminarSeleccion" class="styled-button-3">Eliminar Cancion En Lista</button>
 				</form>
