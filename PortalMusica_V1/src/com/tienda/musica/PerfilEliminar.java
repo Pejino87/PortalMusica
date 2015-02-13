@@ -1,7 +1,6 @@
 package com.tienda.musica;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.naming.NamingException;
@@ -11,19 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.backend.*;
-import gft.curso.principalempresa.*;
-
 /**
- * Servlet implementation class ModiCliente
+ * Servlet implementation class PerfilEliminar
  */
-public class ModiCliente extends HttpServlet {
+public class PerfilEliminar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModiCliente() {
+    public PerfilEliminar() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,14 +36,8 @@ public class ModiCliente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String cNom = request.getParameter("mNom");
-		String cApe = request.getParameter("mApe");
-		String cNif = request.getParameter("mNif");
-		String cFec = request.getParameter("mFec");
-		String cTel1 = request.getParameter("mTel");
-		String cDir = request.getParameter("mDir");
-		String cEmail = request.getParameter("mEmail");
-		int cTel = Integer.parseInt(cTel1);
+		String cEliCli = request.getParameter("cEliCli");
+		String cEliEmp = request.getParameter("cEliEmp");
 		
 		HttpSession sesion = request.getSession();
 		String cli = (String) sesion.getAttribute("rol");
@@ -56,22 +46,27 @@ public class ModiCliente extends HttpServlet {
 		try {
 			ConexOracle sentencia = new ConexOracle();
 			// Preparar una sentencia SQL y ejecutarla
-						
-			String sSQL = "UPDATE CLIENTE SET NOMBRE='" + cNom + "',APELLIDOS='" + cApe + "',NIF='" + cNif
-					+ "',Fecha_Nacimiento='" + cFec + "',TELEFONO='" + cTel + "' "	+ ",DIRECCION='" + cDir + "',EMAIL='" + cEmail 
-					+ "' WHERE id_login='" + idLog + "' ";
+			if (cEliEmp.equals("ELIMINAR CLIENTE")) {
+				String sSQL = "DELETE FROM CLIENTE WHERE id_login='" + idLog + "' ";
+				String sSQLLOGIN = "DELETE FROM LOGIN WHERE id_login='" + idLog + "' ";
+				sentencia.actualizarQuery(sSQL);
+				sentencia.actualizarQuery(sSQLLOGIN);
+			}
+			if (cEliEmp.equals("ELIMINAR EMPRESA")) {
+				String sSQL1 = "DELETE FROM EMPRESA WHERE id_login='" + idLog + "' ";
+				String sSQLLOGIN1 = "DELETE FROM LOGIN WHERE id_login='" + idLog + "' ";
+				sentencia.actualizarQuery(sSQL1);
+				sentencia.actualizarQuery(sSQLLOGIN1);
+			}
 			
-			sentencia.actualizarQuery(sSQL);
+			
+			
 		
 			request.getRequestDispatcher("IniciaCliente").forward(request, response);
 		} catch (SQLException | NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
 	}
 
 }

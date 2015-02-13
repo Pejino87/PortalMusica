@@ -210,4 +210,34 @@
     <servlet-name>PerfilEmpresa</servlet-name>
     <url-pattern>/PerfilEmpresa</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ModiEmpresa</display-name>
+    <servlet-name>ModiEmpresa</servlet-name>
+    <servlet-class>com.tienda.musica.ModiEmpresa</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModiEmpresa</servlet-name>
+    <url-pattern>/ModiEmpresa</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EliminaCliente</display-name>
+    <servlet-name>EliminaCliente</servlet-name>
+    <servlet-class>com.tienda.musica.EliminaCliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminaCliente</servlet-name>
+    <url-pattern>/EliminaCliente</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PerfilEliminar</display-name>
+    <servlet-name>PerfilEliminar</servlet-name>
+    <servlet-class>com.tienda.musica.PerfilEliminar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PerfilEliminar</servlet-name>
+    <url-pattern>/PerfilEliminar</url-pattern>
+  </servlet-mapping>
 </web-app>

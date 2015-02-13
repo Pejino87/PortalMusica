@@ -51,7 +51,7 @@ public class PerfilCliente extends HttpServlet {
 			response.sendRedirect("index.jsp");
 		}
 		
-		String sSQL = "SELECT ID_CLIENTE,NOMBRE,APELLIDOS,NIF,Fecha_Nacimiento,DIRECCION,TELEFONO,EMAIL,ID_LOGIN FROM CLIENTE";
+		String sSQL = "SELECT ID_CLIENTE,NOMBRE,APELLIDOS,NIF,Fecha_Nacimiento,TELEFONO,DIRECCION,EMAIL,ID_LOGIN FROM CLIENTE";
 		ConexOracle sentencia = new ConexOracle();
 		try {
 			rs = sentencia.consultaQuery(sSQL);
@@ -62,8 +62,8 @@ public class PerfilCliente extends HttpServlet {
 					obApe = rs.getString("APELLIDOS"); 
 					obNif = rs.getString("NIF"); 
 					obFec = rs.getString("Fecha_Nacimiento"); 
-					obDir = rs.getString("DIRECCION");
 					obTel = rs.getInt("TELEFONO"); 
+					obDir = rs.getString("DIRECCION");
 					obEma = rs.getString("EMAIL"); 
 					obLog = rs.getInt("ID_LOGIN"); 
 				}	
@@ -79,8 +79,8 @@ public class PerfilCliente extends HttpServlet {
 		request.setAttribute("obsApe",obApe);
 		request.setAttribute("obsNif",obNif);
 		request.setAttribute("obsFec",obFec);
-		request.setAttribute("obsDir",obDir);
 		request.setAttribute("obsTel",obTel);
+		request.setAttribute("obsDir",obDir);
 		request.setAttribute("obsEma",obEma);
 		request.setAttribute("obsLog",obLog);
 		

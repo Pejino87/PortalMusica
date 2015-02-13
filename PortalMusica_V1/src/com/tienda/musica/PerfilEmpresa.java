@@ -50,7 +50,7 @@ public class PerfilEmpresa extends HttpServlet {
 			response.sendRedirect("index.jsp");
 		}
 		
-		String sSQL = "SELECT Id_Empresa,NOMBRE,RazonSocial,Fecha_Nacimiento,DIRECCION,TELEFONO,EMAIL,ID_LOGIN FROM EMPRESA";
+		String sSQL = "SELECT Id_Empresa,NOMBRE,RazonSocial,Fecha_Nacimiento,TELEFONO,DIRECCION,EMAIL,ID_LOGIN FROM EMPRESA";
 		ConexOracle sentencia = new ConexOracle();
 		try {
 			rs = sentencia.consultaQuery(sSQL);
@@ -59,9 +59,9 @@ public class PerfilEmpresa extends HttpServlet {
 					obIde = rs.getInt("ID_CLIENTE"); 
 					obNom = rs.getString("NOMBRE"); 
 					obNif = rs.getString("RazonSocial"); 
-					obFec = rs.getString("Fecha_Nacimiento"); 
+					obFec = rs.getString("Fecha_Nacimiento");
+					obTel = rs.getInt("TELEFONO");
 					obDir = rs.getString("DIRECCION");
-					obTel = rs.getInt("TELEFONO"); 
 					obEma = rs.getString("EMAIL"); 
 					obLog = rs.getInt("ID_LOGIN"); 
 				}	
@@ -76,8 +76,8 @@ public class PerfilEmpresa extends HttpServlet {
 		request.setAttribute("obsNom",obNom);
 		request.setAttribute("obsNif",obNif);
 		request.setAttribute("obsFec",obFec);
-		request.setAttribute("obsDir",obDir);
 		request.setAttribute("obsTel",obTel);
+		request.setAttribute("obsDir",obDir);
 		request.setAttribute("obsEma",obEma);
 		request.setAttribute("obsLog",obLog);
 		

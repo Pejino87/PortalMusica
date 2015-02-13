@@ -1,11 +1,56 @@
 @CHARSET "ISO-8859-1";
 
-#header {
-    background-color:black;
-    color:white;
-    text-align:center;
-    padding:5px;
+/* ESTILO GENERAL, DIVS PRINCIPALES */
+@font-face {
+	font-family: titulo;
+	src: url('../fonts/timeportal.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
+
+@font-face {
+	font-family: header;
+	src: url('../fonts/crash test.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+#header {
+	border: 2px solid;
+	border-color: black;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	background-color: #033649;
+	color: white;
+	text-align: center;
+	height: 150px;
+	margin-bottom: 0px;
+}
+
+#header img {
+	float: left;
+	margin-top: 25px;
+	margin-left: 25px;
+	width: 150px;
+	height: 130px;
+}
+
+#header h1 {
+	font-family: titulo;
+	color: #EEEE99;
+	float: left;
+	margin-top: 6%;
+	margin-left: 25px;
+	font-size: 70px;
+	-webkit-text-stroke-width: 0.5px;
+	-webkit-text-stroke-color: #FFAA00;
+}
+
+
+
+
 #nav {
     line-height:30px;
     background-color:#eeeeee;
@@ -101,5 +146,10 @@
 #modificar {
 	margin-top:20%;
 	margin-left:30%;
+    
+}
+#borrar {
+	margin-top:20%;
+	margin-left:50%;
     
 }

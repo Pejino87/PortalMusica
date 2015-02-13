@@ -16,7 +16,8 @@
 </head>
 <body>
 	<div id='header'>
-		<h1>Imagen del logo del portal. Header</h1>
+		<img src="image/logo-1.png">
+		<h1>Sharebeats</h1>
 	</div>
 	<div id='nav'>
 		<p>nav nav nav nav nav nav</p>
@@ -38,8 +39,8 @@
 			String varApe = (String) request.getAttribute("obsApe"); 
 			String varFec = (String) request.getParameter("obsFec");
 			String varNif = (String) request.getAttribute("obsNif"); 
-			String varDir = (String) request.getAttribute("obsDir"); 
 			Integer varTel = (Integer) request.getAttribute("obsTel"); 
+			String varDir = (String) request.getAttribute("obsDir"); 
 			String varEma = (String) request.getAttribute("obsEma"); 
 			Integer varLog = (Integer) request.getAttribute("obLog"); 
 			
@@ -109,8 +110,15 @@
 				  
 		  </table>
 			
-			
 		</div>
+		
+<div id='borrar'>
+	<form name='formBorrar' method='POST' action='EliminaCliente'>
+		<input type='submit' name='cEliCli'  class='btn btn-primary' value='ELIMINAR CLIENTE'></input>
+	</form>		
+			
+</div>		
+		
 <div class='info'>
  <div id='modificar'>
 			

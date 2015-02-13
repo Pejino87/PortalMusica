@@ -12,18 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.backend.*;
+
 import gft.curso.principalempresa.*;
 
 /**
- * Servlet implementation class ModiCliente
+ * Servlet implementation class ModiEmpresa
  */
-public class ModiCliente extends HttpServlet {
+public class ModiEmpresa extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModiCliente() {
+    public ModiEmpresa() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,7 +42,6 @@ public class ModiCliente extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String cNom = request.getParameter("mNom");
-		String cApe = request.getParameter("mApe");
 		String cNif = request.getParameter("mNif");
 		String cFec = request.getParameter("mFec");
 		String cTel1 = request.getParameter("mTel");
@@ -57,20 +57,17 @@ public class ModiCliente extends HttpServlet {
 			ConexOracle sentencia = new ConexOracle();
 			// Preparar una sentencia SQL y ejecutarla
 						
-			String sSQL = "UPDATE CLIENTE SET NOMBRE='" + cNom + "',APELLIDOS='" + cApe + "',NIF='" + cNif
-					+ "',Fecha_Nacimiento='" + cFec + "',TELEFONO='" + cTel + "' "	+ ",DIRECCION='" + cDir + "',EMAIL='" + cEmail 
+			String sSQL = "UPDATE EMPRESA SET NOMBRE='" + cNom + "',NIF='" + cNif + "',Fecha_Nacimiento='" + cFec
+					+ "',TELEFONO='" + cTel + "' "	+ ",DIRECCION='" + cDir + "',EMAIL='" + cEmail 
 					+ "' WHERE id_login='" + idLog + "' ";
 			
 			sentencia.actualizarQuery(sSQL);
 		
-			request.getRequestDispatcher("IniciaCliente").forward(request, response);
+			request.getRequestDispatcher("PrincipalEmpresa").forward(request, response);
 		} catch (SQLException | NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
 		
 	}
 

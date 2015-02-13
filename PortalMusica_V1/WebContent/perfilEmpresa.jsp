@@ -36,9 +36,9 @@
 			Integer varIde = (Integer) request.getAttribute("obsIde"); 
 			String varNom = (String) request.getAttribute("obsNom"); 
 			String varFec = (String) request.getParameter("obsFec");
-			String varNif = (String) request.getAttribute("obsNif"); 
-			String varDir = (String) request.getAttribute("obsDir"); 
+			String varNif = (String) request.getAttribute("obsNif");
 			Integer varTel = (Integer) request.getAttribute("obsTel"); 
+			String varDir = (String) request.getAttribute("obsDir"); 
 			String varEma = (String) request.getAttribute("obsEma"); 
 			Integer varLog = (Integer) request.getAttribute("obLog"); 
 			
@@ -100,8 +100,15 @@
 				  
 		  </table>
 			
-			
 		</div>
+		
+<div id='borrar'>
+	<form name='formBorrar' method='POST' action='EliminaCliente'>
+		<input type='submit' name='cEliEmp'  class='btn btn-primary' value='ELIMINAR EMPRESA'></input>
+	</form>		
+			
+</div>				
+		
 <div class='info'>
  <div id='modificar'>
 			
@@ -121,7 +128,7 @@
 			  
 						<!--MODIFICAR CLIENTE-->
 					  	
-							<form name="formenviar" method="POST" action="ModiCliente" onsubmit = "return validaraltacliente()">
+							<form name="formenviar" method="POST" action="ModiEmpresa" onsubmit = "return validaraltacliente()">
 								<table   class="table table-striped"  >
 								    <caption>EMPRESA</caption><br><br>
 									  <tr>
