@@ -58,6 +58,7 @@
 					System.out.println("Cancion no insertada en lista_empresa");
 				}
 				conn.actualizarQuery("commit");
+				response.sendRedirect("./PrincipalEmpresa");
 			}else{
 				rs2 = conn.consultaQuery("SELECT Id_Empresa,Id_Lista,Id_Cancion FROM Listas_Empresa"+
 										" WHERE Id_Lista="+idLista+" and Id_Cancion="+rs.getString("Id_Cancion"));
@@ -65,12 +66,14 @@
 					conn.actualizarQuery("INSERT INTO Listas_Empresa(Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
 							"VALUES("+idEmpresa+"," + idLista +","+ rs.getString("Id_Cancion") +",sysdate)");
 					conn.actualizarQuery("commit");
+					response.sendRedirect("./PrincipalEmpresa");
 				}else{
 					System.out.println("La cancion ya existe en la lista");%>
 				<%}
 			}
 		%>
 		<form method="POST" name="Volver" action="./PrincipalEmpresa">
+			<h1>NO SE INSERTÓ LA CANCIÓN</h1>
 			<a id="btnVolver" href="./PrincipalEmpresa">Volver</a>
 		</form>
 	</div>

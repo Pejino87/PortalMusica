@@ -46,6 +46,7 @@
 				}
 				
 				conn.actualizarQuery("commit");
+				response.sendRedirect("./PrincipalEmpresa");
 			}
 		%>
 		<form method="POST" name="Volver" action="./PrincipalEmpresa">

@@ -62,6 +62,7 @@
 								" WHERE Id_Lista="+listaSeleccionada+" and Id_Empresa="+idEmpresa);
 			System.out.println("Lista "+ listaSeleccionada+" eliminada");
 			conn.actualizarQuery("commit");
+			response.sendRedirect("./PrincipalEmpresa");
 		}
 		%>
 		</form>
