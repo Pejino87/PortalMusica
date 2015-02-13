@@ -102,6 +102,7 @@ public class AddCancion extends HttpServlet {
 				}
 
 				conexion.finalizarConexion();
+				request.setAttribute("id_lista", id_lista);
 				request.getRequestDispatcher("/ModificaLista.jsp").forward(
 						request, response);
 
@@ -114,6 +115,8 @@ public class AddCancion extends HttpServlet {
 			}
 		}
 		else{
+		String id_lista = request.getParameter("id_lista");
+		request.setAttribute("id_lista", id_lista);
 		request.getRequestDispatcher("/ModificaLista.jsp").forward(
 				request, response);
 		}

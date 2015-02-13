@@ -137,6 +137,13 @@ if(miRol==null || miRol.equals("empresa")){
 							out.print(" - "
 									+ ListaModificacion.getInstancia().getLista()
 											.get(i).getTitulo() );
+							out.print("<form name='Borrar Cancion' action='BorraCancion' method='POST'>");
+							out.print("<input type='hidden' value='"+request.getAttribute("id_lista")+"' name='id_lista'>");
+							out.print("<input type='hidden' value='"+ListaModificacion.getInstancia().getLista()
+									.get(i).getId_cancion()+"' name='id_cancion'>");
+							out.print("<input type='hidden' value='"+ListaModificacion.getInstancia().getNombre()+"' name='nombre'>");
+							out.print("<input type='image' class='eliminar' src='image/delete.png' alt='Submit'>");
+							out.print("</form>");
 							out.print("</p>");
 							out.print("</a>");
 							out.print("</li>");

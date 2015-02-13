@@ -351,6 +351,20 @@
 
 #nav input:hover{
 	background-color:#b9e9ff;
+		border: 1px solid;
+	border-radius: 15px;
 }
 
-	
+.eliminar{
+	position:relative;
+	top:4px;
+	height:20px;
+	width:20px;	
+
+}
+
+.eliminar:hover{
+	background-color:#fc7c93;
+	border: 1px solid;
+	border-radius: 15px;
+}
