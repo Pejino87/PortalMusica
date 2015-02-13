@@ -318,13 +318,20 @@
 	float:left;
 }
 
-#modificar {
-	margin-top:20%;
-	margin-left:30%;
+.modificar {
+	margin-top:-35%;
+	margin-left:64%;
     
 }
+
 #borrar {
-	margin-top:50%;
-	margin-left:50%;
+	margin-top:15%;
+	margin-left:64%;
+    
+}
+
+#salirPerfil {
+	margin-top:20%;
+	margin-left:64%;
     
 }

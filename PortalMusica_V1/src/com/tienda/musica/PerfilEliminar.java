@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.acciones.*;
+import gft.curso.principalempresa.*;
+
 /**
  * Servlet implementation class PerfilEliminar
  */
@@ -46,23 +49,25 @@ public class PerfilEliminar extends HttpServlet {
 		try {
 			ConexOracle sentencia = new ConexOracle();
 			// Preparar una sentencia SQL y ejecutarla
-			if (cEliEmp.equals("ELIMINAR CLIENTE")) {
+			if (cli.equals("cliente")) {
 				String sSQL = "DELETE FROM CLIENTE WHERE id_login='" + idLog + "' ";
 				String sSQLLOGIN = "DELETE FROM LOGIN WHERE id_login='" + idLog + "' ";
 				sentencia.actualizarQuery(sSQL);
 				sentencia.actualizarQuery(sSQLLOGIN);
+				request.getRequestDispatcher("IniciaCliente").forward(request, response);
 			}
-			if (cEliEmp.equals("ELIMINAR EMPRESA")) {
+			if (cli.equals("empresa")) {
 				String sSQL1 = "DELETE FROM EMPRESA WHERE id_login='" + idLog + "' ";
 				String sSQLLOGIN1 = "DELETE FROM LOGIN WHERE id_login='" + idLog + "' ";
 				sentencia.actualizarQuery(sSQL1);
 				sentencia.actualizarQuery(sSQLLOGIN1);
+				request.getRequestDispatcher("PrincipalEmpresa").forward(request, response);
 			}
 			
 			
 			
 		
-			request.getRequestDispatcher("IniciaCliente").forward(request, response);
+			
 		} catch (SQLException | NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

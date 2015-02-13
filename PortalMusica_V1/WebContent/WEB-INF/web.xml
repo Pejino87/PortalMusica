@@ -240,4 +240,14 @@
     <servlet-name>PerfilEliminar</servlet-name>
     <url-pattern>/PerfilEliminar</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PerfilModificar</display-name>
+    <servlet-name>PerfilModificar</servlet-name>
+    <servlet-class>com.tienda.musica.PerfilModificar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PerfilModificar</servlet-name>
+    <url-pattern>/PerfilModificar</url-pattern>
+  </servlet-mapping>
 </web-app>

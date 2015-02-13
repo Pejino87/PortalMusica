@@ -58,9 +58,9 @@ public class ConexOracle {
 	
 	public void finalizarConexion() throws SQLException {
 		System.out.println("entra en finalizarConexion");
-		/*rs.close();
+		rs.close();
 		oStmt.close(); // Cerramos el objeto Statement
 		oCn.close(); // Si no hay más operaciones, es importante liberar la conexión con close()
-		*/
+		
 	}
 }

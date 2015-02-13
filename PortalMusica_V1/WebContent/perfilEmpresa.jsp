@@ -102,19 +102,24 @@
 		  </table>
 			
 		</div>
-		
+
 <div id='borrar'>
-	<form name='formBorrar' method='POST' action='EliminaCliente'>
-		<input type='submit' name='cEliEmp'  class='btn btn-primary' value='ELIMINAR EMPRESA'></input>
+	<form name='formBorrar' method='POST' action='PerfilEliminar'>
+		<input type='submit' name='cEliEmp' value='ELIMINAR'></input>
 	</form>		
 			
-</div>				
-		
-<div class='info'>
- <div id='modificar'>
+</div>	
+
+<div id='salirPerfil'>
+	<form name='formSalirr' method='POST' action='InvalSesion'>
+		<input type='submit' name='salirPerfil' value='SALIR'></input>
+	</form>		
 			
-			<!-- Button trigger modal -->
-	<button  id="pulsaralta" data-toggle="modal" data-target="#myModal" >
+</div>	
+
+			
+	<!-- Button trigger modal -->
+	<button class="modificar" id="pulsaralta" data-toggle="modal" data-target="#myModal" >
 					MODIFICAR
 	</button>
 	<!-- Modal -->
@@ -129,7 +134,7 @@
 			  
 						<!--MODIFICAR CLIENTE-->
 					  	
-							<form name="formenviar" method="POST" action="ModiEmpresa" onsubmit = "return validaraltacliente()">
+							<form name="formenviar" method="POST" action="PerfilModificar" onsubmit = "return validaraltacliente()">
 								<table   class="table table-striped"  >
 								    <caption>EMPRESA</caption><br><br>
 									  <tr>
@@ -202,8 +207,7 @@
 		</div>
 			
 			
- </div>			
-</div>
+ 
 	</div>
 	<div id='footer'>Aqui solo va la información del copyright y esas
 		cosas

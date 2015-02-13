@@ -6,7 +6,7 @@
  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
  <link href="css/music.css" rel="stylesheet" type="text/css">
  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
- <link rel="stylesheet" href="css/style.css" />
+ <link rel="stylesheet" href="css/stylePerfil.css" />
  <script src="js/jquery-2.1.1.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
  <script src="js/jsmusic.js"></script>
@@ -17,7 +17,8 @@
 <body>
 
 	<div id='header'>
-		<h1>Imagen del logo del portal. Header</h1>
+		<img src="image/logo-1.png">
+		<h1>Sharebeats</h1>
 	</div>
 	
 	<img src="img/escenario.jpg" class="pantalla"><img>

@@ -1,7 +1,6 @@
 package com.tienda.musica;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.naming.NamingException;
@@ -11,19 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.backend.*;
+import com.acciones.*;
 import gft.curso.principalempresa.*;
-
 /**
- * Servlet implementation class ModiCliente
+ * Servlet implementation class PerfilModificar
  */
-public class ModiCliente extends HttpServlet {
+public class PerfilModificar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModiCliente() {
+    public PerfilModificar() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -48,7 +46,7 @@ public class ModiCliente extends HttpServlet {
 		String cDir = request.getParameter("mDir");
 		String cEmail = request.getParameter("mEmail");
 		int cTel = Integer.parseInt(cTel1);
-		
+				
 		HttpSession sesion = request.getSession();
 		String cli = (String) sesion.getAttribute("rol");
 		Integer idLog = (Integer) sesion.getAttribute("ident");
@@ -56,22 +54,24 @@ public class ModiCliente extends HttpServlet {
 		try {
 			ConexOracle sentencia = new ConexOracle();
 			// Preparar una sentencia SQL y ejecutarla
-						
-			String sSQL = "UPDATE CLIENTE SET NOMBRE='" + cNom + "',APELLIDOS='" + cApe + "',NIF='" + cNif
-					+ "',Fecha_Nacimiento='" + cFec + "',TELEFONO='" + cTel + "' "	+ ",DIRECCION='" + cDir + "',EMAIL='" + cEmail 
-					+ "' WHERE id_login='" + idLog + "' ";
-			
-			sentencia.actualizarQuery(sSQL);
-		
-			request.getRequestDispatcher("IniciaCliente").forward(request, response);
+			if (cli.equals("cliente")) {
+				String sSQL = "UPDATE CLIENTE SET NOMBRE='" + cNom + "',APELLIDOS='" + cApe + "',NIF='" + cNif
+						+ "',Fecha_Nacimiento='" + cFec + "',TELEFONO='" + cTel + "' "	+ ",DIRECCION='" + cDir + "',EMAIL='" + cEmail 
+						+ "' WHERE id_login='" + idLog + "' ";
+				sentencia.actualizarQuery(sSQL);
+				request.getRequestDispatcher("IniciaCliente").forward(request, response);
+			}
+			if (cli.equals("empresa")) {
+				String sSQL = "UPDATE EMPRESA SET NOMBRE='" + cNom + "',NIF='" + cNif + "',Fecha_Nacimiento='" + cFec
+						+ "',TELEFONO='" + cTel + "' "	+ ",DIRECCION='" + cDir + "',EMAIL='" + cEmail 
+						+ "' WHERE id_login='" + idLog + "' ";
+				sentencia.actualizarQuery(sSQL);
+				request.getRequestDispatcher("PrincipalEmpresa").forward(request, response);
+			}
 		} catch (SQLException | NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
 	}
 
 }
