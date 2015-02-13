@@ -37,10 +37,16 @@ if(miRol==null || miRol.equals("empresa")){
 
 	<div id='header'>
 		<img src="image/logo-1.png">
-		<h1>NombrePortal</h1>
+		<h1>Sharebeats</h1>
 	</div>
+	
+<!-- NAV -->	
 	<div id='nav'>
+		<h3> Bienvenido <b><% out.print(ListasUser.getInstancia().getCliente()); %></b></h3> 
+		<a href='perfilCliente.jsp'>Acceder a perfil</a>
+		<a href='index.jsp'>Cerrar sesion</a>
 	</div>
+<!-- FIN NAV -->
 
 	<div id='main'>
 		<div class='menu'>
@@ -113,9 +119,9 @@ if(miRol==null || miRol.equals("empresa")){
 			
 				<%
 					if (ListaModificacion.getInstancia().getLista().size() == 0) {
-						out.println("<li><b>No hay ninguna cancion en esa lista!</b></li>");
+						out.println("<li><a><p><b>No hay ninguna cancion en esta lista!</b></p></a></li>");
 					} else {
-						out.print("<li><a><p>-------------------------------------</p></a></li>");
+						out.print("<li><a><p><b>-------------------------------------</b></p></a></li>");
 						for (int i = 0; i < ListaModificacion.getInstancia().getLista()
 								.size(); i++) {
 
@@ -132,7 +138,7 @@ if(miRol==null || miRol.equals("empresa")){
 							out.print("</li>");
 						}
 
-						out.print("<li><a><p>-------------------------------------</p></a></li>");
+						out.print("<li><a><p><b>-------------------------------------</b></p></a></li>");
 					}
 				%>
 

@@ -32,7 +32,7 @@ if(miRol==null || miRol.equals("empresa")){
 	
 <!-- NAV -->	
 	<div id='nav'>
-		<h3> Bienvenido <% out.print(ListasUser.getInstancia().getCliente()); %></h3> 
+		<h3> Bienvenido <b><% out.print(ListasUser.getInstancia().getCliente()); %></b></h3> 
 		<a href='perfilCliente.jsp'>Acceder a perfil</a>
 		<a href='index.jsp'>Cerrar sesion</a>
 	</div>
@@ -95,8 +95,8 @@ if(miRol==null || miRol.equals("empresa")){
 		<div class='info'>
 		<%Cita c = new Cita();
 		 int n = c.getRandom();
-		 out.print("<h4>\""+c.getCita(n)+"\"</h4>");
-		 out.print("<p>"+c.getAutor(n)+"</p>");
+		 out.print("<h4 id='cita'>\""+c.getCita(n)+"\"</h4>");
+		 out.print("<p id='autor'>- "+c.getAutor(n)+"</p>");
 		%>
 
 		</div>

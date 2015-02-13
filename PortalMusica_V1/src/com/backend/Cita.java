@@ -20,6 +20,8 @@ public class Cita {
 		autor.add("Edgar Allan Poe");
 		cita.add("En verdad, si no fuera por la música, habría más razones para volverse loco");
 		autor.add("Piotr Ilich Chaikovski");
+		cita.add("La música es sinónimo de libertad, de tocar lo que quieras y como quieras, siempre que sea bueno y tenga pasión, que la música sea el alimento del amor");
+		autor.add("Kurt Cobain");
 	}
 	
 	public String getCita(int n){
