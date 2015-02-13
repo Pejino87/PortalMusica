@@ -93,8 +93,12 @@ if(miRol==null || miRol.equals("empresa")){
 
 <!-- INFO  -->
 		<div class='info'>
-			<h4>" Aqui he pensado que puede ir una cita sobre musica, que sea aleatoria y vaya cambiando "</h4>
-			<p> Alberto - 2015</p>
+		<%Cita c = new Cita();
+		 int n = c.getRandom();
+		 out.print("<h4>\""+c.getCita(n)+"\"</h4>");
+		 out.print("<p>"+c.getAutor(n)+"</p>");
+		%>
+
 		</div>
 <!-- FIN INFO -->
 	</div>
