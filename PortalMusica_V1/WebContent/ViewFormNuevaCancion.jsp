@@ -35,35 +35,35 @@
 
 	<div id='main'>
 		<div class='menu'>
-			<table align="center">
+			<table id='tablaMenu'>
     			<tr>
     				<form method="POST" name="nuevaCancion" action="./NuevaCancion">
-						<td align="left">Añada una nueva cancion</td>
-						<td align="left"><button id="btnNuevaCancion" class="styled-button-3">Nueva</button></td>
+						<td>Añada una nueva cancion</td>
+						<td><button id="btnNuevaCancion" class="styled-button-3">Nueva</button></td>
 					</form>
     			</tr>
     			<tr>
     				<form method="POST" name="EliminarCancion" action="./EliminarCancion">
-						<td align="left">Elimine una cancion de la base de datos:(</td>
-						<td align="left"><button id="btnEliminarCancion" class="styled-button-3">Eliminar</button></td>
+						<td>Elimine una cancion de la base de datos:(</td>
+						<td><button id="btnEliminarCancion" class="styled-button-3">Eliminar</button></td>
 					</form>
     			</tr>
     			<tr>
     				<form method="POST" name="EliminarCancionEnLista" action="./EliminarCancionEnLista">
-						<td align="left">Elimine una cancion de una lista :(</td>
-						<td align="left"><button id="btnEliminarCancion" class="styled-button-3">Eliminar</button></td>
+						<td>Elimine una cancion de una lista :(</td>
+						<td><button id="btnEliminarCancion" class="styled-button-3">Eliminar</button></td>
 					</form>
     			</tr>
     			<tr>
     				<form method="POST" name="EliminarLista" action="./EliminarLista">
-						<td align="left">Elimine una lista de reproduccion :(</td>
-						<td align="left"><button id="btnEliminarLista" class="styled-button-3">Eliminar</button></td>
+						<td>Elimine una lista de reproduccion :(</td>
+						<td><button id="btnEliminarLista" class="styled-button-3">Eliminar</button></td>
 					</form>
     			</tr>
     			<tr>
     				<form method="POST" name="CrearLista" action="./CrearLista">
-						<td align="left"><input type="text" name="listaNueva" value="" placeholder="Nombre Lista"></td>
-						<td align="left"><button id="btnCargar" class="styled-button-3">Crear</button></td>
+						<td><input type="text" name="listaNueva" value="" placeholder="Nombre Lista"></td>
+						<td><button id="btnCargar" class="styled-button-3">Crear</button></td>
 					</form>
     			</tr>
 			</table>
@@ -77,6 +77,9 @@
 						if(rs.next()){
 							idLista = rs.getString("Lista");%>
 						<form method="POST" name="InsertarCancion" action="./InsertarCancion">
+							<table id='tablaInfo'>
+							<tr>
+							<td>
 							<p><select id="SelecLista" name="SelecLista">
 							<option value="<%= idLista %>"><%= rs.getString("Nombre") %></option>
 							<%while(rs.next()){
@@ -84,13 +87,44 @@
 							<option value="<%= idLista %>"><%= rs.getString("Nombre") %></option>
 							<%}%>
 							</select></p>
-							<p><input type="text" name="txtURL" value="" placeholder="URL"></p>
-							<p><input type="text" name="txtTitulo" value="" placeholder="Titulo"></p>
-							<p><input type="text" name="txtAlbum" value="" placeholder="Album"></p>
-							<p><input type="text" name="txtGenero" value="" placeholder="Genero"></p>
-							<p><input type="text" name="txtCantante" value="" placeholder="Cantante"></p>
-							<p><input type="text" name="txtDuracion" value="" placeholder="Duracion"></p>
-							<button id="btnCargar" class="styled-button-3">Cargar Cancion</button>
+							</td>
+							</tr>
+								<tr>
+									<td>
+										<input type="text" name="txtURL" value="" placeholder="URL">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" name="txtTitulo" value="" placeholder="Titulo">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" name="txtAlbum" value="" placeholder="Album">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" name="txtGenero" value="" placeholder="Genero">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" name="txtCantante" value="" placeholder="Cantante">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" name="txtDuracion" value="" placeholder="Duracion">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<button id="btnCargar" class="styled-button-3">Cargar Cancion</button>
+									</td>
+								</tr>
+							</table>
 						</form>
 						<%}else{%>
 							<h4>" Aún no has creado ninguna lista de reproducción. No esperes mas!!!! "</h4>

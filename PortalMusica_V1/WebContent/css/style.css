@@ -90,6 +90,16 @@
 
 }
 
+#main div.menu #tablaMenu{
+	margin-left: 15px;
+}
+
+#main div.menu #tablaMenu tr td{
+	text-align: left;
+}
+#main div.info #tablaInfo{
+	margin-left: 75px;
+}
 #footer {
 	width:100%;
     background-color:black;
