@@ -51,7 +51,7 @@ public class ListasUser {
 		
 		cliente.first();
 		this.cliente = cliente.getString(1);
-		
+		conexion.finalizarConexion();
 	}
 
 }

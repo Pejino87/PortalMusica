@@ -104,7 +104,7 @@ if(miRol==null || miRol.equals("empresa")){
 				out.print("<a>");
 				out.print("<p>");
 				out.print("<form name='Guardar Lista' action='CambiosLista' method='POST'>");
-				out.print("<input type='text' name='titulo' value='"
+				out.print("<input type='text' class='textNoBusca' name='titulo' value='"
 						+ ListaModificacion.getInstancia().getNombre() + "'>");
 				out.print("<input type='hidden' value='false' name='isEliminar'>");
 				out.print("<input type='hidden' value='"

@@ -67,9 +67,10 @@ public class CambiosLista extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+		
 			ListaReproduccion.getInstancia().unloadLista();
 			response.sendRedirect("PlantillaCliente.jsp");		
+			
 		}
 		else
 		{

@@ -40,7 +40,7 @@ public class ListaReproduccion {
 			}
 		}
 		
-		
+		conexion.finalizarConexion();
 	}
 	
 	public void unloadLista(){

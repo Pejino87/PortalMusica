@@ -51,7 +51,7 @@ public class ListaModificacion {
 			}
 		}
 
-	
+		conexion.finalizarConexion();
 		this.nombre = nombre;
 		this.id_lista = id_lista;
 		

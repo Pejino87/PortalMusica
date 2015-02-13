@@ -314,6 +314,16 @@
 	padding-left:17px;
 }
 
+.textNoBusca{
+		font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	border:1px solid #84a10b;
+	padding:2px;
+	width:150px;
+	color:#000;
+	padding-left:17px;
+}
+
 /* CSS DEL NAV, INFORMACION DEL CLIENTE Y BOTON DE LOGOUT */
 #nav h3{
 		font-family:Arial, Helvetica, sans-serif;
