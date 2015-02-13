@@ -36,13 +36,7 @@ public class InvalSesion extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("entra en POST InvalidaSesion ");
-		ConexOracle sentencia = new ConexOracle();
-		try {
-			sentencia.finalizarConexion();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		HttpSession sesion = request.getSession();
 		String invalida = request.getParameter("invalida");
 		sesion.invalidate();

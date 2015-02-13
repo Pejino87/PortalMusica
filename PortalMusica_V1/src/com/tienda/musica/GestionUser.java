@@ -41,9 +41,14 @@ public class GestionUser {
 	
 	public boolean validaClave(String usu, String pwd) throws SQLException, NamingException {
 		boolean tipoDev = false;
+		ConexOracle sentencia=null;
 		try {
 			String usucontra = getStringMessageDigest(pwd,MD5);
-			rs = tipoRS();
+			
+			String sSQL = "SELECT ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER FROM LOGIN";
+			sentencia = new ConexOracle();
+			rs = sentencia.consultaQuery(sSQL);
+
 			while (rs.next()) {
 				 nomUsu = rs.getString("ID_USER"); // get first column returned
 				 nomPwd = rs.getString("ID_PASSWORD"); 
@@ -52,17 +57,21 @@ public class GestionUser {
 				 } 
 			 }
 		} finally {
-			ConexOracle sentencia = new ConexOracle();
-			sentencia.finalizarConexion();
+			if (sentencia!=null)
+			{sentencia.finalizarConexion();}
 		}
 		return tipoDev;
 	}
 		
 	public String validaRol(String usu, String pwd) throws SQLException, NamingException {
 		String tipoUsua = null;
+		ConexOracle sentencia=null;
 		try {
 			String usucontra = getStringMessageDigest(pwd,MD5);
-			rs = tipoRS();
+			String sSQL = "SELECT ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER FROM LOGIN";
+			sentencia = new ConexOracle();
+			rs = sentencia.consultaQuery(sSQL);
+
 			while (rs.next()) {
 				 nomUsu = rs.getString("ID_USER"); // get first column returned
 				 nomPwd = rs.getString("ID_PASSWORD"); 
@@ -71,7 +80,7 @@ public class GestionUser {
 				 } 
 			 }
 		} finally {
-			ConexOracle sentencia = new ConexOracle();
+			if (sentencia!=null)
 			sentencia.finalizarConexion();
 		}
 		// devuelve si el tipo de usuario es cliente ó empresa.
@@ -80,9 +89,13 @@ public class GestionUser {
 	
 	public int validaId(String usu, String pwd) throws SQLException, NamingException {
 		int tipoId = 0;
+		ConexOracle sentencia=null;
 		try {
 			String usucontra = getStringMessageDigest(pwd,MD5);
-			rs = tipoRS();
+			String sSQL = "SELECT ID_LOGIN,ID_USER,ID_PASSWORD,TIPO_USER FROM LOGIN";
+			sentencia = new ConexOracle();
+			rs = sentencia.consultaQuery(sSQL);
+			
 			while (rs.next()) {
 				 nomUsu = rs.getString("ID_USER"); // get first column returned
 				 nomPwd = rs.getString("ID_PASSWORD"); 
@@ -91,7 +104,7 @@ public class GestionUser {
 				 } 
 			 }
 		} finally {
-			ConexOracle sentencia = new ConexOracle();
+			if (sentencia!=null)
 			sentencia.finalizarConexion();
 		}
 		// devuelve el idLogin del usuario.

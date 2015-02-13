@@ -43,8 +43,8 @@ if(miRol==null || miRol.equals("empresa")){
 <!-- NAV -->	
 	<div id='nav'>
 		<h3> Bienvenido <b><% out.print(ListasUser.getInstancia().getCliente()); %></b></h3> 
-		<a href='perfilCliente.jsp'>Acceder a perfil</a>
-		<a href='index.jsp'>Cerrar sesion</a>
+		<a href='perfilCliente.jsp'><img src="image/profile.png"></a>
+		<a href='index.jsp'><img src="image/close-icon.png"></a>
 	</div>
 <!-- FIN NAV -->
 

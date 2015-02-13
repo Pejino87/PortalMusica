@@ -12,28 +12,35 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class ConexOracle {
-	DataSource miDS= null;
+	static DataSource miDS= null;
+	static Context ic = null;
 	Connection oCn =null;
 	Statement oStmt = null;
 	Statement state = null;
-	Context ic = null;
 	ResultSet rs = null;
-		
-	public Statement establecerConexion() throws SQLException, NamingException {
-		System.out.println("entra establecerConexion");
-			//pedimos el contexto de nuestro servidor
+
+	static {
+		//pedimos el contexto de nuestro servidor
+		try {
 			ic = new InitialContext();
-			//pedimos el objeto en la ruta java:comp/env/jdbc/NOMBRE_DS
+		} catch (NamingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		//pedimos el objeto en la ruta java:comp/env/jdbc/NOMBRE_DS
+		try {
 			miDS = (DataSource) ic.lookup("java:comp/env/jdbc/DataSourceLocalDream");
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+	public Statement establecerConexion() throws SQLException  {
+		if (oCn==null) {new Exception("La cagaste, Burlancaster");}
+		System.out.println("entra establecerConexion");
 			//cogemos la conexión
 			oCn = miDS.getConnection();
 					
-			/*
-			Class.forName("oracle.jdbc.OracleDriver");
-			System.out.println("GestionUsuarios DESPUES DE CLASSFORNAME");
-			String sURL = "jdbc:oracle:thin:@192.168.150.199:1521:orcl";
-			oCn= DriverManager.getConnection(sURL, "curso06", "curso");
-			*/
 						
 			if (oCn != null) {
 	            System.out.println("Connected with connection #2");
@@ -57,8 +64,9 @@ public class ConexOracle {
 	}
 	
 	public void finalizarConexion() throws SQLException {
+		if (oCn==null||oCn.isClosed()){new Exception("La cagaste, Burlancaster");}
+		if (oStmt==null){new Exception("La cagaste, Burlancaster");}
 		System.out.println("entra en finalizarConexion");
-		rs.close();
 		oStmt.close(); // Cerramos el objeto Statement
 		oCn.close(); // Si no hay más operaciones, es importante liberar la conexión con close()
 		
