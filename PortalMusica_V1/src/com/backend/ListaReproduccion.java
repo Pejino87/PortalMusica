@@ -34,7 +34,7 @@ public class ListaReproduccion {
 		+" where can.id_cancion = client.ID_CANCION AND client.ID_CLIENTE="+id_cliente+" AND client.id_lista="+id_lista);
 		
 		while(canciones.next()){
-			c=new Cancion(canciones.getInt(1),canciones.getString(2),canciones.getString(3),canciones.getString(4),canciones.getString(5),canciones.getInt(6),canciones.getString(7));
+			c=new Cancion(canciones.getInt(1),canciones.getString(2),canciones.getString(3),canciones.getString(4),canciones.getString(5),canciones.getString(6),canciones.getString(7));
 			lista.add(c);
 		}
 		

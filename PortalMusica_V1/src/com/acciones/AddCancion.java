@@ -57,6 +57,7 @@ public class AddCancion extends HttpServlet {
 		else{
 		String cancion = request.getParameter("cancion");
 		String[] info = cancion.split(" - ");
+		String id_cliente = Integer.toString((Integer)request.getSession(false).getAttribute("ident"));
 
 		if (info.length > 1) {
 			String autor = info[0];
@@ -75,7 +76,7 @@ public class AddCancion extends HttpServlet {
 					c = new Cancion(filaCancion.getInt(1),
 							filaCancion.getString(2), filaCancion.getString(3),
 							filaCancion.getString(4), filaCancion.getString(5),
-							filaCancion.getInt(6), filaCancion.getString(7));
+							filaCancion.getString(6), filaCancion.getString(7));
 					encuentraCancion = true;
 				}
 				filaCancion.close();
@@ -92,7 +93,7 @@ public class AddCancion extends HttpServlet {
 					if (esNueva) {
 						ListaModificacion.getInstancia().getLista().add(c);
 
-						conexion.actualizarQuery("Insert into listas_cliente values(1,"
+						conexion.actualizarQuery("Insert into listas_cliente values("+id_cliente+","
 								+ id_lista
 								+ ","
 								+ c.getId_cancion()

@@ -2,19 +2,20 @@ package com.backend;
 
 public class Cancion {
 	
-	int id_cancion,duracion;
+	int id_cancion;
+	String duracion;
 	String titulo,album,genero,cantante,url;
 
 
 	public Cancion(int id_cancion, String titulo, String album, String genero,
-			String cantante, int duracion, String url) {
+			String cantante, String string, String url) {
 		super();
 		this.id_cancion = id_cancion;
 		this.titulo = titulo;
 		this.album = album;
 		this.genero = genero;
 		this.cantante = cantante;
-		this.duracion = duracion;
+		this.duracion = string;
 		this.url = url;
 	}
 	
@@ -58,11 +59,11 @@ public class Cancion {
 		this.cantante = cantante;
 	}
 
-	public int getDuracion() {
+	public String getDuracion() {
 		return duracion;
 	}
 
-	public void setDuracion(int duracion) {
+	public void setDuracion(String duracion) {
 		this.duracion = duracion;
 	}
 	
