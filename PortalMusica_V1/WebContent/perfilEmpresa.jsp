@@ -3,7 +3,37 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="javax.servlet.http.HttpSession"%>
 <%@ page import="com.backend.*"%>
+<%@ page import="com.tienda.musica.*" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%
+		//comprueba si la sesión es válida.
+		HttpSession sesion = request.getSession();
+		String cli = (String) sesion.getAttribute("rol");
+		String idEmpresa = Integer.toString((Integer)session.getAttribute("ident"));
+		if (!cli.equals("empresa")) {
+			System.out.println("no es empresa");
+			sesion.invalidate();
+			response.sendRedirect("index.jsp");
+		}
+		Integer varIde = (Integer) request.getAttribute("obsIde"); 
+		String varNom = (String) request.getAttribute("obsNom"); 
+		String varFec = (String) request.getAttribute("obsFec");
+		String varNif = (String) request.getAttribute("obsNif");
+		Integer varTel = (Integer) request.getAttribute("obsTel"); 
+		String varDir = (String) request.getAttribute("obsDir"); 
+		String varEma = (String) request.getAttribute("obsEma"); 
+		Integer varLog = (Integer) request.getAttribute("obLog"); 
+		
+		ConexOracle conn = new ConexOracle();
+		ResultSet rs;
+		String nombre="";
 
+		rs = conn.consultaQuery("SELECT L.Id_User as Nombre FROM Login L, Empresa E WHERE L.Id_Login=E.Id_Login and E.Id_Empresa="+idEmpresa);
+		if(rs.next()){
+			nombre = rs.getString("Nombre");
+		}
+		%>
 <html>
 <head>
  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -25,7 +55,7 @@
 	
 <!-- NAV -->	
 	<div id='nav'>
-		<h3> Bienvenido <b><% out.print(ListasUser.getInstancia().getCliente()); %></b></h3> 
+		<h3> Bienvenido <b><%=nombre %></b></h3> 
 		<form action="InvalSesion" method='POST'>
 			<input type="image" src="image/close-icon.png" alt="Submit">
 		</form>
@@ -35,25 +65,6 @@
 <!-- MAIN -->
 	<div id='main'>
 		<div class='menu'>
-			<% 
-			// comprueba si la sesión es válida.
-			HttpSession sesion = request.getSession();
-			String cli = (String) sesion.getAttribute("rol");
-			if (!cli.equals("empresa")) {
-				System.out.println("no es empresa");
-				sesion.invalidate();
-				response.sendRedirect("index.jsp");
-			}
-			Integer varIde = (Integer) request.getAttribute("obsIde"); 
-			String varNom = (String) request.getAttribute("obsNom"); 
-			String varFec = (String) request.getAttribute("obsFec");
-			String varNif = (String) request.getAttribute("obsNif");
-			Integer varTel = (Integer) request.getAttribute("obsTel"); 
-			String varDir = (String) request.getAttribute("obsDir"); 
-			String varEma = (String) request.getAttribute("obsEma"); 
-			Integer varLog = (Integer) request.getAttribute("obLog"); 
-			
-			%>
 			
 			  <table   class="table table-striped"  >
 			    <caption>EMPRESA</caption>

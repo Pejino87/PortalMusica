@@ -59,7 +59,7 @@ public class PerfilEmpresa extends HttpServlet {
 			rs = sentencia.consultaQuery(sSQL);
 			while (rs.next()) {
 				if (rs.getInt("ID_LOGIN")==idLog) {
-					obIde = rs.getInt("ID_CLIENTE"); 
+					obIde = rs.getInt("ID_Empresa"); 
 					obNom = rs.getString("NOMBRE"); 
 					obNif = rs.getString("RazonSocial"); 
 					obFec1 = rs.getString("Fecha_Nacimiento");
