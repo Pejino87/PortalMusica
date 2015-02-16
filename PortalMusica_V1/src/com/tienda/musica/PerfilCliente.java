@@ -46,7 +46,7 @@ public class PerfilCliente extends HttpServlet {
 		Integer idLog = (Integer) sesion.getAttribute("ident");
 		
 		ResultSet rs = null;
-		String obNom = null,obApe = null,obNif = null,obFec = null,obEma = null,obDir=null;
+		String obNom = null,obApe = null,obNif = null,obFec1 = null,obEma = null,obDir=null,obFec = null;
 		int obIde=0,obTel=0,obLog=0;
 		if (!cli.equals("cliente")) {
 			System.out.println("no es cliente");
@@ -64,7 +64,8 @@ public class PerfilCliente extends HttpServlet {
 					obNom = rs.getString("NOMBRE"); 
 					obApe = rs.getString("APELLIDOS"); 
 					obNif = rs.getString("NIF"); 
-					obFec = rs.getString("Fecha_Nacimiento"); 
+					obFec1 = rs.getString("Fecha_Nacimiento"); 
+					obFec = obFec1.substring(0,10);
 					obTel = rs.getInt("TELEFONO"); 
 					obDir = rs.getString("DIRECCION");
 					obEma = rs.getString("EMAIL"); 

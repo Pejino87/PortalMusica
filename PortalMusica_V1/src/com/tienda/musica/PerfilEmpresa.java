@@ -45,7 +45,7 @@ public class PerfilEmpresa extends HttpServlet {
 		Integer idLog = (Integer) sesion.getAttribute("ident");
 		
 		ResultSet rs = null;
-		String obNom = null,obNif = null,obFec = null,obEma = null,obDir=null;
+		String obNom = null,obNif = null,obFec1 = null,obEma = null,obDir=null,obFec = null;
 		int obIde=0,obTel=0,obLog=0;
 		if (!cli.equals("empresa")) {
 			System.out.println("no es empresa");
@@ -62,7 +62,8 @@ public class PerfilEmpresa extends HttpServlet {
 					obIde = rs.getInt("ID_CLIENTE"); 
 					obNom = rs.getString("NOMBRE"); 
 					obNif = rs.getString("RazonSocial"); 
-					obFec = rs.getString("Fecha_Nacimiento");
+					obFec1 = rs.getString("Fecha_Nacimiento");
+					obFec = obFec1.substring(0,10);
 					obTel = rs.getInt("TELEFONO");
 					obDir = rs.getString("DIRECCION");
 					obEma = rs.getString("EMAIL"); 

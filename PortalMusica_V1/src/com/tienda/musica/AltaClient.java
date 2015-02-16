@@ -12,6 +12,10 @@ import javax.servlet.http.HttpSession;
 import java.security.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * Servlet implementation class AltaClient
@@ -84,10 +88,20 @@ public class AltaClient extends HttpServlet {
 		String cDir = request.getParameter("cDir");
 		String cTel1 = request.getParameter("cTel");
 		String cEmail = request.getParameter("cEmail");
-		String cFca = request.getParameter("cFca");
 		String cUser = request.getParameter("cUser");
 		String cPwd1 = request.getParameter("cPwd");
 		int cTel = Integer.parseInt(cTel1);
+		/*
+		// (2) create a java sql date object we want to insert
+	    Calendar calendar = Calendar.getInstance();
+	    java.sql.Date ourJavaDateObject = new java.sql.Date(calendar.getTime().getTime());
+		System.out.println("---calendario: " + ourJavaDateObject);
+		*/
+		
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		Calendar cal = Calendar.getInstance();
+		String cFca = dateFormat.format(cal.getTime());
+		
 		
 		// encriptación contraseña
 		String cPwd = getStringMessageDigest(cPwd1,MD5);

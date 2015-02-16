@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import java.security.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * Servlet implementation class AltaEmpresa
@@ -82,10 +85,13 @@ public static String MD5 = "MD5";
 		String cDir = request.getParameter("cDir");
 		String cTel1 = request.getParameter("cTel");
 		String cEmail = request.getParameter("cEmail");
-		String cFca = request.getParameter("cFca");
 		String cUser = request.getParameter("cUser");
 		String cPwd1 = request.getParameter("cPwd");
 		int cTel = Integer.parseInt(cTel1);
+		
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		Calendar cal = Calendar.getInstance();
+		String cFca = dateFormat.format(cal.getTime());
 		
 		// encriptación contraseña
 		String cPwd = getStringMessageDigest(cPwd1,MD5);

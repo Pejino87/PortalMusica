@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.acciones.*;
+
 import gft.curso.principalempresa.*;
 /**
  * Servlet implementation class PerfilModificar
@@ -42,6 +43,7 @@ public class PerfilModificar extends HttpServlet {
 		String cApe = request.getParameter("mApe");
 		String cNif = request.getParameter("mNif");
 		String cFec = request.getParameter("mFec");
+		System.out.println("---perfil modificar fecha de nacimiento: " + cFec);
 		String cTel1 = request.getParameter("mTel");
 		String cDir = request.getParameter("mDir");
 		String cEmail = request.getParameter("mEmail");

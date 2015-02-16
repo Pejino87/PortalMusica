@@ -95,7 +95,7 @@
 										<label for="cdir">FECHA NACIMIENTO:</label>
 									</td>
 									<td>	
-										<input id="" name="cFec" type="text" maxlength="10" size="10" ></input>
+										<input id="" name="cFec" type="text" maxlength="10" size="10" placeholder="dd/MM/yyyy" ></input>
 									</td>
 								  </tr>	
 								  <tr>
@@ -124,14 +124,7 @@
 										<input id="poncorreo" name="cEmail" type="text" maxlength="30" size="30" ></input>
 									</td>
 								  </tr>	
-								  <tr>
-									<td>		
-										<label for="cdir">FECHA ALTA:</label>
-									</td>
-									<td>	
-										<input id="" name="cFca" type="text" maxlength="10" size="10" ></input>
-									</td>
-								  </tr>	
+								  
 								  <tr>
 									<td>		
 										<label for="cuser">USUARIO:</label>
@@ -219,7 +212,7 @@
 										<label for="cdir">FECHA NACIMIENTO:</label>
 									</td>
 									<td>	
-										<input id="" name="cFec" type="text" maxlength="10" size="10" ></input>
+										<input id="" name="cFec" type="text" maxlength="10" size="10" placeholder="dd/MM/yyyy"></input>
 									</td>
 								  </tr>	
 								  <tr>
@@ -246,14 +239,7 @@
 										<input id="poncorreoE" name="cEmail" type="text" maxlength="30" size="30" ></input>
 									</td>
 								  </tr>	
-								  <tr>
-									<td>		
-										<label for="cdir">FECHA ALTA:</label>
-									</td>
-									<td>	
-										<input id="" name="cFca" type="text" maxlength="10" size="10" ></input>
-									</td>
-								  </tr>	
+								  
 								  <tr>
 									<td>		
 										<label for="cuser">USUARIO:</label>

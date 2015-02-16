@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="javax.servlet.http.HttpSession"%>
+<%@ page import="com.backend.*"%>
 
 <html>
 <head>
@@ -15,28 +16,37 @@
   <title>PORTAL MUSICA</title>
 </head>
 <body>
+<!-- HEADER -->
 	<div id='header'>
 		<img src="image/logo-1.png">
 		<h1>Sharebeats</h1>
 	</div>
+<!-- FIN HEADER -->
+	
+<!-- NAV -->	
 	<div id='nav'>
-		<p>nav nav nav nav nav nav</p>
+		<h3> Bienvenido <b><% out.print(ListasUser.getInstancia().getCliente()); %></b></h3> 
+		<form action="InvalSesion" method='POST'>
+			<input type="image" src="image/close-icon.png" alt="Submit">
+		</form>
 	</div>
+<!-- FIN NAV -->
 
+<!-- MAIN -->
 	<div id='main'>
 		<div class='menu'>
 			<% 
 			// comprueba si la sesión es válida.
 			HttpSession sesion = request.getSession();
 			String cli = (String) sesion.getAttribute("rol");
-			if (!cli.equals("cliente")) {
-				System.out.println("no es cliente");
+			if (!cli.equals("empresa")) {
+				System.out.println("no es empresa");
 				sesion.invalidate();
 				response.sendRedirect("index.jsp");
 			}
 			Integer varIde = (Integer) request.getAttribute("obsIde"); 
 			String varNom = (String) request.getAttribute("obsNom"); 
-			String varFec = (String) request.getParameter("obsFec");
+			String varFec = (String) request.getAttribute("obsFec");
 			String varNif = (String) request.getAttribute("obsNif");
 			Integer varTel = (Integer) request.getAttribute("obsTel"); 
 			String varDir = (String) request.getAttribute("obsDir"); 
@@ -69,7 +79,7 @@
 						<label for="cdir">FECHA NACIMIENTO:</label>
 					</td>
 					<td>	
-						<input id="" name="cFec" type="text" maxlength="10" size="10" readonly value="<% out.print(varFec); %>"></input>
+						<input id="" name="cFec" type="date" maxlength="10" size="10" readonly value="<% out.print(varFec); %>"></input>
 					</td>
 				  </tr>	
 				  
