@@ -9,6 +9,13 @@
 }
 
 @font-face {
+	font-family: cita;
+	src: url('../fonts/Quote.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
 	font-family: header;
 	src: url('../fonts/crash test.ttf') format('truetype');
 	font-weight: normal;
@@ -55,7 +62,7 @@
 	background-color: #036564;
 	height: 30px;
 	margin-top: 0px;
-	text-align:left;
+	text-align: left;
 }
 
 #main {
@@ -78,8 +85,8 @@
 	background-color: #E8DDCB;
 	border: 2px solid;
 	border-radius: 5px;
-	text-align:center;
-	overflow:auto;
+	text-align: center;
+	overflow: auto;
 }
 
 #main div.info {
@@ -94,28 +101,29 @@
 	background-color: #E8DDCB;
 	border: 1px solid;
 	border-radius: 25px;
-	text-align:center;
-	overflow:auto;
+	text-align: center;
+	overflow: auto;
 }
 
-#main div.info h4{
-	margin-top:20%;
+#main div.info h4 {
+	font-family: cita;
+	font-size: 22px;
+	margin-top: 20%;
 }
 
-#main p{
-	font-family:helvetica;
+#main p {
+	font-family: helvetica;
 }
 
-#cita{
-	margin-left:10px;
-	margin-right:10px;
-	margin-top:10px;
+#cita {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
 }
 
-#autor{
-	margin-left:55%;
+#autor {
+	margin-left: 55%;
 }
-
 
 #footer {
 	border: 1px solid;
@@ -132,7 +140,7 @@
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	margin-bottom:25px;
+	margin-bottom: 25px;
 }
 
 #main div.menu li {
@@ -143,7 +151,6 @@
 #main div.info li {
 	font: 200 15px/1.5 Helvetica, Verdana, sans-serif;
 }
-
 
 #main div.menu li a {
 	text-decoration: none;
@@ -221,7 +228,6 @@
 	-webkit-border-radius: 5px
 }
 
-
 #main .styled-button-3:hover {
 	border: 2px solid #29447E;
 	font-weight: bold;
@@ -232,30 +238,27 @@
 	font-weight: bold;
 }
 
-#main h3{
-		font-family: header;
-		font-size: 20px;
+#main h3 {
+	font-family: header;
+	font-size: 20px;
 }
-
 
 /* SCROLLBAR CAMBIOS*/
-
 ::-webkit-scrollbar {
-    width: 12px;
+	width: 12px;
 }
- 
+
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
 }
- 
+
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
 /* LISTA AL BUSCAR CANCIONES*/
-
 .ac_results {
 	padding: 0px;
 	border: 1px solid #84a10b;
@@ -277,7 +280,7 @@
 	cursor: default;
 	display: block;
 	color: #fff;
-	font-family:verdana;
+	font-family: verdana;
 	/* 
 	if width will be 100% horizontal scrollbar will apear 
 	when scroll mode will be used
@@ -290,7 +293,6 @@
 	*/
 	line-height: 16px;
 	overflow: hidden;
-
 }
 
 .ac_odd {
@@ -303,68 +305,76 @@
 	color: #ffffff;
 }
 
-
-.input_text{
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:12px;
-	border:1px solid #84a10b;
-	padding:2px;
-	width:150px;
-	color:#000;
-	padding-left:17px;
+.input_text {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #84a10b;
+	padding: 2px;
+	width: 150px;
+	color: #000;
+	padding-left: 17px;
 }
 
-.textNoBusca{
-		font-family:Arial, Helvetica, sans-serif;
-	font-size:12px;
-	border:1px solid #84a10b;
-	padding:2px;
-	width:150px;
-	color:#000;
-	padding-left:17px;
+.textNoBusca {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #84a10b;
+	padding: 2px;
+	width: 150px;
+	color: #000;
+	padding-left: 17px;
 }
 
 /* CSS DEL NAV, INFORMACION DEL CLIENTE Y BOTON DE LOGOUT */
-#nav h3{
-		font-family:Arial, Helvetica, sans-serif;
-		color:white;
-		float:left;
-		margin-top:5px;
-		margin-right:10px;
-		margin-left:400px;
-}
-#nav a{
-	font-family:Arial, Helvetica, sans-serif;
-	color:#ffff80;
-	margin-top:10px;
-	margin-right:10px;
-	float:left;
+#nav h3 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+	float: left;
+	margin-top: 5px;
+	margin-right: 10px;
+	margin-left: 350px;
 }
 
-#nav input{
-	margin-top:2px;
-	margin-left:5px;
-	height:25px;
-	width:25px;	
+#nav a {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #ffff80;
+	margin-top: 10px;
+	margin-right: 10px;
 	float: left;
 }
 
-#nav input:hover{
-	background-color:#b9e9ff;
-		border: 1px solid;
-	border-radius: 15px;
+#nav input {
+	margin-top: 2px;
+	margin-left: 5px;
+	height: 25px;
+	width: 25px;
+	float: left;
 }
 
-.eliminar{
-	position:relative;
-	top:4px;
-	height:20px;
-	width:20px;	
-
-}
-
-.eliminar:hover{
-	background-color:#fc7c93;
+#nav input:hover {
+	background-color: #b9e9ff;
 	border: 1px solid;
 	border-radius: 15px;
+}
+
+.eliminar {
+	position: relative;
+	top: 4px;
+	height: 20px;
+	width: 20px;
+}
+
+.eliminar:hover {
+	background-color: #fc7c93;
+	border: 1px solid;
+	border-radius: 15px;
+}
+
+.twitter-share-button {
+	margin-top:7px;
+	margin-left:550px;
+}
+
+.fb-share-button {
+
 }

@@ -73,9 +73,6 @@ public class ModificaLista extends HttpServlet {
 					id_lista = rs.getString(1);
 				}
 
-				System.out.println("ID de la lista que acabo de crear: "
-						+ id_lista);
-
 				conexion.actualizarQuery("Insert into listas_cliente"
 						+ " values (" + id_cliente + "," + id_lista
 						+ ",0,sysdate)");

@@ -84,13 +84,14 @@ public class AddCancion extends HttpServlet {
 				if (encuentraCancion) {
 					ResultSet nueva = conexion
 							.consultaQuery("Select * from listas_cliente where id_cancion= "
-									+ c.getId_cancion() + "");
+									+ c.getId_cancion() + " AND id_lista="+id_lista);
 
 					while (nueva.next()) {
 						esNueva = false;
 					}
 
 					if (esNueva) {
+						
 						ListaModificacion.getInstancia().getLista().add(c);
 
 						conexion.actualizarQuery("Insert into listas_cliente values("+id_cliente+","

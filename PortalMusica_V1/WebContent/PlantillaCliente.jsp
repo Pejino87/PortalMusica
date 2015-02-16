@@ -23,10 +23,29 @@ if(miRol==null || miRol.equals("empresa")){
 </head>
 <body>
 
+<!-- SOCIAL MEDIA -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script>
+window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+</script>
+
+<!-- FIN SOCIAL MEDIA -->
+
 <!-- HEADER -->
 	<div id='header'>
 		<img src="image/logo-1.png">
 		<h1>Sharebeats</h1>
+		<a class='twitter-share-button' href='https://twitter.com/share' data-text='Si quieres disfrutar de la mejor música y crear tus propias playlist, visita ' data-url='http://www.Sharebeats.com' data-count='none'> Tweet </a>
+		<div class='fb-share-button' data-href='https://www.Sharebeats.com' data-layout='icon'></div>
+	
 	</div>
 <!-- FIN HEADER -->
 	
@@ -48,6 +67,8 @@ if(miRol==null || miRol.equals("empresa")){
 	<div id='main'>
 		<div class='menu'>
 		<h3>Tus listas de musica:</h3>
+
+
 			<ul>
 				<%
 					if (ListasUser.getInstancia().getLista().size() == 0) {
@@ -67,6 +88,7 @@ if(miRol==null || miRol.equals("empresa")){
 							out.print("<input type='hidden' value='"
 									+ ListasUser.getInstancia().getLista().get(i)
 											.getNombre() + "' name='nombre'>");
+
 							out.print("</form>");
 							
 
@@ -77,9 +99,9 @@ if(miRol==null || miRol.equals("empresa")){
 							out.print("<input type='submit' class='styled-button-3' value='Cargar'>");
 							out.print("</form>");
 							out.print("</p>");
-							out.print("</a>");
+							out.print("</a>");		
 							out.print("</li>");
-						}
+											}
 					}
 					out.print("<li>");
 					out.print("<a> <p>Crea una nueva lista</p>");
@@ -102,9 +124,9 @@ if(miRol==null || miRol.equals("empresa")){
 		 out.print("<h4 id='cita'>\""+c.getCita(n)+"\"</h4>");
 		 out.print("<p id='autor'>- "+c.getAutor(n)+"</p>");
 		%>
-
 		</div>
 <!-- FIN INFO -->
+
 	</div>
 <!-- FIN MAIN -->
 
