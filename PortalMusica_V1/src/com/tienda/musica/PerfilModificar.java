@@ -69,7 +69,7 @@ public class PerfilModificar extends HttpServlet {
 				request.getRequestDispatcher("IniciaCliente").forward(request, response);
 			}
 			if (cli.equals("empresa")) {
-				String sSQL = "UPDATE EMPRESA SET NOMBRE='" + cNom + "',NIF='" + cNif + "',Fecha_Nacimiento='" + cFec
+				String sSQL = "UPDATE EMPRESA SET NOMBRE='" + cNom + "',RAZONSOCIAL='" + cNif + "',Fecha_Nacimiento='" + cFec
 						+ "',TELEFONO='" + cTel + "' "	+ ",DIRECCION='" + cDir + "',EMAIL='" + cEmail 
 						+ "' WHERE id_login='" + idLog + "' ";
 				sentencia.actualizarQuery(sSQL);

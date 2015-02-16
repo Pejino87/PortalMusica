@@ -50,18 +50,19 @@ public class PerfilEliminar extends HttpServlet {
 			ConexOracle sentencia = new ConexOracle();
 			// Preparar una sentencia SQL y ejecutarla
 			if (cli.equals("cliente")) {
-				String sSQL = "DELETE FROM CLIENTE WHERE id_login='" + idLog + "' ";
-				String sSQLLOGIN = "DELETE FROM LOGIN WHERE id_login='" + idLog + "' ";
+				System.out.println("Cliente-->"+idLog);
+				String sSQL = "DELETE FROM CLIENTE WHERE id_login=" + idLog;
+				String sSQLLOGIN = "DELETE FROM LOGIN WHERE id_login=" + idLog;
 				sentencia.actualizarQuery(sSQL);
 				sentencia.actualizarQuery(sSQLLOGIN);
-				request.getRequestDispatcher("IniciaCliente").forward(request, response);
+				request.getRequestDispatcher("InvalSesion").forward(request, response);
 			}
 			if (cli.equals("empresa")) {
-				String sSQL1 = "DELETE FROM EMPRESA WHERE id_login='" + idLog + "' ";
-				String sSQLLOGIN1 = "DELETE FROM LOGIN WHERE id_login='" + idLog + "' ";
+				String sSQL1 = "DELETE FROM EMPRESA WHERE id_login=" + idLog;
+				String sSQLLOGIN1 = "DELETE FROM LOGIN WHERE id_login=" + idLog;
 				sentencia.actualizarQuery(sSQL1);
 				sentencia.actualizarQuery(sSQLLOGIN1);
-				request.getRequestDispatcher("PrincipalEmpresa").forward(request, response);
+				request.getRequestDispatcher("InvalSesion").forward(request, response);
 			}
 			
 			
