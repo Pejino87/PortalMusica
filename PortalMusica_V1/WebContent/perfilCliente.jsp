@@ -186,7 +186,7 @@
 											<label for="cdir">FECHA NACIMIENTO:</label>
 										</td>
 										<td>	
-											<input id="" name="cFec" type="text" maxlength="10" size="10" value="<% out.print(varFec); %>"></input>
+											<input id="" name="mFec" type="text" maxlength="10" size="10" value="<% out.print(varFec); %>"></input>
 										</td>
 									  </tr>	
 									  

@@ -42,8 +42,7 @@ public class PerfilModificar extends HttpServlet {
 		String cNom = request.getParameter("mNom");
 		String cApe = request.getParameter("mApe");
 		String cNif = request.getParameter("mNif");
-		String cFec = request.getParameter("mFec");
-		System.out.println("---perfil modificar fecha de nacimiento: " + cFec);
+		String cFec2 = request.getParameter("mFec");
 		String cTel1 = request.getParameter("mTel");
 		String cDir = request.getParameter("mDir");
 		String cEmail = request.getParameter("mEmail");
@@ -52,6 +51,12 @@ public class PerfilModificar extends HttpServlet {
 		HttpSession sesion = request.getSession();
 		String cli = (String) sesion.getAttribute("rol");
 		Integer idLog = (Integer) sesion.getAttribute("ident");
+		
+		String sAnyo =  cFec2.substring(0,4);
+		String sMes =  cFec2.substring(5,7);
+		String sDia =  cFec2.substring(8,10);
+		String cFec = sDia + "/" + sMes + "/" + sAnyo;
+		
 				
 		try {
 			ConexOracle sentencia = new ConexOracle();
