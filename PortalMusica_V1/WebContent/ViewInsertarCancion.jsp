@@ -57,33 +57,38 @@
 
 	<div id='main'>
 		<%
-			System.out.println("V");
-			rs = conn.consultaQuery("SELECT Id_Cancion FROM Canciones"+
-								" WHERE titulo='" + titulo + "' and url='"+URL+"'");
-			if(!rs.next()){
-				conn.actualizarQuery("INSERT INTO Canciones(Id_Cancion,Titulo,Album,Genero,Cantante,Duracion,URL)" +
-						"VALUES (INCRECANCIONES.nextval,'"+ titulo +"','"+ album +"','"+ genero +"','"+ cantante +"','"+ duracion +"','"+ URL +"')");
-
-				rs2 = conn.consultaQuery("Select MAX(Id_Cancion) as Maximo FROM Canciones");
-				if(rs2.next()){
-					conn.actualizarQuery("INSERT INTO Listas_Empresa(Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
-							"VALUES("+idEmpresa+"," + idLista +","+ rs2.getString("Maximo") +",sysdate)");
-				}else{
-					System.out.println("Cancion no insertada en lista_empresa");
-				}
-				conn.actualizarQuery("commit");
+			if(titulo.equals("") || album.equals("") || genero.equals("") || cantante.equals("") || duracion.equals("") || URL.equals("")){
+				System.out.println("Algun campo está sin rellenar");
 				response.sendRedirect("./PrincipalEmpresa");
 			}else{
-				rs2 = conn.consultaQuery("SELECT Id_Empresa,Id_Lista,Id_Cancion FROM Listas_Empresa"+
-										" WHERE Id_Lista="+idLista+" and Id_Cancion="+rs.getString("Id_Cancion"));
-				if(!rs2.next()){
-					conn.actualizarQuery("INSERT INTO Listas_Empresa(Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
-							"VALUES("+idEmpresa+"," + idLista +","+ rs.getString("Id_Cancion") +",sysdate)");
+				System.out.println("V");
+				rs = conn.consultaQuery("SELECT Id_Cancion FROM Canciones"+
+									" WHERE titulo='" + titulo + "' and url='"+URL+"'");
+				if(!rs.next()){
+					conn.actualizarQuery("INSERT INTO Canciones(Id_Cancion,Titulo,Album,Genero,Cantante,Duracion,URL)" +
+							"VALUES (INCRECANCIONES.nextval,'"+ titulo +"','"+ album +"','"+ genero +"','"+ cantante +"','"+ duracion +"','"+ URL +"')");
+
+					rs2 = conn.consultaQuery("Select MAX(Id_Cancion) as Maximo FROM Canciones");
+					if(rs2.next()){
+						conn.actualizarQuery("INSERT INTO Listas_Empresa(Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
+								"VALUES("+idEmpresa+"," + idLista +","+ rs2.getString("Maximo") +",sysdate)");
+					}else{
+						System.out.println("Cancion no insertada en lista_empresa");
+					}
 					conn.actualizarQuery("commit");
 					response.sendRedirect("./PrincipalEmpresa");
 				}else{
-					System.out.println("La cancion ya existe en la lista");%>
-				<%}
+					rs2 = conn.consultaQuery("SELECT Id_Empresa,Id_Lista,Id_Cancion FROM Listas_Empresa"+
+											" WHERE Id_Lista="+idLista+" and Id_Cancion="+rs.getString("Id_Cancion"));
+					if(!rs2.next()){
+						conn.actualizarQuery("INSERT INTO Listas_Empresa(Id_Empresa,Id_Lista,Id_Cancion,Fecha)"+
+								"VALUES("+idEmpresa+"," + idLista +","+ rs.getString("Id_Cancion") +",sysdate)");
+						conn.actualizarQuery("commit");
+						response.sendRedirect("./PrincipalEmpresa");
+					}else{
+						System.out.println("La cancion ya existe en la lista");%>
+					<%}
+				}
 			}
 		%>
 		<form method="POST" name="Volver" action="./PrincipalEmpresa">

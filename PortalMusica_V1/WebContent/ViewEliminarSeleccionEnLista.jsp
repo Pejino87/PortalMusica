@@ -50,14 +50,19 @@
 
 	<div id='main'>
 		<%
-		for(int i=0;i<seleccionadas.length;i++){
-			if(Integer.parseInt(seleccionadas[i])>1){
-				conn.actualizarQuery("DELETE FROM Listas_Empresa WHERE Id_Cancion="+seleccionadas[i] +
-									" and Id_Lista="+listaSeleccionada+" and Id_Empresa="+idEmpresa);
+		if(seleccionadas!=null){
+			for(int i=0;i<seleccionadas.length;i++){
+				if(Integer.parseInt(seleccionadas[i])>1){
+					conn.actualizarQuery("DELETE FROM Listas_Empresa WHERE Id_Cancion="+seleccionadas[i] +
+										" and Id_Lista="+listaSeleccionada+" and Id_Empresa="+idEmpresa);
+				}
 			}
+			conn.actualizarQuery("commit");
+			response.sendRedirect("./PrincipalEmpresa");
+		}else{
+			response.sendRedirect("./PrincipalEmpresa");
 		}
-		conn.actualizarQuery("commit");
-		response.sendRedirect("./PrincipalEmpresa");
+		
 		%>
 		<form method="POST" name="Volver" action="./PrincipalEmpresa">
 			<button id="btnVolver">Volver</button>

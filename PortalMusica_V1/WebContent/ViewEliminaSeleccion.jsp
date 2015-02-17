@@ -49,7 +49,7 @@
 	<div id='main'>
 		<div id='info'>
 		<%
-			if(seleccionadas.length>0){
+			if(seleccionadas!=null){
 				for(int i=0;i<seleccionadas.length;i++){
 					if(Integer.parseInt(seleccionadas[i])>0){
 						conn.actualizarQuery("DELETE FROM Listas_Empresa WHERE Id_Cancion="+seleccionadas[i]);
@@ -57,6 +57,8 @@
 					}
 				}
 				conn.actualizarQuery("commit");
+				response.sendRedirect("./PrincipalEmpresa");
+			}else{
 				response.sendRedirect("./PrincipalEmpresa");
 			}
 			
