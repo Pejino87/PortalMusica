@@ -110,6 +110,8 @@
 			}else{
 				conn.actualizarQuery("DELETE FROM Listas_Empresa"+
 									" WHERE Id_Lista="+listaSeleccionada+" and Id_Empresa="+idEmpresa);
+				conn.actualizarQuery("DELETE FROM Listas_Reproduccion"+
+						" WHERE Id_Lista="+listaSeleccionada);
 				System.out.println("Lista "+ listaSeleccionada+" eliminada");
 				conn.actualizarQuery("commit");
 				response.sendRedirect("./PrincipalEmpresa");

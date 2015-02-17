@@ -58,8 +58,11 @@ public class PerfilEliminar extends HttpServlet {
 				request.getRequestDispatcher("InvalSesion").forward(request, response);
 			}
 			if (cli.equals("empresa")) {
+				String sSQLLista = "DELETE FROM Listas_Reproduccion WHERE Id_Lista in(SELECT Id_Lista FROM"
+						+ " Listas_Empresa WHERE Id_Empresa="+idLog+")";
 				String sSQL1 = "DELETE FROM EMPRESA WHERE id_login=" + idLog;
 				String sSQLLOGIN1 = "DELETE FROM LOGIN WHERE id_login=" + idLog;
+				sentencia.actualizarQuery(sSQLLista);
 				sentencia.actualizarQuery(sSQL1);
 				sentencia.actualizarQuery(sSQLLOGIN1);
 				request.getRequestDispatcher("InvalSesion").forward(request, response);
